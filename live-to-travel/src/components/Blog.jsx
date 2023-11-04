@@ -1,440 +1,321 @@
+import "./Blog.css";
+
 export default function Blog() {
   return (
     <>
-      <div className="container-fluid page-header">
+      <div className="container header">
         <div className="container">
-          <div
-            className="d-flex flex-column align-items-center justify-content-center"
-            style={{ minHeight: 400 }}
-          >
-            <h3 className="display-4 text-white text-uppercase">Blog</h3>
-            <div className="d-inline-flex text-white">
-              <p className="m-0 text-uppercase">
-                <a className="text-white" href="">
-                  Home
-                </a>
+          <div className="heading-wrapper">
+            <h3>Blog</h3>
+            <div>
+              <p>
+                <a href="https://www.free-css.com/free-css-templates">Home</a>
               </p>
-              <i className="fa fa-angle-double-right pt-1 px-3"></i>
-              <p className="m-0 text-uppercase">Blog</p>
+              <i className="fa fa-angle-double-right "></i>
+              <p>Blog</p>
             </div>
           </div>
         </div>
       </div>
 
-      <div className="container mt-5">
-        <div>
-          <div style={{ padding: 30 }}>
-            <div className="input-group">
-              <input
-                type="text"
-                className="form-control p-4"
-                placeholder="Keyword"
-              />
-              <div className="input-group-append">
-                <span className="input-group-text bg-primary border-primary text-white">
-                  <i className="fa fa-search"></i>
-                </span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+      {/* main part */}
 
-      <div className="container-fluid py-5">
-        <div className="container py-5">
+      <div className="container-blog">
+        <div className="container">
           <div className="row">
-            <div className="col-lg-8">
-              <div className="row pb-3">
-                <div className="col-md-6 mb-4 pb-2">
-                  <div className="blog-item">
-                    <div className="position-relative">
-                      <img
-                        className="img-fluid w-100"
-                        src="img/blog-1.jpg"
-                        alt=""
-                      />
-                      <div className="blog-date">
-                        <h6 className="font-weight-bold mb-n1">01</h6>
-                        <small className="text-white text-uppercase">Jan</small>
-                      </div>
+            <div className="row-left-section">
+              <div className="row">
+                <div className="blogs">
+                  <div className="single-blog-item">
+                    <div className="single-blog-item-img">
+                      <img src="/images/blog/b1.jpg" alt="blog image" />
                     </div>
-                    <div className="bg-white p-4">
-                      <div className="d-flex mb-2">
-                        <a
-                          className="text-primary text-uppercase text-decoration-none"
-                          href=""
-                        >
-                          Admin
+                    <div className="single-blog-item-txt">
+                      <h2>
+                        <a href="#">
+                          How to find your Desired Place more quickly
                         </a>
-                        <span className="text-primary px-2">|</span>
-                        <a
-                          className="text-primary text-uppercase text-decoration-none"
-                          href=""
-                        >
-                          Tours & Travel
-                        </a>
-                      </div>
-                      <a className="h5 m-0 text-decoration-none" href="">
-                        Dolor justo sea kasd lorem clita justo diam amet
-                      </a>
+                      </h2>
+                      <h4>
+                        posted <span>by</span> <a href="#">admin</a> march 2018
+                      </h4>
+                      <p>
+                        Lorem ipsum dolor sit amet, consectetur de adipisicing
+                        elit, sed do eiusmod tempore incididunt ut labore et
+                        dolore magna.
+                      </p>
                     </div>
                   </div>
                 </div>
-                <div className="col-md-6 mb-4 pb-2">
-                  <div className="blog-item">
-                    <div className="position-relative">
-                      <img
-                        className="img-fluid w-100"
-                        src="img/blog-2.jpg"
-                        alt=""
-                      />
-                      <div className="blog-date">
-                        <h6 className="font-weight-bold mb-n1">01</h6>
-                        <small className="text-white text-uppercase">Jan</small>
-                      </div>
+                <div className="blogs">
+                  <div className="single-blog-item">
+                    <div className="single-blog-item-img">
+                      <img src="/images/blog/b1.jpg" alt="blog image" />
                     </div>
-                    <div className="bg-white p-4">
-                      <div className="d-flex mb-2">
-                        <a
-                          className="text-primary text-uppercase text-decoration-none"
-                          href=""
-                        >
-                          Admin
+                    <div className="single-blog-item-txt">
+                      <h2>
+                        <a href="#">
+                          How to find your Desired Place more quickly
                         </a>
-                        <span className="text-primary px-2">|</span>
-                        <a
-                          className="text-primary text-uppercase text-decoration-none"
-                          href=""
-                        >
-                          Tours & Travel
-                        </a>
-                      </div>
-                      <a className="h5 m-0 text-decoration-none" href="">
-                        Dolor justo sea kasd lorem clita justo diam amet
-                      </a>
+                      </h2>
+                      <h4>
+                        posted <span>by</span> <a href="#">admin</a> march 2018
+                      </h4>
+                      <p>
+                        Lorem ipsum dolor sit amet, consectetur de adipisicing
+                        elit, sed do eiusmod tempore incididunt ut labore et
+                        dolore magna.
+                      </p>
                     </div>
                   </div>
                 </div>
-                <div className="col-md-6 mb-4 pb-2">
-                  <div className="blog-item">
-                    <div className="position-relative">
-                      <img
-                        className="img-fluid w-100"
-                        src="img/blog-3.jpg"
-                        alt=""
-                      />
-                      <div className="blog-date">
-                        <h6 className="font-weight-bold mb-n1">01</h6>
-                        <small className="text-white text-uppercase">Jan</small>
-                      </div>
+                <div className="blogs">
+                  <div className="single-blog-item">
+                    <div className="single-blog-item-img">
+                      <img src="/images/blog/b1.jpg" alt="blog image" />
                     </div>
-                    <div className="bg-white p-4">
-                      <div className="d-flex mb-2">
-                        <a
-                          className="text-primary text-uppercase text-decoration-none"
-                          href=""
-                        >
-                          Admin
+                    <div className="single-blog-item-txt">
+                      <h2>
+                        <a href="#">
+                          How to find your Desired Place more quickly
                         </a>
-                        <span className="text-primary px-2">|</span>
-                        <a
-                          className="text-primary text-uppercase text-decoration-none"
-                          href=""
-                        >
-                          Tours & Travel
-                        </a>
-                      </div>
-                      <a className="h5 m-0 text-decoration-none" href="">
-                        Dolor justo sea kasd lorem clita justo diam amet
-                      </a>
+                      </h2>
+                      <h4>
+                        posted <span>by</span> <a href="#">admin</a> march 2018
+                      </h4>
+                      <p>
+                        Lorem ipsum dolor sit amet, consectetur de adipisicing
+                        elit, sed do eiusmod tempore incididunt ut labore et
+                        dolore magna.
+                      </p>
                     </div>
                   </div>
                 </div>
-                <div className="col-md-6 mb-4 pb-2">
-                  <div className="blog-item">
-                    <div className="position-relative">
-                      <img
-                        className="img-fluid w-100"
-                        src="img/blog-1.jpg"
-                        alt=""
-                      />
-                      <div className="blog-date">
-                        <h6 className="font-weight-bold mb-n1">01</h6>
-                        <small className="text-white text-uppercase">Jan</small>
-                      </div>
+                <div className="blogs">
+                  <div className="single-blog-item">
+                    <div className="single-blog-item-img">
+                      <img src="/images/blog/b1.jpg" alt="blog image" />
                     </div>
-                    <div className="bg-white p-4">
-                      <div className="d-flex mb-2">
-                        <a
-                          className="text-primary text-uppercase text-decoration-none"
-                          href=""
-                        >
-                          Admin
+                    <div className="single-blog-item-txt">
+                      <h2>
+                        <a href="#">
+                          How to find your Desired Place more quickly
                         </a>
-                        <span className="text-primary px-2">|</span>
-                        <a
-                          className="text-primary text-uppercase text-decoration-none"
-                          href=""
-                        >
-                          Tours & Travel
-                        </a>
-                      </div>
-                      <a className="h5 m-0 text-decoration-none" href="">
-                        Dolor justo sea kasd lorem clita justo diam amet
-                      </a>
+                      </h2>
+                      <h4>
+                        posted <span>by</span> <a href="#">admin</a> march 2018
+                      </h4>
+                      <p>
+                        Lorem ipsum dolor sit amet, consectetur de adipisicing
+                        elit, sed do eiusmod tempore incididunt ut labore et
+                        dolore magna.
+                      </p>
                     </div>
                   </div>
                 </div>
-                <div className="col-md-6 mb-4 pb-2">
-                  <div className="blog-item">
-                    <div className="position-relative">
-                      <img
-                        className="img-fluid w-100"
-                        src="img/blog-2.jpg"
-                        alt=""
-                      />
-                      <div className="blog-date">
-                        <h6 className="font-weight-bold mb-n1">01</h6>
-                        <small className="text-white text-uppercase">Jan</small>
-                      </div>
+                <div className="blogs">
+                  <div className="single-blog-item">
+                    <div className="single-blog-item-img">
+                      <img src="/images/blog/b1.jpg" alt="blog image" />
                     </div>
-                    <div className="bg-white p-4">
-                      <div className="d-flex mb-2">
-                        <a
-                          className="text-primary text-uppercase text-decoration-none"
-                          href=""
-                        >
-                          Admin
+                    <div className="single-blog-item-txt">
+                      <h2>
+                        <a href="#">
+                          How to find your Desired Place more quickly
                         </a>
-                        <span className="text-primary px-2">|</span>
-                        <a
-                          className="text-primary text-uppercase text-decoration-none"
-                          href=""
-                        >
-                          Tours & Travel
-                        </a>
-                      </div>
-                      <a className="h5 m-0 text-decoration-none" href="">
-                        Dolor justo sea kasd lorem clita justo diam amet
-                      </a>
+                      </h2>
+                      <h4>
+                        posted <span>by</span> <a href="#">admin</a> march 2018
+                      </h4>
+                      <p>
+                        Lorem ipsum dolor sit amet, consectetur de adipisicing
+                        elit, sed do eiusmod tempore incididunt ut labore et
+                        dolore magna.
+                      </p>
                     </div>
                   </div>
                 </div>
-                <div className="col-md-6 mb-4 pb-2">
-                  <div className="blog-item">
-                    <div className="position-relative">
-                      <img
-                        className="img-fluid w-100"
-                        src="img/blog-3.jpg"
-                        alt=""
-                      />
-                      <div className="blog-date">
-                        <h6 className="font-weight-bold mb-n1">01</h6>
-                        <small className="text-white text-uppercase">Jan</small>
-                      </div>
+                <div className="blogs">
+                  <div className="single-blog-item">
+                    <div className="single-blog-item-img">
+                      <img src="/images/blog/b1.jpg" alt="blog image" />
                     </div>
-                    <div className="bg-white p-4">
-                      <div className="d-flex mb-2">
-                        <a
-                          className="text-primary text-uppercase text-decoration-none"
-                          href=""
-                        >
-                          Admin
+                    <div className="single-blog-item-txt">
+                      <h2>
+                        <a href="#">
+                          How to find your Desired Place more quickly
                         </a>
-                        <span className="text-primary px-2">|</span>
-                        <a
-                          className="text-primary text-uppercase text-decoration-none"
-                          href=""
-                        >
-                          Tours & Travel
-                        </a>
-                      </div>
-                      <a className="h5 m-0 text-decoration-none" href="">
-                        Dolor justo sea kasd lorem clita justo diam amet
-                      </a>
+                      </h2>
+                      <h4>
+                        posted <span>by</span> <a href="#">admin</a> march 2018
+                      </h4>
+                      <p>
+                        Lorem ipsum dolor sit amet, consectetur de adipisicing
+                        elit, sed do eiusmod tempore incididunt ut labore et
+                        dolore magna.
+                      </p>
                     </div>
                   </div>
                 </div>
-                <div className="col-md-6 mb-4 pb-2">
-                  <div className="blog-item">
-                    <div className="position-relative">
-                      <img
-                        className="img-fluid w-100"
-                        src="img/blog-1.jpg"
-                        alt=""
-                      />
-                      <div className="blog-date">
-                        <h6 className="font-weight-bold mb-n1">01</h6>
-                        <small className="text-white text-uppercase">Jan</small>
-                      </div>
-                    </div>
-                    <div className="bg-white p-4">
-                      <div className="d-flex mb-2">
+                <div className="col-12">
+                  <nav aria-label="Page navigation">
+                    <ul className="pagination pagination-lg justify-content-center bg-white mb-0">
+                      <li className="page-item disabled">
                         <a
-                          className="text-primary text-uppercase text-decoration-none"
-                          href=""
+                          className="page-link"
+                          href="https://www.free-css.com/free-css-templates"
+                          aria-label="Previous"
                         >
-                          Admin
+                          <span aria-hidden="true">«</span>{" "}
+                          <span className="sr-only">Previous</span>
                         </a>
-                        <span className="text-primary px-2">|</span>
+                      </li>
+                      <li className="page-item active">
                         <a
-                          className="text-primary text-uppercase text-decoration-none"
-                          href=""
+                          className="page-link"
+                          href="https://www.free-css.com/free-css-templates"
                         >
-                          Tours & Travel
+                          1
                         </a>
-                      </div>
-                      <a className="h5 m-0 text-decoration-none" href="">
-                        Dolor justo sea kasd lorem clita justo diam amet
-                      </a>
-                    </div>
-                  </div>
-                </div>
-                <div className="col-md-6 mb-4 pb-2">
-                  <div className="blog-item">
-                    <div className="position-relative">
-                      <img
-                        className="img-fluid w-100"
-                        src="img/blog-2.jpg"
-                        alt=""
-                      />
-                      <div className="blog-date">
-                        <h6 className="font-weight-bold mb-n1">01</h6>
-                        <small className="text-white text-uppercase">Jan</small>
-                      </div>
-                    </div>
-                    <div className="bg-white p-4">
-                      <div className="d-flex mb-2">
+                      </li>
+                      <li className="page-item">
                         <a
-                          className="text-primary text-uppercase text-decoration-none"
-                          href=""
+                          className="page-link"
+                          href="https://www.free-css.com/free-css-templates"
                         >
-                          Admin
+                          2
                         </a>
-                        <span className="text-primary px-2">|</span>
+                      </li>
+                      <li className="page-item">
                         <a
-                          className="text-primary text-uppercase text-decoration-none"
-                          href=""
+                          className="page-link"
+                          href="https://www.free-css.com/free-css-templates"
                         >
-                          Tours & Travel
+                          3
                         </a>
-                      </div>
-                      <a className="h5 m-0 text-decoration-none" href="">
-                        Dolor justo sea kasd lorem clita justo diam amet
-                      </a>
-                    </div>
-                  </div>
+                      </li>
+                      <li className="page-item">
+                        <a
+                          className="page-link"
+                          href="https://www.free-css.com/free-css-templates"
+                          aria-label="Next"
+                        >
+                          <span aria-hidden="true">»</span>{" "}
+                          <span className="sr-only">Next</span>
+                        </a>
+                      </li>
+                    </ul>
+                  </nav>
                 </div>
               </div>
             </div>
-
-            <div className="col-lg-4 mt-5 mt-lg-0">
-              
-              <div className="mb-5">
-                <h4
-                  className="text-uppercase mb-4"
-                  style={{ letterSpacing: 5 }}
-                >
-                  Categories
-                </h4>
-                <div className="bg-white" style={{ padding: 30 }}>
-                  <ul className="list-inline m-0">
-                    <li className="mb-3 d-flex justify-content-between align-items-center">
-                      <a className="text-dark" href="#">
+            <div className="row-right-section">
+              <div className="categories-container">
+                <h4 className="text-uppercase mb-4">Categories</h4>
+                <div className="bg-white">
+                  <ul className="categories-list">
+                    <li className="categories-list-item">
+                      <a
+                        className="text-dark"
+                        href="https://www.free-css.com/free-css-templates"
+                      >
                         <i className="fa fa-angle-right text-primary mr-2"></i>
                         Web Design
-                      </a>
+                      </a>{" "}
                       <span className="badge badge-primary badge-pill">
                         150
                       </span>
                     </li>
-                    <li className="mb-3 d-flex justify-content-between align-items-center">
-                      <a className="text-dark" href="#">
+                    <li className="categories-list-item">
+                      <a
+                        className="text-dark"
+                        href="https://www.free-css.com/free-css-templates"
+                      >
                         <i className="fa fa-angle-right text-primary mr-2"></i>
                         Web Development
-                      </a>
+                      </a>{" "}
                       <span className="badge badge-primary badge-pill">
                         131
                       </span>
                     </li>
-                    <li className="mb-3 d-flex justify-content-between align-items-center">
-                      <a className="text-dark" href="#">
+                    <li className="categories-list-item">
+                      <a
+                        className="text-dark"
+                        href="https://www.free-css.com/free-css-templates"
+                      >
                         <i className="fa fa-angle-right text-primary mr-2"></i>
                         Online Marketing
-                      </a>
+                      </a>{" "}
                       <span className="badge badge-primary badge-pill">78</span>
                     </li>
-                    <li className="mb-3 d-flex justify-content-between align-items-center">
-                      <a className="text-dark" href="#">
+                    <li className="categories-list-item">
+                      <a
+                        className="text-dark"
+                        href="https://www.free-css.com/free-css-templates"
+                      >
                         <i className="fa fa-angle-right text-primary mr-2"></i>
                         Keyword Research
-                      </a>
+                      </a>{" "}
                       <span className="badge badge-primary badge-pill">56</span>
                     </li>
-                    <li className="d-flex justify-content-between align-items-center">
-                      <a className="text-dark" href="#">
+                    <li className="categories-list-item">
+                      <a
+                        className="text-dark"
+                        href="https://www.free-css.com/free-css-templates"
+                      >
                         <i className="fa fa-angle-right text-primary mr-2"></i>
                         Email Marketing
-                      </a>
+                      </a>{" "}
                       <span className="badge badge-primary badge-pill">98</span>
                     </li>
                   </ul>
                 </div>
               </div>
-
-              <div className="mb-5">
-                <h4
-                  className="text-uppercase mb-4"
-                  style={{ letterSpacing: 5 }}
-                >
-                  Recent Post
-                </h4>
+              <div className="rescent-container">
+                <h4 className="text-uppercase mb-4">Recent Post</h4>
                 <a
-                  className="d-flex align-items-center text-decoration-none bg-white mb-3"
-                  href=""
+                  className="rescent-post"
+                  href="https://www.free-css.com/free-css-templates"
                 >
                   <img
-                    className="img-fluid"
-                    src="img/blog-100x100.jpg"
-                    alt=""
+                    src="../images/blog/b2.jpg"
+                    alt="website template image"
                   />
                   <div className="pl-3">
                     <h6 className="m-1">
                       Diam lorem dolore justo eirmod lorem dolore
                     </h6>
-                    <small>Jan 01, 2050</small>
+                    <small>Jan 01, 2045</small>
                   </div>
-                </a>
+                </a>{" "}
                 <a
-                  className="d-flex align-items-center text-decoration-none bg-white mb-3"
-                  href=""
+                  className="rescent-post"
+                  href="https://www.free-css.com/free-css-templates"
                 >
                   <img
-                    className="img-fluid"
-                    src="img/blog-100x100.jpg"
-                    alt=""
+                    src="../images/blog/b2.jpg"
+                    alt="website template image"
                   />
                   <div className="pl-3">
                     <h6 className="m-1">
                       Diam lorem dolore justo eirmod lorem dolore
                     </h6>
-                    <small>Jan 01, 2050</small>
+                    <small>Jan 01, 2045</small>
                   </div>
-                </a>
+                </a>{" "}
                 <a
-                  className="d-flex align-items-center text-decoration-none bg-white mb-3"
-                  href=""
+                  className="rescent-post"
+                  href="https://www.free-css.com/free-css-templates"
                 >
                   <img
-                    className="img-fluid"
-                    src="img/blog-100x100.jpg"
-                    alt=""
+                    src="../images/blog/b2.jpg"
+                    alt="website template image"
                   />
                   <div className="pl-3">
                     <h6 className="m-1">
                       Diam lorem dolore justo eirmod lorem dolore
                     </h6>
-                    <small>Jan 01, 2050</small>
+                    <small>Jan 01, 2045</small>
                   </div>
                 </a>
               </div>
