@@ -271,13 +271,11 @@ export default function Blog() {
                   </ul>
                 </div>
               </div>
-              <div className="rescent-container">
-                <h4 className="text-uppercase mb-4">Recent Post</h4>
-                <a
-                  className="rescent-post"
-                  href="https://www.free-css.com/free-css-templates"
-                >
+              <div className="mb-5">
+                <h4>Recent Post</h4>
+                <div className="rescent-post">
                   <img
+                    className="post-img"
                     src="../images/blog/b2.jpg"
                     alt="website template image"
                   />
@@ -287,12 +285,13 @@ export default function Blog() {
                     </h6>
                     <small>Jan 01, 2045</small>
                   </div>
-                </a>{" "}
-                <a
+                </div>{" "}
+                <div
                   className="rescent-post"
                   href="https://www.free-css.com/free-css-templates"
                 >
                   <img
+                    className="post-img"
                     src="../images/blog/b2.jpg"
                     alt="website template image"
                   />
@@ -302,12 +301,13 @@ export default function Blog() {
                     </h6>
                     <small>Jan 01, 2045</small>
                   </div>
-                </a>{" "}
-                <a
+                </div>{" "}
+                <div
                   className="rescent-post"
                   href="https://www.free-css.com/free-css-templates"
                 >
                   <img
+                    className="post-img"
                     src="../images/blog/b2.jpg"
                     alt="website template image"
                   />
@@ -317,7 +317,7 @@ export default function Blog() {
                     </h6>
                     <small>Jan 01, 2045</small>
                   </div>
-                </a>
+                </div>
               </div>
             </div>
           </div>

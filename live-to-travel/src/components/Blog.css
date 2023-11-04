@@ -62,7 +62,6 @@
     margin-left: auto;
     padding-top: 3rem;
     padding-bottom: 3rem;
-    background-color: ivory;
 }
 
 .row-left-section{
@@ -198,7 +197,7 @@
     text-decoration: none;
     color: #7ab730;
 }
-.rescent-post img{
+.post-img{
     width: 100%;
     height: auto;
 }
