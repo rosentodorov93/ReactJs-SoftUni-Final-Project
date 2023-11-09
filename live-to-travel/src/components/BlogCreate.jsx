@@ -1,6 +1,7 @@
 import './BlogCreate.css'
-import { useRef, useState } from "react";
+import React, { useRef, useState } from "react";
 import { Editor } from "@tinymce/tinymce-react";
+import parse from 'html-react-parser';
 
 export default function BlogCreate(){
 
@@ -17,24 +18,30 @@ export default function BlogCreate(){
     category: '',
     content: ''
   });
+  const [result, setResult] = useState([]);
 
   const onChange = (e) =>{
     setFormValues(state => ({...state, [e.target.name]: e.target.value}));
   }
 
   const onEditorChange = (value, editor) =>{
-    console.log(value);
-    console.log(editor);
+
     setFormValues(state => ({...state, content: value }));
   }
 
   const onSubmitHandler = (e) =>{
     e.preventDefault();
-
-    console.log(forValues);
+    setResult(parse(forValues.content));
+    console.log(result);
   }
 
-
+  const Result = (data) =>{
+    return(
+      <div>
+        {data.map(data)}
+      </div>
+    )
+  }
     return(
         <>
         <h2 className='title'>Create your Article</h2>
@@ -59,7 +66,6 @@ export default function BlogCreate(){
                 id='content'
                 apiKey='96xztb739pac7nr7rdpsopcswma57vu98h3dk649gdul0ws8'
                 onInit={(evt, editor) => (editorRef.current = editor)}
-                outputFormat='text'
                 onEditorChange={onEditorChange}
                 name="content"
                 value={forValues.content}
@@ -86,6 +92,7 @@ export default function BlogCreate(){
             </div>
           </form>
         </div>
+                {forValues.content && <div>{parse(forValues.content)}</div>}
        </div>
         </>
           
