@@ -1,5 +1,5 @@
 import './BlogCreate.css'
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import { Editor } from "@tinymce/tinymce-react";
 
 export default function BlogCreate(){
@@ -11,24 +11,47 @@ export default function BlogCreate(){
     }
   };
 
+  const [forValues, setFormValues] = useState({
+    title: '',
+    imageUrl: '',
+    category: '',
+    content: ''
+  });
+
+  const onChange = (e) =>{
+    setFormValues(state => ({...state, [e.target.name]: e.target.value}));
+  }
+
+  const onEditorChange = (value, editor) =>{
+    console.log(value);
+    console.log(editor);
+    setFormValues(state => ({...state, content: value }));
+  }
+
+  const onSubmitHandler = (e) =>{
+    e.preventDefault();
+
+    console.log(forValues);
+  }
+
+
     return(
-      
         <>
         <h2 className='title'>Create your Article</h2>
        <div className='create-wrapper'>
          <div className="create-container" >
-          <form action="#" method="post" >
+          <form action="#" method="post" onSubmit={onSubmitHandler}>
             <div className="form-group">
-              <label htmlFor="name">Title</label>
-              <input type="text" className="form-control" id="name"/>
+              <label htmlFor="title">Title</label>
+              <input type="text" className="form-control" id="title" name='title' value={forValues.title} onChange={onChange}/>
             </div>
             <div className="form-group">
-              <label htmlFor="email">Image</label>
-              <input type="email" className="form-control" id="email"/>
+              <label htmlFor="imageUrl">Image</label>
+              <input type="text" className="form-control" id="imageUrl" name='imageUrl' value={forValues.imageUrl} onChange={onChange}/>
             </div>
             <div className="form-group">
-              <label htmlFor="website">Category</label>
-              <input type="url" className="form-control" id="website"/>
+              <label htmlFor="category">Category</label>
+              <input type="text" className="form-control" id="category" name='category' value={forValues.category} onChange={onChange}/>
             </div>
             <div className="form-group">
               <label htmlFor="content">Content</label>
@@ -36,7 +59,10 @@ export default function BlogCreate(){
                 id='content'
                 apiKey='96xztb739pac7nr7rdpsopcswma57vu98h3dk649gdul0ws8'
                 onInit={(evt, editor) => (editorRef.current = editor)}
-                initialValue="<p>This is the initial content of the editor.</p>"
+                outputFormat='text'
+                onEditorChange={onEditorChange}
+                name="content"
+                value={forValues.content}
                 init={{
                   height: 500,
                   menubar: false,
