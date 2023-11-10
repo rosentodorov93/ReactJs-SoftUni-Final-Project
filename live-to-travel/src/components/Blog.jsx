@@ -1,6 +1,18 @@
 import "./Blog.css";
+import { useState, useEffect } from "react";
+import * as blogService from '../services/blogService';
+import BlogItem from "./BlogItem";
 
 export default function Blog() {
+
+  const[blogs, setBlogs] = useState([]);
+
+  useEffect(()=>{
+    blogService.getAll()
+    .then(res => setBlogs(res))
+    .catch(err => console.log(err))
+  },[]);
+
   return (
     <>
       <div className="container header">
@@ -25,188 +37,8 @@ export default function Blog() {
           <div className="row">
             <div className="row-left-section">
               <div className="row">
-                <div className="blogs">
-                  <div className="single-blog-item">
-                    <div className="single-blog-item-img">
-                      <img src="/images/blog/b1.jpg" alt="blog image" />
-                    </div>
-                    <div className="single-blog-item-txt">
-                      <h2>
-                        <a href="#">
-                          How to find your Desired Place more quickly
-                        </a>
-                      </h2>
-                      <h4>
-                        posted <span>by</span> <a href="#">admin</a> march 2018
-                      </h4>
-                      <p>
-                        Lorem ipsum dolor sit amet, consectetur de adipisicing
-                        elit, sed do eiusmod tempore incididunt ut labore et
-                        dolore magna.
-                      </p>
-                    </div>
-                  </div>
-                </div>
-                <div className="blogs">
-                  <div className="single-blog-item">
-                    <div className="single-blog-item-img">
-                      <img src="/images/blog/b1.jpg" alt="blog image" />
-                    </div>
-                    <div className="single-blog-item-txt">
-                      <h2>
-                        <a href="#">
-                          How to find your Desired Place more quickly
-                        </a>
-                      </h2>
-                      <h4>
-                        posted <span>by</span> <a href="#">admin</a> march 2018
-                      </h4>
-                      <p>
-                        Lorem ipsum dolor sit amet, consectetur de adipisicing
-                        elit, sed do eiusmod tempore incididunt ut labore et
-                        dolore magna.
-                      </p>
-                    </div>
-                  </div>
-                </div>
-                <div className="blogs">
-                  <div className="single-blog-item">
-                    <div className="single-blog-item-img">
-                      <img src="/images/blog/b1.jpg" alt="blog image" />
-                    </div>
-                    <div className="single-blog-item-txt">
-                      <h2>
-                        <a href="#">
-                          How to find your Desired Place more quickly
-                        </a>
-                      </h2>
-                      <h4>
-                        posted <span>by</span> <a href="#">admin</a> march 2018
-                      </h4>
-                      <p>
-                        Lorem ipsum dolor sit amet, consectetur de adipisicing
-                        elit, sed do eiusmod tempore incididunt ut labore et
-                        dolore magna.
-                      </p>
-                    </div>
-                  </div>
-                </div>
-                <div className="blogs">
-                  <div className="single-blog-item">
-                    <div className="single-blog-item-img">
-                      <img src="/images/blog/b1.jpg" alt="blog image" />
-                    </div>
-                    <div className="single-blog-item-txt">
-                      <h2>
-                        <a href="#">
-                          How to find your Desired Place more quickly
-                        </a>
-                      </h2>
-                      <h4>
-                        posted <span>by</span> <a href="#">admin</a> march 2018
-                      </h4>
-                      <p>
-                        Lorem ipsum dolor sit amet, consectetur de adipisicing
-                        elit, sed do eiusmod tempore incididunt ut labore et
-                        dolore magna.
-                      </p>
-                    </div>
-                  </div>
-                </div>
-                <div className="blogs">
-                  <div className="single-blog-item">
-                    <div className="single-blog-item-img">
-                      <img src="/images/blog/b1.jpg" alt="blog image" />
-                    </div>
-                    <div className="single-blog-item-txt">
-                      <h2>
-                        <a href="#">
-                          How to find your Desired Place more quickly
-                        </a>
-                      </h2>
-                      <h4>
-                        posted <span>by</span> <a href="#">admin</a> march 2018
-                      </h4>
-                      <p>
-                        Lorem ipsum dolor sit amet, consectetur de adipisicing
-                        elit, sed do eiusmod tempore incididunt ut labore et
-                        dolore magna.
-                      </p>
-                    </div>
-                  </div>
-                </div>
-                <div className="blogs">
-                  <div className="single-blog-item">
-                    <div className="single-blog-item-img">
-                      <img src="/images/blog/b1.jpg" alt="blog image" />
-                    </div>
-                    <div className="single-blog-item-txt">
-                      <h2>
-                        <a href="#">
-                          How to find your Desired Place more quickly
-                        </a>
-                      </h2>
-                      <h4>
-                        posted <span>by</span> <a href="#">admin</a> march 2018
-                      </h4>
-                      <p>
-                        Lorem ipsum dolor sit amet, consectetur de adipisicing
-                        elit, sed do eiusmod tempore incididunt ut labore et
-                        dolore magna.
-                      </p>
-                    </div>
-                  </div>
-                </div>
-                <div className="col-12">
-                  <nav aria-label="Page navigation">
-                    <ul className="pagination pagination-lg justify-content-center bg-white mb-0">
-                      <li className="page-item disabled">
-                        <a
-                          className="page-link"
-                          href="https://www.free-css.com/free-css-templates"
-                          aria-label="Previous"
-                        >
-                          <span aria-hidden="true">«</span>{" "}
-                          <span className="sr-only">Previous</span>
-                        </a>
-                      </li>
-                      <li className="page-item active">
-                        <a
-                          className="page-link"
-                          href="https://www.free-css.com/free-css-templates"
-                        >
-                          1
-                        </a>
-                      </li>
-                      <li className="page-item">
-                        <a
-                          className="page-link"
-                          href="https://www.free-css.com/free-css-templates"
-                        >
-                          2
-                        </a>
-                      </li>
-                      <li className="page-item">
-                        <a
-                          className="page-link"
-                          href="https://www.free-css.com/free-css-templates"
-                        >
-                          3
-                        </a>
-                      </li>
-                      <li className="page-item">
-                        <a
-                          className="page-link"
-                          href="https://www.free-css.com/free-css-templates"
-                          aria-label="Next"
-                        >
-                          <span aria-hidden="true">»</span>{" "}
-                          <span className="sr-only">Next</span>
-                        </a>
-                      </li>
-                    </ul>
-                  </nav>
-                </div>
+
+                {blogs.map(blog => <BlogItem key={blog._id} data = {blog}/>)}
               </div>
             </div>
             <div className="row-right-section">

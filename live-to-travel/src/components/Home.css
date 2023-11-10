@@ -1,6 +1,6 @@
 .welcome-hero {
     position: relative;
-    background:url(../images/welcome-hero/bulgaria-background.jpg)no-repeat;
+    background:url('../../images/welcome-hero/bulgaria-background.jpg')no-repeat;
     background-position:center;
     background-size:cover;
     text-align: center;
