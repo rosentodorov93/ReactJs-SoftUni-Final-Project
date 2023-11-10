@@ -1,3 +1,4 @@
+import {Routes, Route} from 'react-router-dom'
 import Blog from "./components/Blog"
 import BlogCreate from "./components/BlogCreate"
 import BlogDetails from "./components/BlogDetails"
@@ -11,7 +12,12 @@ function App() {
   return (
     <>
       <Header/>
-        <BlogCreate/>
+        <Routes>
+          <Route path='/' element={<Home/>}/>
+          <Route path='/blog' element={<Blog/>}/>
+          <Route path='/blog/create' element={<BlogCreate/>}/>
+          <Route path='/blog/details/:id' element={<BlogDetails/>}/>
+        </Routes>
       <Footer/>
     </>
   )

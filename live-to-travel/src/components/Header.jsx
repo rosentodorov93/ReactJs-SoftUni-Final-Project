@@ -1,4 +1,5 @@
 import './Header.css'
+import {Link} from 'react-router-dom';
 
 export default function Header(){
     return(
@@ -11,18 +12,18 @@ export default function Header(){
 			                <button type="button" className="navbar-toggle" data-toggle="collapse" data-target="#navbar-menu">
 			                    <i className="fa fa-bars"></i>
 			                </button>
-			                <a className="navbar-brand" href="index.html">Live to<span>Travel</span></a>
+			                <Link className="navbar-brand" to='/'>Live to<span>Travel</span></Link>
 
 			            </div>
 			            
 			            <div className="collapse navbar-collapse menu-ui-design" id="navbar-menu">
 			                <ul className="nav navbar-nav navbar-right" data-in="fadeInDown" data-out="fadeOutUp">
-			                    <li className=" scroll active"><a href="#home">Home</a></li>
-			                    <li className="scroll"><a href="#blog">Blog</a></li>
-			                    <li className="scroll"><a href="#reviews">Review</a></li>
-			                    <li className="scroll"><a href="#contact">Contact</a></li>
-			                    <li className="scroll"><a href="#works">Login</a></li>
-			                    <li className="scroll"><a href="#explore">Register</a></li>
+			                    <li className=" scroll active"><Link to="/">Home</Link></li>
+			                    <li className="scroll"><Link to="/blog">Blogs</Link></li>
+			                    <li className="scroll"><Link to="/blog/create">Create </Link></li>
+			                    <li className="scroll"><Link to="#contact">Contact</Link></li>
+			                    <li className="scroll"><Link to="#works">Login</Link></li>
+			                    <li className="scroll"><Link to="#explore">Register</Link></li>
 			                </ul>
 			            </div>
 			        </div>
