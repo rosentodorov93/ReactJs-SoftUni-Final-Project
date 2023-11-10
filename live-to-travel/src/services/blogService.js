@@ -12,3 +12,17 @@ export const create = async(data) =>{
     const result = await response.json();
     return result;
 }
+
+export const getAll = async() =>{
+    const response = await fetch(baseUrl);
+    const result = await response.json();
+
+    return Object.values(result);
+}
+
+export const getOne = async(id) =>{
+    const response = await fetch(`${baseUrl}/${id}`);
+    const result = response.json();
+
+    return result;
+}
