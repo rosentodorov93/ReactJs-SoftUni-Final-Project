@@ -26,3 +26,16 @@ export const getOne = async(id) =>{
 
     return result;
 }
+
+export const update = async(id, data) =>{
+    const response = await fetch(`${baseUrl}/${id}`, {
+        method: 'PUT',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data)
+    })
+    const result = await response.json();
+
+    return result;
+}

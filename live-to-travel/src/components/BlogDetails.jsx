@@ -1,6 +1,6 @@
 import "./BlogDetails.css";
 import * as blogService from '../services/blogService'
-import {useParams} from 'react-router-dom'
+import {Link, useParams} from 'react-router-dom'
 import { useState, useEffect } from "react";
 import parse from 'html-react-parser';
 
@@ -14,6 +14,10 @@ export default function BlogDetails() {
     .then(res => setBlog(({...res, content: parse(res.content)})))
     .catch(err => console.log(err))
   },[id])
+
+  const onEditClick = () =>{
+    
+  }
 
   return (
     <>
@@ -51,6 +55,10 @@ export default function BlogDetails() {
             <h2 className="mb-3">{blog.title}</h2>
             <div>
               {blog.content}
+            </div>
+            <div >
+            <Link to={`/blog/edit/${blog._id}`}>Edit</Link>
+            <Link to={`/blog/delete/${blog._id}`}>Delete</Link>
             </div>
           </div>
           
