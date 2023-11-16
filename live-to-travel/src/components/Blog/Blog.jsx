@@ -1,6 +1,6 @@
 import "./Blog.css";
 import { useState, useEffect } from "react";
-import * as blogService from '../services/blogService';
+import * as blogService from '../../services/blogService';
 import BlogItem from "./BlogItem";
 
 export default function Blog() {

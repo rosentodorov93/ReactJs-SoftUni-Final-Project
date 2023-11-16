@@ -1,7 +1,7 @@
 import './BlogCreate.css'
 import React, { useRef, useState } from "react";
 import { Editor } from "@tinymce/tinymce-react";
-import * as blogService from '../services/blogService';
+import * as blogService from '../../services/blogService';
 
 export default function BlogCreate(){
 

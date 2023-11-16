@@ -1,5 +1,5 @@
 import "./BlogDetails.css";
-import * as blogService from '../services/blogService'
+import * as blogService from '../../services/blogService'
 import {Link, useParams} from 'react-router-dom'
 import { useState, useEffect } from "react";
 import parse from 'html-react-parser';
