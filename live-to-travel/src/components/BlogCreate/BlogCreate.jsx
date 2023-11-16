@@ -1,6 +1,7 @@
 import './BlogCreate.css'
 import React, { useRef, useState } from "react";
 import { Editor } from "@tinymce/tinymce-react";
+import {useNavigate} from 'react-router-dom'
 import * as blogService from '../../services/blogService';
 
 export default function BlogCreate(){
@@ -13,6 +14,7 @@ export default function BlogCreate(){
     content: ''
   });
 
+  const navigate = useNavigate();
   const onChange = (e) =>{
     setFormValues(state => ({...state, [e.target.name]: e.target.value}));
   };
@@ -24,7 +26,8 @@ export default function BlogCreate(){
 
   const onSubmitHandler = async(e) =>{
     e.preventDefault();
-    const result = await blogService.create(forValues)
+    const result = await blogService.create(forValues);
+    navigate('/blog');
     console.log(result);
   };
 
