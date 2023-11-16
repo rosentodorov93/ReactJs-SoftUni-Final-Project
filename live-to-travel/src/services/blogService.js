@@ -1,41 +1,24 @@
+import * as request from "../lib/request";
 const baseUrl = 'http://localhost:3030/jsonstore/blogs';
 
-export const create = async(data) =>{
-    const response = await fetch(baseUrl,{
-        method: 'POST',
-        headers: {
-            "Content-Type": 'application/json',
-        },
-        body: JSON.stringify(data),
-    })
 
-    const result = await response.json();
-    return result;
+export const create = async(data) =>{
+   const result = request.post(baseUrl, data);
+   return result;
 }
 
 export const getAll = async() =>{
-    const response = await fetch(baseUrl);
-    const result = await response.json();
+    const result = await request.get(baseUrl);
 
     return Object.values(result);
 }
 
 export const getOne = async(id) =>{
-    const response = await fetch(`${baseUrl}/${id}`);
-    const result = response.json();
-
+    const result = request.get(`${baseUrl}/${id}`);
     return result;
 }
 
 export const update = async(id, data) =>{
-    const response = await fetch(`${baseUrl}/${id}`, {
-        method: 'PUT',
-        headers: {
-            'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(data)
-    })
-    const result = await response.json();
-
+    const result = request.put(`${baseUrl}/${id}`, data);
     return result;
 }

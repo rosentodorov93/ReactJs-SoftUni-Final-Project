@@ -2,7 +2,7 @@ import '../BlogCreate/BlogCreate.css'
 import React, { useEffect, useRef, useState } from "react";
 import { Editor } from "@tinymce/tinymce-react";
 import * as blogService from '../../services/blogService';
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 
 export default function BlogCreate(){
 
@@ -21,6 +21,7 @@ export default function BlogCreate(){
     .then(res => setFormValues(res))
   },[])
 
+  const navigate = useNavigate();
   const onChange = (e) =>{
     setFormValues(state => ({...state, [e.target.name]: e.target.value}));
   };
@@ -30,10 +31,10 @@ export default function BlogCreate(){
     setFormValues(state => ({...state, content: value }));
   };
 
-  const onSubmitHandler = async(e) =>{
+  const onSubmitEditHandler = async(e) =>{
     e.preventDefault();
-    const result = await blogService.update(id, forValues)
-    console.log(result);
+    const result = await blogService.update(id, forValues);
+    navigate('/blog');
   };
 
     return(
@@ -41,7 +42,7 @@ export default function BlogCreate(){
         <h2 className='title'>Edit your Article</h2>
        <div className='create-wrapper'>
          <div className="create-container" >
-          <form action="#" method="post" onSubmit={onSubmitHandler}>
+          <form action="#" method="post" onSubmit={onSubmitEditHandler}>
             <div className="form-group">
               <label htmlFor="title">Title</label>
               <input type="text" className="form-control" id="title" name='title' value={forValues.title} onChange={onChange}/>
