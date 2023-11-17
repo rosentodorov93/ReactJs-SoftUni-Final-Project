@@ -1,13 +1,16 @@
 import "./BlogDetails.css";
 import * as blogService from '../../services/blogService'
-import {Link, useParams} from 'react-router-dom'
+import {Link, useParams, useNavigate} from 'react-router-dom'
 import { useState, useEffect } from "react";
 import parse from 'html-react-parser';
+import BlogDelete from "../BlogDelete/BlogDelete";
 
 export default function BlogDetails() {
 
   const {id} = useParams();
   const [blog, setBlog] = useState({});
+  const [showDeleteModal, setShowDeleteModal] = useState(false);
+  const navigate = useNavigate();
 
   useEffect(()=>{
     blogService.getOne(id)
@@ -15,8 +18,17 @@ export default function BlogDetails() {
     .catch(err => console.log(err))
   },[id])
 
-  const onEditClick = () =>{
-    
+  const onDeleteClick = () =>{
+    setShowDeleteModal(true);
+  }
+
+  const onDeleteModalClose = () =>{
+    setShowDeleteModal(false);
+  }
+
+  const deleteBlogHandler = async() =>{
+    await blogService.remove(id);
+    navigate('/blog');
   }
 
   return (
@@ -38,6 +50,8 @@ export default function BlogDetails() {
 
       {/* main part */}
 
+      {showDeleteModal && <BlogDelete onClose={onDeleteModalClose} deleteBlogHandler={deleteBlogHandler}/>}
+
       <div className="container-blog">
         <div className="container">
           <div className="row">
@@ -58,7 +72,7 @@ export default function BlogDetails() {
             </div>
             <div >
             <Link to={`/blog/edit/${blog._id}`}>Edit</Link>
-            <Link to={`/blog/delete/${blog._id}`}>Delete</Link>
+            <button type="button" onClick={onDeleteClick}>Delete</button>
             </div>
           </div>
           
