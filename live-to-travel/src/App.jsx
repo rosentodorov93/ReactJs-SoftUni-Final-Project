@@ -6,6 +6,7 @@ import BlogEdit from "./components/BlogEdit/BlogEdit"
 import Footer from "./components/Footer/Footer"
 import Header from "./components/Header/Header"
 import Home from "./components/Home/Home"
+import Profile from './components/Profile/Profile'
 
 function App() {
 
@@ -16,6 +17,7 @@ function App() {
         <Routes>
           <Route path='/' element={<Home/>}/>
           <Route path='/blog' element={<Blog/>}/>
+          <Route path='/profile' element={<Profile/>}/>
           <Route path='/blog/create' element={<BlogCreate/>}/>
           <Route path='/blog/details/:id' element={<BlogDetails/>}/>
           <Route path='/blog/edit/:id' element={<BlogEdit/>}/>
