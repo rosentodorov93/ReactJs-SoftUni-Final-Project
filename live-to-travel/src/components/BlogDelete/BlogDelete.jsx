@@ -10,8 +10,7 @@ export default function BlogDelete({
       <div className="modal-container">
         <div className="confirm-container">
           <header className="headers-container">
-            <h2>Are you sure you want to delete this account?</h2>
-            <button className="btn" onClick={onClose}>x</button>
+            <h2>Are you sure you want to delete this blog?</h2>
           </header>
           <div className="actions">
             
