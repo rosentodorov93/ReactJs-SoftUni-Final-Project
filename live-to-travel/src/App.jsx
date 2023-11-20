@@ -7,6 +7,8 @@ import Footer from "./components/Footer/Footer"
 import Header from "./components/Header/Header"
 import Home from "./components/Home/Home"
 import Profile from './components/Profile/Profile'
+import UserRegister from './components/UserRegister/UserRegister'
+import UserLogin from './components/UserLogin/UserLogin'
 
 function App() {
 
@@ -21,6 +23,8 @@ function App() {
           <Route path='/blog/create' element={<BlogCreate/>}/>
           <Route path='/blog/details/:id' element={<BlogDetails/>}/>
           <Route path='/blog/edit/:id' element={<BlogEdit/>}/>
+          <Route path='/user/register' element={<UserRegister/>}/>
+          <Route path='/user/login' element={<UserLogin/>}/>
         </Routes>
       <Footer/>
     </>
