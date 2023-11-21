@@ -1,26 +1,52 @@
-import './UserLogin.css';
+import useForm from "../../hooks/useForm";
+import "./UserLogin.css";
 
-export default function UserLogin(){
-    return(
-        <>
-            <h2 className='title'>Log In</h2>
-       <div className='login-wrapper'>
-         <div className="login-container" >
-          <form action="#" method="post">
+const formKeys = {
+  email: "email",
+  password: "password",
+};
+
+export default function UserLogin({
+   loginSubmitHandler
+   }) 
+   {
+
+  const {formValues, onChange, onSubmit} = useForm(loginSubmitHandler, {email:'',password:''});
+
+  return (
+    <>
+      <h2 className="title">Log In</h2>
+      <div className="login-wrapper">
+        <div className="login-container">
+          <form onSubmit={onSubmit} method="post">
             <div className="form-group">
               <label htmlFor="email">Email</label>
-              <input type="email" className="form-control" id="email" name='email'/>
+              <input
+                type="email"
+                className="form-control"
+                id="email"
+                name="email"
+                onChange={onChange}
+                value={formValues.email}
+              />
             </div>
             <div className="form-group">
               <label htmlFor="password">Password</label>
-              <input type="password" className="form-control" id="password" name='password'/>
+              <input
+                type="password"
+                className="form-control"
+                id="password"
+                name="password"
+                onChange={onChange}
+                value={formValues.password}
+              />
             </div>
-            <div className="form-group mb-0">
-              <input type="submit" value="Login" className="btn-create"/>
+            <div className="form-group">
+              <input type="submit" value="Login" className="btn-create" />
             </div>
           </form>
         </div>
-       </div>
-        </>
-    )
+      </div>
+    </>
+  );
 }

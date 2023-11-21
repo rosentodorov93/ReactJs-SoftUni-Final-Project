@@ -1,4 +1,6 @@
 import {Routes, Route} from 'react-router-dom'
+import { useState } from 'react'
+
 import Blog from "./components/Blog/Blog"
 import BlogCreate from "./components/BlogCreate/BlogCreate"
 import BlogDetails from "./components/BlogDetails/BlogDetails"
@@ -12,6 +14,11 @@ import UserLogin from './components/UserLogin/UserLogin'
 
 function App() {
 
+  const [auth, setAuth] = useState({});
+
+  const loginSubmitHandler = (values) =>{
+    console.log(values);
+  }
 
   return (
     <>
@@ -24,7 +31,7 @@ function App() {
           <Route path='/blog/details/:id' element={<BlogDetails/>}/>
           <Route path='/blog/edit/:id' element={<BlogEdit/>}/>
           <Route path='/user/register' element={<UserRegister/>}/>
-          <Route path='/user/login' element={<UserLogin/>}/>
+          <Route path='/user/login' element={<UserLogin loginSubmitHandler={loginSubmitHandler}/>}/>
         </Routes>
       <Footer/>
     </>
