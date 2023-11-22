@@ -61,11 +61,7 @@ export default function BlogCreate(){
                 init={{
                   height: 500,
                   menubar: false,
-                  plugins: [
-                    "advlist autolink lists link image charmap print preview anchor",
-                    "searchreplace visualblocks code fullscreen",
-                    "insertdatetime media table paste code help wordcount",
-                  ],
+                  plugins: [],
                   toolbar:
                     "undo redo | formatselect | " +
                     "bold italic backcolor | alignleft aligncenter " +

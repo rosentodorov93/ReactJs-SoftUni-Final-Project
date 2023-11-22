@@ -1,5 +1,7 @@
-import {Routes, Route} from 'react-router-dom'
+import {Routes, Route, useNavigate} from 'react-router-dom'
 import { useState } from 'react'
+
+import * as authService from './services/authService';
 
 import Blog from "./components/Blog/Blog"
 import BlogCreate from "./components/BlogCreate/BlogCreate"
@@ -14,13 +16,19 @@ import UserLogin from './components/UserLogin/UserLogin'
 
 function App() {
 
+  const navigate = useNavigate();
   const [auth, setAuth] = useState({});
 
-  const loginSubmitHandler = (values) =>{
-    console.log(values);
+  const loginSubmitHandler = async(values) =>{
+    const result = await authService.login(values.email, values.password);
+    setAuth(result);
+    navigate('/');
   }
-  const registerSubmitHandler = (values) =>{
-    console.log(values);
+  const registerSubmitHandler = async(values) =>{
+    const result = await authService.register(values);
+    setAuth(result);
+    navigate('/');
+    console.log(result);
   }
 
   return (
