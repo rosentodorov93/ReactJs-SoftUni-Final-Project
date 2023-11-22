@@ -19,6 +19,9 @@ function App() {
   const loginSubmitHandler = (values) =>{
     console.log(values);
   }
+  const registerSubmitHandler = (values) =>{
+    console.log(values);
+  }
 
   return (
     <>
@@ -30,7 +33,7 @@ function App() {
           <Route path='/blog/create' element={<BlogCreate/>}/>
           <Route path='/blog/details/:id' element={<BlogDetails/>}/>
           <Route path='/blog/edit/:id' element={<BlogEdit/>}/>
-          <Route path='/user/register' element={<UserRegister/>}/>
+          <Route path='/user/register' element={<UserRegister registerSubmitHandler={registerSubmitHandler}/>}/>
           <Route path='/user/login' element={<UserLogin loginSubmitHandler={loginSubmitHandler}/>}/>
         </Routes>
       <Footer/>
