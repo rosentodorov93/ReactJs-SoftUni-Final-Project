@@ -1,7 +1,10 @@
+import { useContext } from 'react';
 import './Header.css'
 import {Link} from 'react-router-dom';
+import AuthContext from '../../contexts/authContext';
 
 export default function Header(){
+	const {isAuthenticated, email} = useContext(AuthContext);
     return(
         <section className="top-area">
 			<div className="header-area">
@@ -20,10 +23,19 @@ export default function Header(){
 			                <ul className="nav navbar-nav navbar-right" data-in="fadeInDown" data-out="fadeOutUp">
 			                    <li className=" scroll active"><Link to="/">Home</Link></li>
 			                    <li className="scroll"><Link to="/blog">Blogs</Link></li>
-			                    <li className="scroll"><Link to="/blog/create">Create </Link></li>
-			                    <li className="scroll"><Link to="/profile">Profile</Link></li>
+								{isAuthenticated &&
+								 <>
+								 <p>{email}</p>
+									<li className="scroll"><Link to="/blog/create">Create </Link></li>
+									<li className="scroll"><Link to="/profile">Profile</Link></li>
+									<li className="scroll"><Link to="/user/logout">Logout</Link></li>
+								</>
+								}
+								{!isAuthenticated && 
+								<>
 			                    <li className="scroll"><Link to="/user/login">Login</Link></li>
 			                    <li className="scroll"><Link to="/user/register">Register</Link></li>
+								</>}
 			                </ul>
 			            </div>
 			        </div>
