@@ -4,9 +4,10 @@ import { Editor } from "@tinymce/tinymce-react";
 import * as blogService from '../../services/blogService';
 import { useParams, useNavigate } from 'react-router-dom';
 
-export default function BlogCreate(){
+export default function BlogEdit(){
 
   const editorRef = useRef(null);
+  const navigate = useNavigate();
   const {id} = useParams();
   
   const [forValues, setFormValues] = useState({
@@ -19,9 +20,9 @@ export default function BlogCreate(){
   useEffect(()=>{
     blogService.getOne(id)
     .then(res => setFormValues(res))
-  },[])
+  },[id])
 
-  const navigate = useNavigate();
+  
   const onChange = (e) =>{
     setFormValues(state => ({...state, [e.target.name]: e.target.value}));
   };
@@ -33,7 +34,7 @@ export default function BlogCreate(){
 
   const onSubmitEditHandler = async(e) =>{
     e.preventDefault();
-    const result = await blogService.update(id, forValues);
+    await blogService.update(id, forValues);
     navigate('/blog');
   };
 
