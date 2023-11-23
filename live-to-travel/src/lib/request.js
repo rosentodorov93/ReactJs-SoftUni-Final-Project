@@ -12,7 +12,7 @@ const request = async(method, url, data)=>{
     const token = localStorage.getItem('auth');
     if(token){
         options.headers = {
-            ...options,
+            ...options.headers,
             "X-Authorization": token,
         }
     }
