@@ -9,16 +9,28 @@ const request = async(method, url, data)=>{
         options.body = JSON.stringify(data);
     };
 
+    const token = localStorage.getItem('auth');
+    if(token){
+        options.headers = {
+            ...options,
+            "X-Authorization": token,
+        }
+    }
+
     const resposne = await fetch(url, {
         method,
         ...options,
     });
 
-    if(!resposne.ok){
-        throw new Error('Eror');
+    if(resposne.status === 204){
+        return {};
     }
 
     const result = await resposne.json();
+
+    if(!resposne.ok){
+        throw result;
+    }
 
     return result;
 
