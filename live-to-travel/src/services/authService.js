@@ -23,6 +23,7 @@
     return request.post(`${baseUrl}/register`, user);
  }
 
- export const logout = () =>{
-    return request.get(`${baseUrl}/logout`)
+ export const logout = async() =>{
+    const result = request.get(`${baseUrl}/logout`)
+    return result;
  }
