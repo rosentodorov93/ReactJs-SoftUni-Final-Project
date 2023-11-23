@@ -1,12 +1,17 @@
-import "./BlogDetails.css";
-import * as blogService from '../../services/blogService'
-import {Link, useParams, useNavigate} from 'react-router-dom'
 import { useState, useEffect } from "react";
+import {Link, useParams, useNavigate} from 'react-router-dom'
+import { useContext } from "react";
 import parse from 'html-react-parser';
+import "./BlogDetails.css";
+
+import AuthContext from "../../contexts/authContext";
+import * as blogService from '../../services/blogService'
+
 import BlogDelete from "../BlogDelete/BlogDelete";
 
 export default function BlogDetails() {
 
+  const {_id} = useContext(AuthContext);
   const {id} = useParams();
   const [blog, setBlog] = useState({});
   const [showDeleteModal, setShowDeleteModal] = useState(false);
@@ -71,8 +76,13 @@ export default function BlogDetails() {
               {blog.content}
             </div>
             <div >
-            <Link to={`/blog/edit/${blog._id}`}>Edit</Link>
-            <button type="button" onClick={onDeleteClick}>Delete</button>
+              
+              {_id === blog.ownerId && 
+              <>
+                  <Link to={`/blog/edit/${blog._id}`}>Edit</Link>
+                  <button type="button" onClick={onDeleteClick}>Delete</button>
+              </>}
+
             </div>
           </div>
           

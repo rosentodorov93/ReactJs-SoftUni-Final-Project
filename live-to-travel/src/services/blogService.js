@@ -1,5 +1,5 @@
 import * as request from "../lib/request";
-const baseUrl = 'http://localhost:3030/jsonstore/blogs';
+const baseUrl = 'http://localhost:3030/data/blogs';
 
 
 export const create = async(data) =>{
@@ -10,7 +10,7 @@ export const create = async(data) =>{
 export const getAll = async() =>{
     const result = await request.get(baseUrl);
 
-    return Object.values(result);
+    return result
 }
 
 export const getOne = async(id) =>{
