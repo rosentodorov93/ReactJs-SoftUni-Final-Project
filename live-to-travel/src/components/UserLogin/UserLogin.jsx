@@ -1,3 +1,5 @@
+import { useContext } from "react";
+import AuthContext from "../../contexts/authContext";
 import useForm from "../../hooks/useForm";
 import "./UserLogin.css";
 
@@ -6,11 +8,9 @@ const formKeys = {
   password: "password",
 };
 
-export default function UserLogin({
-   loginSubmitHandler
-   }) 
-   {
+export default function UserLogin(){
 
+  const {loginSubmitHandler} = useContext(AuthContext);
   const {formValues, onChange, onSubmit} = useForm(loginSubmitHandler, {email:'',password:''});
 
   return (

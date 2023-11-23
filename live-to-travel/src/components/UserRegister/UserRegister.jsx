@@ -1,10 +1,11 @@
+import { useContext } from "react";
 import useForm from "../../hooks/useForm";
+import AuthContext from "../../contexts/authContext";
 import "./UserRegister.css";
 
-export default function UserRegister({
-  registerSubmitHandler
-}) {
+export default function UserRegister() {
 
+  const {registerSubmitHandler} = useContext(AuthContext);
   const {formValues, onChange, onSubmit} = useForm(registerSubmitHandler, {
     firstName: '',
     lastName: '',

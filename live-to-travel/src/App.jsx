@@ -2,6 +2,7 @@ import {Routes, Route, useNavigate} from 'react-router-dom'
 import { useState } from 'react'
 
 import * as authService from './services/authService';
+import AuthContext from './contexts/authContext';
 
 import Blog from "./components/Blog/Blog"
 import BlogCreate from "./components/BlogCreate/BlogCreate"
@@ -22,29 +23,45 @@ function App() {
   const loginSubmitHandler = async(values) =>{
     const result = await authService.login(values.email, values.password);
     setAuth(result);
+    localStorage.setItem('auth', result.accessToken)
     navigate('/');
   }
   const registerSubmitHandler = async(values) =>{
     const result = await authService.register(values);
     setAuth(result);
+    localStorage.setItem('auth', result.accessToken)
     navigate('/');
-    console.log(result);
+  }
+  const logoutHandler = () =>{
+    setAuth({});
+    localStorage.removeItem('auth');
+  }
+
+  const value = {
+    _id: auth._id,
+    email: auth.email,
+    isAuthenticated: !!auth.accessToken,
+    loginSubmitHandler,
+    registerSubmitHandler,
+    logoutHandler,
   }
 
   return (
     <>
-      <Header/>
-        <Routes>
-          <Route path='/' element={<Home/>}/>
-          <Route path='/blog' element={<Blog/>}/>
-          <Route path='/profile' element={<Profile/>}/>
-          <Route path='/blog/create' element={<BlogCreate/>}/>
-          <Route path='/blog/details/:id' element={<BlogDetails/>}/>
-          <Route path='/blog/edit/:id' element={<BlogEdit/>}/>
-          <Route path='/user/register' element={<UserRegister registerSubmitHandler={registerSubmitHandler}/>}/>
-          <Route path='/user/login' element={<UserLogin loginSubmitHandler={loginSubmitHandler}/>}/>
-        </Routes>
-      <Footer/>
+      <AuthContext.Provider value={value}>
+        <Header/>
+          <Routes>
+            <Route path='/' element={<Home/>}/>
+            <Route path='/blog' element={<Blog/>}/>
+            <Route path='/profile' element={<Profile/>}/>
+            <Route path='/blog/create' element={<BlogCreate/>}/>
+            <Route path='/blog/details/:id' element={<BlogDetails/>}/>
+            <Route path='/blog/edit/:id' element={<BlogEdit/>}/>
+            <Route path='/user/register' element={<UserRegister/>}/>
+            <Route path='/user/login' element={<UserLogin/>}/>
+          </Routes>
+        <Footer/>
+      </AuthContext.Provider>
     </>
   )
 }
