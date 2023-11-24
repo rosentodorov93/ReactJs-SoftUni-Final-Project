@@ -1,6 +1,18 @@
+import { useEffect, useState } from 'react';
 import './Profile.css';
 
+import * as authService from '../../services/authService';
+
 export default function Profile(){
+
+    const [user, setUser] = useState();
+
+    useEffect(() =>{
+        authService.getMine()
+        .then(res => console.log(res))
+        .catch(err => console.log(err))
+    });
+
     return(
         <div className="profile-container">
                 <div className="profile-section">
