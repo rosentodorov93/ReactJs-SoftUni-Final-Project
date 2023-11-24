@@ -1,8 +1,6 @@
 import {Routes, Route, useNavigate} from 'react-router-dom'
-import { useState } from 'react'
 
-import * as authService from './services/authService';
-import AuthContext from './contexts/authContext';
+import {AuthProvider} from './contexts/authContext';
 
 import Blog from "./components/Blog/Blog"
 import BlogCreate from "./components/BlogCreate/BlogCreate"
@@ -18,41 +16,11 @@ import UserLogout from './components/UserLogout/UserLogout';
 
 function App() {
 
-  const navigate = useNavigate();
-  const [auth, setAuth] = useState(()=>{
-      localStorage.removeItem('auth');
-      return {};
-  });
-
-  const loginSubmitHandler = async(values) =>{
-    const result = await authService.login(values.email, values.password);
-    setAuth(result);
-    localStorage.setItem('auth', result.accessToken)
-    navigate('/');
-  }
-  const registerSubmitHandler = async(values) =>{
-    const result = await authService.register(values);
-    setAuth(result);
-    localStorage.setItem('auth', result.accessToken)
-    navigate('/');
-  }
-  const logoutHandler = () =>{
-    setAuth({});
-    localStorage.removeItem('auth');
-  }
-
-  const value = {
-    _id: auth._id,
-    email: auth.email,
-    isAuthenticated: !!auth.accessToken,
-    loginSubmitHandler,
-    registerSubmitHandler,
-    logoutHandler,
-  }
+  
 
   return (
     <>
-      <AuthContext.Provider value={value}>
+      <AuthProvider>
         <Header/>
           <Routes>
             <Route path='/' element={<Home/>}/>
@@ -66,7 +34,7 @@ function App() {
             <Route path='/user/logout' element={<UserLogout/>}/>
           </Routes>
         <Footer/>
-      </AuthContext.Provider>
+      </AuthProvider>
     </>
   )
 }
