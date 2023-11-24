@@ -6,21 +6,30 @@ import "./BlogDetails.css";
 
 import AuthContext from "../../contexts/AuthContext";
 import * as blogService from '../../services/blogService'
+import * as commentService from '../../services/commentService'
 
 import BlogDelete from "../BlogDelete/BlogDelete";
+import useForm from "../../hooks/useForm";
 
 export default function BlogDetails() {
 
   const {_id} = useContext(AuthContext);
   const {id} = useParams();
   const [blog, setBlog] = useState({});
+  const [comments, setComments] = useState([]);
   const [showDeleteModal, setShowDeleteModal] = useState(false);
   const navigate = useNavigate();
+  
 
   useEffect(()=>{
     blogService.getOne(id)
     .then(res => setBlog(({...res, content: parse(res.content)})))
     .catch(err => console.log(err))
+
+    commentService.getById(id)
+    .then(res => setComments(res))
+    .catch(err => console.log(err))
+
   },[id])
 
   const onDeleteClick = () =>{
@@ -35,6 +44,19 @@ export default function BlogDetails() {
     await blogService.remove(id);
     navigate('/blog');
   }
+
+  const addCommentHandler = async(values) =>{
+    const comment = {
+      blogId: id,
+      timeStamp: new Date().toISOString(),
+      text: values.text,
+    }
+
+    const result = await commentService.create(comment);
+    console.log(result);
+  }
+
+  const {formValues, onChange, onSubmit} = useForm(addCommentHandler, {text: ''})
 
   return (
     <>
@@ -87,47 +109,23 @@ export default function BlogDetails() {
           </div>
           
           <div className="article-comments">
-          <h4  >3 Comments</h4>
+          <h4>{comments.length} Comments</h4>
           <div className="single-comment">
-            <div className="comment-body">
-              <h6><p >John Doe</p> <small><i>01 Jan 2045</i></small></h6>
-              <p>Diam amet duo labore stet elitr invidunt ea clita ipsum voluptua, tempor labore accusam ipsum et no at. Kasd diam tempor rebum magna dolores sed sed eirmod ipsum. Gubergren clita aliquyam consetetur sadipscing, at tempor amet ipsum diam tempor consetetur at sit.</p>
-              <button className="btn btn-sm btn-outline-primary">Reply</button>
-            </div>
-          </div>
-          <div className="single-comment">
-            <div className="comment-body">
-              <h6><p >John Doe</p> <small><i>01 Jan 2045</i></small></h6>
-              <p>Diam amet duo labore stet elitr invidunt ea clita ipsum voluptua, tempor labore accusam ipsum et no at. Kasd diam tempor rebum magna dolores sed sed eirmod ipsum. Gubergren clita aliquyam consetetur sadipscing, at tempor amet ipsum diam tempor consetetur at sit.</p>
-              <button className="btn btn-sm btn-outline-primary">Reply</button>
-              <div className="single-comment">
-                <div className="comment-body">
-                  <h6><p >John Doe</p> <small><i>01 Jan 2045</i></small></h6>
-                  <p>Diam amet duo labore stet elitr invidunt ea clita ipsum voluptua, tempor labore accusam ipsum et no at. Kasd diam tempor rebum magna dolores sed sed eirmod ipsum. Gubergren clita aliquyam consetetur sadipscing, at tempor amet ipsum diam tempor consetetur at sit.</p>
-                  <button className="btn btn-sm btn-outline-primary">Reply</button>
-                </div>
-              </div>
-            </div>
+            {comments.map(({_id, timeStamp, text, owner:{firstName, lastName}}) => (
+               <div key={_id} className="comment-body">
+               <h6><p >{firstName} {lastName}</p> <small><i>{new Date(timeStamp).toLocaleDateString()}</i></small></h6>
+               <p>{text}</p>
+             </div>
+            ))}
+           
           </div>
         </div>
         <div className="article-comments" >
           <h4 className="text-uppercase mb-4" >Leave a comment</h4>
-          <form action="#" method="post" >
+          <form onSubmit={onSubmit} method="post" >
             <div className="form-group">
-              <label htmlFor="name">Name *</label>
-              <input type="text" className="form-control" id="name"/>
-            </div>
-            <div className="form-group">
-              <label htmlFor="email">Email *</label>
-              <input type="email" className="form-control" id="email"/>
-            </div>
-            <div className="form-group">
-              <label htmlFor="website">Website</label>
-              <input type="url" className="form-control" id="website"/>
-            </div>
-            <div className="form-group">
-              <label htmlFor="message">Message *</label>
-              <textarea id="message" cols="30" rows="5" className="form-control"></textarea>
+              <label htmlFor="text">Message *</label>
+              <textarea id="text" cols="30" rows="5" className="form-control" name="text" onChange={onChange} value={formValues.text}></textarea>
             </div>
             <div className="form-group mb-0">
               <input type="submit" value="Leave a comment" className="btn-comment"/>
