@@ -1,4 +1,4 @@
-import {Routes, Route, useNavigate} from 'react-router-dom'
+import {Routes, Route} from 'react-router-dom'
 
 import {AuthProvider} from './contexts/authContext';
 
@@ -15,8 +15,6 @@ import UserLogin from './components/UserLogin/UserLogin'
 import UserLogout from './components/UserLogout/UserLogout';
 
 function App() {
-
-  
 
   return (
     <>
