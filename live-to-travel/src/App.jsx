@@ -1,6 +1,6 @@
 import {Routes, Route} from 'react-router-dom'
 
-import {AuthProvider} from './contexts/authContext';
+import {AuthProvider} from './contexts/AuthContext';
 
 import Blog from "./components/Blog/Blog"
 import BlogCreate from "./components/BlogCreate/BlogCreate"

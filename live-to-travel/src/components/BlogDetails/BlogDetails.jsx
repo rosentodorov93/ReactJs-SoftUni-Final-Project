@@ -4,7 +4,7 @@ import { useContext } from "react";
 import parse from 'html-react-parser';
 import "./BlogDetails.css";
 
-import AuthContext from "../../contexts/authContext";
+import AuthContext from "../../contexts/AuthContext";
 import * as blogService from '../../services/blogService'
 
 import BlogDelete from "../BlogDelete/BlogDelete";

@@ -1,10 +1,11 @@
 import { useContext } from 'react';
 import './Header.css'
 import {Link} from 'react-router-dom';
-import AuthContext from '../../contexts/authContext';
+import AuthContext from '../../contexts/AuthContext';
 
 export default function Header(){
-	const {isAuthenticated, email} = useContext(AuthContext);
+
+	const {isAuthenticated} = useContext(AuthContext);
     return(
         <section className="top-area">
 			<div className="header-area">
@@ -25,7 +26,6 @@ export default function Header(){
 			                    <li className="scroll"><Link to="/blog">Blogs</Link></li>
 								{isAuthenticated &&
 								 <>
-								 <p>{email}</p>
 									<li className="scroll"><Link to="/blog/create">Create </Link></li>
 									<li className="scroll"><Link to="/profile">Profile</Link></li>
 									<li className="scroll"><Link to="/user/logout">Logout</Link></li>
