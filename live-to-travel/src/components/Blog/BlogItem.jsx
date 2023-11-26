@@ -12,7 +12,7 @@ export default function BlogItem({ data }) {
             <Link to={`/blog/details/${data._id}`}>{data.title}</Link>
           </h2>
           <h4>
-            posted <span>by</span> <a href="#">admin</a> march 2018
+            posted <span>{data.category}</span> <a href="#">admin</a> march 2018
           </h4>
           <p>
             Lorem ipsum dolor sit amet, consectetur de adipisicing elit, sed do

@@ -1,8 +1,11 @@
 import '../BlogCreate/BlogCreate.css'
 import React, { useEffect, useRef, useState } from "react";
 import { Editor } from "@tinymce/tinymce-react";
-import * as blogService from '../../services/blogService';
 import { useParams, useNavigate } from 'react-router-dom';
+
+import * as blogService from '../../services/blogService';
+import categories from '../../utils/categories';
+
 
 export default function BlogEdit(){
 
@@ -53,8 +56,10 @@ export default function BlogEdit(){
               <input type="text" className="form-control" id="imageUrl" name='imageUrl' value={forValues.imageUrl} onChange={onChange}/>
             </div>
             <div className="form-group">
-              <label htmlFor="category">Category</label>
-              <input type="text" className="form-control" id="category" name='category' value={forValues.category} onChange={onChange}/>
+            <label htmlFor="category">Category</label>
+              <select className="form-control"  name="category" id="category" onChange={onChange} value={forValues.category}>
+                        {categories.map(c => (<option key={c} value={c}>{c}</option>))}
+              </select>
             </div>
             <div className="form-group">
               <label htmlFor="content">Content</label>

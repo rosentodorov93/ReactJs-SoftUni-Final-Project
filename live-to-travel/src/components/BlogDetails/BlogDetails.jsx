@@ -99,7 +99,7 @@ export default function BlogDetails() {
             </div>
             <div >
               
-              {_id === blog.ownerId && 
+              {_id === blog._ownerId && 
               <>
                   <Link to={`/blog/edit/${blog._id}`}>Edit</Link>
                   <button type="button" onClick={onDeleteClick}>Delete</button>

@@ -2,7 +2,9 @@ import './BlogCreate.css'
 import React, { useRef, useState } from "react";
 import { Editor } from "@tinymce/tinymce-react";
 import {useNavigate} from 'react-router-dom'
+
 import * as blogService from '../../services/blogService';
+import categories from '../../utils/categories';
 
 export default function BlogCreate(){
 
@@ -47,7 +49,9 @@ export default function BlogCreate(){
             </div>
             <div className="form-group">
               <label htmlFor="category">Category</label>
-              <input type="text" className="form-control" id="category" name='category' value={forValues.category} onChange={onChange}/>
+              <select className="form-control"  name="category" id="category" onChange={onChange} value={forValues.category}>
+                        {categories.map(c => (<option key={c} value={c}>{c}</option>))}
+              </select>
             </div>
             <div className="form-group">
               <label htmlFor="content">Content</label>
