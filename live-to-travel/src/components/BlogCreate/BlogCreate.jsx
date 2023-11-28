@@ -4,6 +4,7 @@ import { Editor } from "@tinymce/tinymce-react";
 import {useNavigate} from 'react-router-dom'
 
 import * as blogService from '../../services/blogService';
+import * as validator from '../../utils/validator';
 import categories from '../../utils/categories';
 
 export default function BlogCreate(){
@@ -15,6 +16,8 @@ export default function BlogCreate(){
     category: '',
     content: ''
   });
+
+  const [errors, setErrors] = useState({});
 
   const navigate = useNavigate();
   const onChange = (e) =>{
@@ -28,6 +31,13 @@ export default function BlogCreate(){
 
   const onSubmitHandler = async(e) =>{
     e.preventDefault();
+    const errorsResult = validator.createEditForm(forValues);
+
+    if(errorsResult){
+      setErrors(errorsResult);
+      return;
+    }
+    
     const result = await blogService.create(forValues);
     navigate('/blog');
     console.log(result);
@@ -42,6 +52,7 @@ export default function BlogCreate(){
             <div className="form-group">
               <label htmlFor="title">Title</label>
               <input type="text" className="form-control" id="title" name='title' value={forValues.title} onChange={onChange}/>
+              {errors.title && errors.title.map(e => <div><span>{e}</span></div>)}
             </div>
             <div className="form-group">
               <label htmlFor="imageUrl">Image</label>
