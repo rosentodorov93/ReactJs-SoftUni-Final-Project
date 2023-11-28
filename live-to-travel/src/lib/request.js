@@ -9,7 +9,7 @@ const request = async(method, url, data)=>{
         options.body = JSON.stringify(data);
     };
 
-    const token = localStorage.getItem('auth');
+    const token = localStorage.getItem('accessToken');
     if(token){
         options.headers = {
             ...options.headers,
