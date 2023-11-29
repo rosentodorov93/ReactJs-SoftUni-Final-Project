@@ -1,17 +1,30 @@
 import "./Blog.css";
 import { useState, useEffect } from "react";
-import * as blogService from '../../services/blogService';
 import BlogItem from "./BlogItem";
+import { Link, useParams } from "react-router-dom";
+
+import * as blogService from "../../services/blogService";
+import categories from "../../utils/categories";
+import useForm from "../../hooks/useForm";
 
 export default function Blog() {
+  const [blogs, setBlogs] = useState([]);
 
-  const[blogs, setBlogs] = useState([]);
+  const onSearchSubmit = (values) => {
+    console.log(values.category);
+    console.log(values.search);
+  };
+  const { formValues, onChange, onSubmit } = useForm(onSearchSubmit, {
+    category: "",
+    search: "",
+  });
 
-  useEffect(()=>{
-    blogService.getAll()
-    .then(res => setBlogs(res))
-    .catch(err => console.log(err))
-  },[]);
+  useEffect(() => {
+    blogService
+      .getAll()
+      .then((res) => setBlogs(res))
+      .catch((err) => console.log(err));
+  }, []);
 
   return (
     <>
@@ -34,75 +47,45 @@ export default function Blog() {
 
       <div className="container-blog">
         <div className="container">
+          <div className="search-container">
+            <form className="search-form" method="GET" onSubmit={onSubmit}>
+              <select
+                className="search-type"
+                name="category"
+                onChange={onChange}
+                value={formValues.category}
+              >
+                {categories.map((c) => (
+                  <option value={c}>{c}</option>
+                ))}
+              </select>
+              
+              <input
+              id="search"
+                type="text"
+                className="search-text"
+                name="search"
+                onChange={onChange}
+                value={formValues.search}
+                placeholder="Search Title..."
+              />
+              <button type="submit" className="btn-search">
+                Search
+              </button>
+
+            </form>
+          </div>
+
           <div className="row">
             <div className="row-left-section">
               <div className="row">
-
-                {blogs.map(blog => <BlogItem key={blog._id} data = {blog}/>)}
+                {blogs.map((blog) => (
+                  <BlogItem key={blog._id} data={blog} />
+                ))}
               </div>
             </div>
             <div className="row-right-section">
-              <div className="categories-container">
-                <h4 className="text-uppercase mb-4">Categories</h4>
-                <div className="bg-white">
-                  <ul className="categories-list">
-                    <li className="categories-list-item">
-                      <a
-                        className="text-dark"
-                        href="https://www.free-css.com/free-css-templates"
-                      >
-                        <i className="fa fa-angle-right text-primary mr-2"></i>
-                        Web Design
-                      </a>{" "}
-                      <span className="badge badge-primary badge-pill">
-                        150
-                      </span>
-                    </li>
-                    <li className="categories-list-item">
-                      <a
-                        className="text-dark"
-                        href="https://www.free-css.com/free-css-templates"
-                      >
-                        <i className="fa fa-angle-right text-primary mr-2"></i>
-                        Web Development
-                      </a>{" "}
-                      <span className="badge badge-primary badge-pill">
-                        131
-                      </span>
-                    </li>
-                    <li className="categories-list-item">
-                      <a
-                        className="text-dark"
-                        href="https://www.free-css.com/free-css-templates"
-                      >
-                        <i className="fa fa-angle-right text-primary mr-2"></i>
-                        Online Marketing
-                      </a>{" "}
-                      <span className="badge badge-primary badge-pill">78</span>
-                    </li>
-                    <li className="categories-list-item">
-                      <a
-                        className="text-dark"
-                        href="https://www.free-css.com/free-css-templates"
-                      >
-                        <i className="fa fa-angle-right text-primary mr-2"></i>
-                        Keyword Research
-                      </a>{" "}
-                      <span className="badge badge-primary badge-pill">56</span>
-                    </li>
-                    <li className="categories-list-item">
-                      <a
-                        className="text-dark"
-                        href="https://www.free-css.com/free-css-templates"
-                      >
-                        <i className="fa fa-angle-right text-primary mr-2"></i>
-                        Email Marketing
-                      </a>{" "}
-                      <span className="badge badge-primary badge-pill">98</span>
-                    </li>
-                  </ul>
-                </div>
-              </div>
+             
               <div className="mb-5">
                 <h4>Recent Post</h4>
                 <div className="rescent-post">
