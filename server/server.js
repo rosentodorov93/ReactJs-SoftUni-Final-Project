@@ -1339,301 +1339,46 @@
     	}
     };
     var seedData = {
-    	recipes: {
-    		"3987279d-0ad4-4afb-8ca9-5b256ae3b298": {
-    			_ownerId: "35c62d76-8152-4626-8712-eeb96381bea8",
-    			name: "Easy Lasagna",
-    			img: "assets/lasagna.jpg",
-    			ingredients: [
-    				"1 tbsp Ingredient 1",
-    				"2 cups Ingredient 2",
-    				"500 g  Ingredient 3",
-    				"25 g Ingredient 4"
-    			],
-    			steps: [
-    				"Prepare ingredients",
-    				"Mix ingredients",
-    				"Cook until done"
-    			],
-    			_createdOn: 1613551279012
-    		},
-    		"8f414b4f-ab39-4d36-bedb-2ad69da9c830": {
-    			_ownerId: "35c62d76-8152-4626-8712-eeb96381bea8",
-    			name: "Grilled Duck Fillet",
-    			img: "assets/roast.jpg",
-    			ingredients: [
-    				"500 g  Ingredient 1",
-    				"3 tbsp Ingredient 2",
-    				"2 cups Ingredient 3"
-    			],
-    			steps: [
-    				"Prepare ingredients",
-    				"Mix ingredients",
-    				"Cook until done"
-    			],
-    			_createdOn: 1613551344360
-    		},
-    		"985d9eab-ad2e-4622-a5c8-116261fb1fd2": {
-    			_ownerId: "847ec027-f659-4086-8032-5173e2f9c93a",
-    			name: "Roast Trout",
-    			img: "assets/fish.jpg",
-    			ingredients: [
-    				"4 cups Ingredient 1",
-    				"1 tbsp Ingredient 2",
-    				"1 tbsp Ingredient 3",
-    				"750 g  Ingredient 4",
-    				"25 g Ingredient 5"
-    			],
-    			steps: [
-    				"Prepare ingredients",
-    				"Mix ingredients",
-    				"Cook until done"
-    			],
-    			_createdOn: 1613551388703
-    		}
-    	},
-    	records: {
-    		i01: {
-    			name: "John1",
-    			val: 1,
-    			_createdOn: 1613551388703
-    		},
-    		i02: {
-    			name: "John2",
-    			val: 1,
-    			_createdOn: 1613551388713
-    		},
-    		i03: {
-    			name: "John3",
-    			val: 2,
-    			_createdOn: 1613551388723
-    		},
-    		i04: {
-    			name: "John4",
-    			val: 2,
-    			_createdOn: 1613551388733
-    		},
-    		i05: {
-    			name: "John5",
-    			val: 2,
-    			_createdOn: 1613551388743
-    		},
-    		i06: {
-    			name: "John6",
-    			val: 3,
-    			_createdOn: 1613551388753
-    		},
-    		i07: {
-    			name: "John7",
-    			val: 3,
-    			_createdOn: 1613551388763
-    		},
-    		i08: {
-    			name: "John8",
-    			val: 2,
-    			_createdOn: 1613551388773
-    		},
-    		i09: {
-    			name: "John9",
-    			val: 3,
-    			_createdOn: 1613551388783
-    		},
-    		i10: {
-    			name: "John10",
-    			val: 1,
-    			_createdOn: 1613551388793
-    		}
-    	},
-    	catches: {
-    		"07f260f4-466c-4607-9a33-f7273b24f1b4": {
-    			_ownerId: "35c62d76-8152-4626-8712-eeb96381bea8",
-    			angler: "Paulo Admorim",
-    			weight: 636,
-    			species: "Atlantic Blue Marlin",
-    			location: "Vitoria, Brazil",
-    			bait: "trolled pink",
-    			captureTime: 80,
-    			_createdOn: 1614760714812,
-    			_id: "07f260f4-466c-4607-9a33-f7273b24f1b4"
-    		},
-    		"bdabf5e9-23be-40a1-9f14-9117b6702a9d": {
-    			_ownerId: "847ec027-f659-4086-8032-5173e2f9c93a",
-    			angler: "John Does",
-    			weight: 554,
-    			species: "Atlantic Blue Marlin",
-    			location: "Buenos Aires, Argentina",
-    			bait: "trolled pink",
-    			captureTime: 120,
-    			_createdOn: 1614760782277,
-    			_id: "bdabf5e9-23be-40a1-9f14-9117b6702a9d"
-    		}
-    	},
-    	furniture: {
-    	},
-    	orders: {
-    	},
-    	movies: {
-    		"1240549d-f0e0-497e-ab99-eb8f703713d7": {
-    			_ownerId: "847ec027-f659-4086-8032-5173e2f9c93a",
-    			title: "Black Widow",
-    			description: "Natasha Romanoff aka Black Widow confronts the darker parts of her ledger when a dangerous conspiracy with ties to her past arises. Comes on the screens 2020.",
-    			img: "https://miro.medium.com/max/735/1*akkAa2CcbKqHsvqVusF3-w.jpeg",
-    			_createdOn: 1614935055353,
-    			_id: "1240549d-f0e0-497e-ab99-eb8f703713d7"
-    		},
-    		"143e5265-333e-4150-80e4-16b61de31aa0": {
-    			_ownerId: "847ec027-f659-4086-8032-5173e2f9c93a",
-    			title: "Wonder Woman 1984",
-    			description: "Diana must contend with a work colleague and businessman, whose desire for extreme wealth sends the world down a path of destruction, after an ancient artifact that grants wishes goes missing.",
-    			img: "https://pbs.twimg.com/media/ETINgKwWAAAyA4r.jpg",
-    			_createdOn: 1614935181470,
-    			_id: "143e5265-333e-4150-80e4-16b61de31aa0"
-    		},
-    		"a9bae6d8-793e-46c4-a9db-deb9e3484909": {
-    			_ownerId: "35c62d76-8152-4626-8712-eeb96381bea8",
-    			title: "Top Gun 2",
-    			description: "After more than thirty years of service as one of the Navy's top aviators, Pete Mitchell is where he belongs, pushing the envelope as a courageous test pilot and dodging the advancement in rank that would ground him.",
-    			img: "https://i.pinimg.com/originals/f2/a4/58/f2a458048757bc6914d559c9e4dc962a.jpg",
-    			_createdOn: 1614935268135,
-    			_id: "a9bae6d8-793e-46c4-a9db-deb9e3484909"
-    		}
-    	},
-    	likes: {
-    	},
-    	ideas: {
-    		"833e0e57-71dc-42c0-b387-0ce0caf5225e": {
-    			_ownerId: "847ec027-f659-4086-8032-5173e2f9c93a",
-    			title: "Best Pilates Workout To Do At Home",
-    			description: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Minima possimus eveniet ullam aspernatur corporis tempore quia nesciunt nostrum mollitia consequatur. At ducimus amet aliquid magnam nulla sed totam blanditiis ullam atque facilis corrupti quidem nisi iusto saepe, consectetur culpa possimus quos? Repellendus, dicta pariatur! Delectus, placeat debitis error dignissimos nesciunt magni possimus quo nulla, fuga corporis maxime minus nihil doloremque aliquam quia recusandae harum. Molestias dolorum recusandae commodi velit cum sapiente placeat alias rerum illum repudiandae? Suscipit tempore dolore autem, neque debitis quisquam molestias officia hic nesciunt? Obcaecati optio fugit blanditiis, explicabo odio at dicta asperiores distinctio expedita dolor est aperiam earum! Molestias sequi aliquid molestiae, voluptatum doloremque saepe dignissimos quidem quas harum quo. Eum nemo voluptatem hic corrupti officiis eaque et temporibus error totam numquam sequi nostrum assumenda eius voluptatibus quia sed vel, rerum, excepturi maxime? Pariatur, provident hic? Soluta corrupti aspernatur exercitationem vitae accusantium ut ullam dolor quod!",
-    			img: "./images/best-pilates-youtube-workouts-2__medium_4x3.jpg",
-    			_createdOn: 1615033373504,
-    			_id: "833e0e57-71dc-42c0-b387-0ce0caf5225e"
-    		},
-    		"247efaa7-8a3e-48a7-813f-b5bfdad0f46c": {
-    			_ownerId: "847ec027-f659-4086-8032-5173e2f9c93a",
-    			title: "4 Eady DIY Idea To Try!",
-    			description: "Similique rem culpa nemo hic recusandae perspiciatis quidem, quia expedita, sapiente est itaque optio enim placeat voluptates sit, fugit dignissimos tenetur temporibus exercitationem in quis magni sunt vel. Corporis officiis ut sapiente exercitationem consectetur debitis suscipit laborum quo enim iusto, labore, quod quam libero aliquid accusantium! Voluptatum quos porro fugit soluta tempore praesentium ratione dolorum impedit sunt dolores quod labore laudantium beatae architecto perspiciatis natus cupiditate, iure quia aliquid, iusto modi esse!",
-    			img: "./images/brightideacropped.jpg",
-    			_createdOn: 1615033452480,
-    			_id: "247efaa7-8a3e-48a7-813f-b5bfdad0f46c"
-    		},
-    		"b8608c22-dd57-4b24-948e-b358f536b958": {
-    			_ownerId: "35c62d76-8152-4626-8712-eeb96381bea8",
-    			title: "Dinner Recipe",
-    			description: "Consectetur labore et corporis nihil, officiis tempora, hic ex commodi sit aspernatur ad minima? Voluptas nesciunt, blanditiis ex nulla incidunt facere tempora laborum ut aliquid beatae obcaecati quidem reprehenderit consequatur quis iure natus quia totam vel. Amet explicabo quidem repellat unde tempore et totam minima mollitia, adipisci vel autem, enim voluptatem quasi exercitationem dolor cum repudiandae dolores nostrum sit ullam atque dicta, tempora iusto eaque! Rerum debitis voluptate impedit corrupti quibusdam consequatur minima, earum asperiores soluta. A provident reiciendis voluptates et numquam totam eveniet! Dolorum corporis libero dicta laborum illum accusamus ullam?",
-    			img: "./images/dinner.jpg",
-    			_createdOn: 1615033491967,
-    			_id: "b8608c22-dd57-4b24-948e-b358f536b958"
-    		}
-    	},
-    	catalog: {
-    		"53d4dbf5-7f41-47ba-b485-43eccb91cb95": {
-    			_ownerId: "35c62d76-8152-4626-8712-eeb96381bea8",
-    			make: "Table",
-    			model: "Swedish",
-    			year: 2015,
-    			description: "Medium table",
-    			price: 235,
-    			img: "./images/table.png",
-    			material: "Hardwood",
-    			_createdOn: 1615545143015,
-    			_id: "53d4dbf5-7f41-47ba-b485-43eccb91cb95"
-    		},
-    		"f5929b5c-bca4-4026-8e6e-c09e73908f77": {
-    			_ownerId: "847ec027-f659-4086-8032-5173e2f9c93a",
-    			make: "Sofa",
-    			model: "ES-549-M",
-    			year: 2018,
-    			description: "Three-person sofa, blue",
-    			price: 1200,
-    			img: "./images/sofa.jpg",
-    			material: "Frame - steel, plastic; Upholstery - fabric",
-    			_createdOn: 1615545572296,
-    			_id: "f5929b5c-bca4-4026-8e6e-c09e73908f77"
-    		},
-    		"c7f51805-242b-45ed-ae3e-80b68605141b": {
-    			_ownerId: "847ec027-f659-4086-8032-5173e2f9c93a",
-    			make: "Chair",
-    			model: "Bright Dining Collection",
-    			year: 2017,
-    			description: "Dining chair",
-    			price: 180,
-    			img: "./images/chair.jpg",
-    			material: "Wood laminate; leather",
-    			_createdOn: 1615546332126,
-    			_id: "c7f51805-242b-45ed-ae3e-80b68605141b"
-    		}
-    	},
-    	teams: {
-    		"34a1cab1-81f1-47e5-aec3-ab6c9810efe1": {
-    			_ownerId: "35c62d76-8152-4626-8712-eeb96381bea8",
-    			name: "Storm Troopers",
-    			logoUrl: "/assets/atat.png",
-    			description: "These ARE the droids we're looking for",
-    			_createdOn: 1615737591748,
-    			_id: "34a1cab1-81f1-47e5-aec3-ab6c9810efe1"
-    		},
-    		"dc888b1a-400f-47f3-9619-07607966feb8": {
-    			_ownerId: "847ec027-f659-4086-8032-5173e2f9c93a",
-    			name: "Team Rocket",
-    			logoUrl: "/assets/rocket.png",
-    			description: "Gotta catch 'em all!",
-    			_createdOn: 1615737655083,
-    			_id: "dc888b1a-400f-47f3-9619-07607966feb8"
-    		},
-    		"733fa9a1-26b6-490d-b299-21f120b2f53a": {
-    			_ownerId: "847ec027-f659-4086-8032-5173e2f9c93a",
-    			name: "Minions",
-    			logoUrl: "/assets/hydrant.png",
-    			description: "Friendly neighbourhood jelly beans, helping evil-doers succeed.",
-    			_createdOn: 1615737688036,
-    			_id: "733fa9a1-26b6-490d-b299-21f120b2f53a"
-    		}
-    	},
-    	members: {
-    		"cc9b0a0f-655d-45d7-9857-0a61c6bb2c4d": {
-    			_ownerId: "35c62d76-8152-4626-8712-eeb96381bea8",
-    			teamId: "34a1cab1-81f1-47e5-aec3-ab6c9810efe1",
-    			status: "member",
-    			_createdOn: 1616236790262,
-    			_updatedOn: 1616236792930
-    		},
-    		"61a19986-3b86-4347-8ca4-8c074ed87591": {
-    			_ownerId: "847ec027-f659-4086-8032-5173e2f9c93a",
-    			teamId: "dc888b1a-400f-47f3-9619-07607966feb8",
-    			status: "member",
-    			_createdOn: 1616237188183,
-    			_updatedOn: 1616237189016
-    		},
-    		"8a03aa56-7a82-4a6b-9821-91349fbc552f": {
-    			_ownerId: "847ec027-f659-4086-8032-5173e2f9c93a",
-    			teamId: "733fa9a1-26b6-490d-b299-21f120b2f53a",
-    			status: "member",
-    			_createdOn: 1616237193355,
-    			_updatedOn: 1616237195145
-    		},
-    		"9be3ac7d-2c6e-4d74-b187-04105ab7e3d6": {
-    			_ownerId: "35c62d76-8152-4626-8712-eeb96381bea8",
-    			teamId: "dc888b1a-400f-47f3-9619-07607966feb8",
-    			status: "member",
-    			_createdOn: 1616237231299,
-    			_updatedOn: 1616237235713
-    		},
-    		"280b4a1a-d0f3-4639-aa54-6d9158365152": {
-    			_ownerId: "60f0cf0b-34b0-4abd-9769-8c42f830dffc",
-    			teamId: "dc888b1a-400f-47f3-9619-07607966feb8",
-    			status: "member",
-    			_createdOn: 1616237257265,
-    			_updatedOn: 1616237278248
-    		},
-    		"e797fa57-bf0a-4749-8028-72dba715e5f8": {
-    			_ownerId: "60f0cf0b-34b0-4abd-9769-8c42f830dffc",
-    			teamId: "34a1cab1-81f1-47e5-aec3-ab6c9810efe1",
-    			status: "member",
-    			_createdOn: 1616237272948,
-    			_updatedOn: 1616237293676
-    		}
-    	}
+        blogs: [
+            {
+                "_ownerId": "35c62d76-8152-4626-8712-eeb96381bea8",
+                "title": "Tsarevets Fortress: A Storied Citadel in Veliko Tarnovo, Bulgaria",
+                "imageUrl": "https://bulgariatravel.org/wp-content/uploads/2020/imported/5_1.jpg",
+                "category": "Places",
+                "content": "<p><strong>Introduction:</strong> Nestled in the heart of Bulgaria, the historic city of Veliko Tarnovo boasts a rich tapestry of cultural heritage, and at its pinnacle stands the magnificent Tsarevets Fortress. This iconic citadel is not merely a collection of stones; it is a living testament to Bulgaria's medieval history, a symbol of resilience, and a source of national pride.</p>\n<p><strong>Historical Background:</strong> Tsarevets Fortress traces its roots back to the medieval era when it served as the stronghold of the Second Bulgarian Empire. Constructed during the 12th century, the fortress became the political and cultural epicenter of the empire under the rule of Tsar Ivan Asen II.</p>\n<p><strong>Architectural Marvel:</strong> The fortress is strategically positioned on Tsarevets Hill, providing both defensive advantages and breathtaking panoramic views of the surrounding Yantra River. Located in the northern part of Veliko Tarnovo, the hill on which Tsarevets stands is easily accessible and serves as a prominent landmark within the city. Its architecture reflects a blend of Byzantine and Bulgarian influences, with imposing stone walls, towers, and the prominent Patriarchal Cathedral of the Holy Ascension.</p>\n<p><strong>The Patriarchal Cathedral:</strong> At the heart of Tsarevets lies the Patriarchal Cathedral, a symbol of spiritual significance. Originally built in the 12th century, the cathedral was a masterpiece adorned with exquisite frescoes and intricate decorations. Although ravaged by time and historical events, the cathedral has undergone restoration efforts to preserve its cultural and religious importance.</p>\n<p><strong>The Sound and Light Show:</strong> To breathe life into the stone walls and immerse visitors in the historical narrative, Tsarevets hosts a mesmerizing Sound and Light Show. As night falls, the fortress is bathed in a kaleidoscope of colors, accompanied by a narrated account of Bulgaria's history, recounting the triumphs and tribulations of the Second Bulgarian Empire.</p>\n<p><strong>The Execution Rock:</strong> Adding a touch of intrigue, the Execution Rock within the fortress is a stark reminder of the tumultuous past. Prisoners were said to be thrown from this precipice, meeting their fate in the abyss below. The Execution Rock stands as a poignant symbol of the fortress's role in the ebb and flow of medieval power struggles.</p>\n<p><strong>The Baldwin's Tower:</strong> One of the prominent towers on Tsarevets is Baldwin's Tower, named after the Latin Emperor Baldwin I of Constantinople, who was imprisoned there after being captured during the Battle of Adrianople in 1205. This historical footnote adds a layer of complexity to the fortress's narrative, intertwining it with broader European medieval events.</p>\n<p><strong>Modern Significance:</strong> Today, Tsarevets Fortress is not merely a relic of the past but a vibrant cultural hub, attracting visitors from around the world. Its historical significance, coupled with the mesmerizing architectural elements and the immersive Sound and Light Show, ensures that it remains a focal point of Bulgaria's cultural heritage.</p>\n<p><strong>Conclusion:</strong> Tsarevets Fortress stands as a timeless sentinel, guarding the memories and stories of Bulgaria's medieval legacy. Its stone walls whisper tales of triumph and tragedy, making it a must-visit destination for history enthusiasts and travelers eager to delve into the rich history of Veliko Tarnovo and the Second Bulgarian Empire. Located on Tsarevets Hill, the fortress offers not only a journey through time but also a breathtaking view of the modern city of Veliko Tarnovo and the picturesque landscapes beyond.</p>",
+                "_createdOn": 1701261029800,
+                "_id": "90535259-d1b3-4bcf-a84b-53dc02007751"
+            },
+            {
+                "_ownerId": "35c62d76-8152-4626-8712-eeb96381bea8",
+                "title": "Navigating Thrills: Rafting Adventures on Bulgaria's Struma River",
+                "imageUrl": "https://media.tacdn.com/media/attractions-splice-spp-674x446/0a/e4/3c/90.jpg",
+                "category": "Advanture",
+                "content": "<div class=\"flex flex-grow flex-col max-w-full\">\n<div class=\"min-h-[20px] text-message flex flex-col items-start gap-3 whitespace-pre-wrap break-words [.text-message+&amp;]:mt-5 overflow-x-auto\" data-message-author-role=\"assistant\" data-message-id=\"cf3a1305-7a50-4b4a-95b4-0f1450546dcd\">\n<div class=\"markdown prose w-full break-words dark:prose-invert light\">\n<p><strong>Introduction:</strong> Bulgaria, with its diverse landscapes and pristine waterways, offers adventure enthusiasts a unique opportunity to experience the exhilarating world of rafting. Among the country's water arteries, the Struma River stands out as a thrilling destination for those seeking an adrenaline-pumping journey through stunning natural scenery.</p>\n<p><strong>The Struma River:</strong> Flowing through the western part of Bulgaria, the Struma River is a dynamic watercourse originating from the Rila Mountains. Its waters wind their way through picturesque valleys, rocky gorges, and lush forests, creating an ideal setting for an unforgettable rafting expedition.</p>\n<p><strong>Rafting Routes:</strong> Several rafting routes are available along the Struma River, catering to various levels of expertise. Novice rafters and families can enjoy a scenic yet milder experience on lower sections of the river, while adrenaline junkies can tackle more challenging rapids on the upper stretches.</p>\n<ol>\n<li>\n<p><em>Kresna Gorge Adventure:</em> Beginning at the town of Kresna, this route takes participants through the stunning Kresna Gorge. Rafters navigate exciting rapids and enjoy the breathtaking views of the surrounding landscape, all while experiencing the thrill of the Struma's lively waters.</p>\n</li>\n<li>\n<p><em>Blagoevgrad to Kresna:</em> A more advanced route, this stretch of the Struma River is known for its technical rapids and continuous challenges. Rafters encounter exhilarating drops and twists as the river weaves through the diverse Bulgarian countryside.</p>\n</li>\n</ol>\n<p><strong>Scenic Beauty:</strong> The Struma River rafting experience is not only about heart-pounding rapids but also about immersing oneself in the natural beauty that Bulgaria has to offer. Rafters may catch glimpses of the Rila Mountains, dense forests, and the diverse flora and fauna that call the Struma River basin home.</p>\n<p><strong>Rafting Seasons:</strong> The best time to embark on a Struma River rafting adventure is during the late spring to early summer months when the water levels are optimal, thanks to the melting snow from the mountains. This period ensures a thrilling yet safe experience for participants of all skill levels.</p>\n<p><strong>Guides and Safety:</strong> Professional rafting guides play a crucial role in ensuring a safe and enjoyable experience on the Struma River. These guides are well-versed in navigating the river's twists and turns, providing participants with the necessary skills and knowledge to conquer the rapids.</p>\n<p><strong>Community and Culture:</strong> Beyond the adrenaline rush, Struma River rafting provides an opportunity to connect with the local culture. Many rafting excursions include visits to nearby villages, allowing participants to experience Bulgarian hospitality and traditional cuisine.</p>\n<p><strong>Conclusion:</strong> Struma River rafting in Bulgaria is more than just a thrill-seeking adventure; it's a journey through nature's wonders and an immersion into the rich cultural tapestry of the region. Whether you're a first-time rafter or a seasoned adventurer, the Struma River promises an unforgettable ride, combining the rush of adrenaline with the serenity of Bulgaria's breathtaking landscapes. So, grab a paddle, don your safety gear, and get ready for an expedition down the pulsating currents of the Struma River.</p>\n</div>\n</div>\n</div>\n<div class=\"mt-1 flex justify-start gap-3 empty:hidden\">\n<div class=\"text-gray-400 flex self-end lg:self-center justify-center lg:justify-start mt-0 gap-1 visible\">&nbsp;</div>\n</div>",
+                "_createdOn": 1701261412183,
+                "_id": "1e77045b-64c7-4d4c-9421-5b54c84ea425"
+            },
+            {
+                "_ownerId": "35c62d76-8152-4626-8712-eeb96381bea8",
+                "title": "Conquering the Kom-Emine: Hiking Bulgaria's Long-distance Trail",
+                "imageUrl": "https://www.penguintravel.com/uploads/largeThumb/Th2file_7815.jpg",
+                "category": "",
+                "content": "<p><strong>Introduction:</strong> For those seeking an extraordinary trek through Bulgaria's diverse landscapes, the Kom-Emine route stands as a beacon of adventure. Stretching across the Balkan Mountains, this long-distance trail offers hikers an immersive journey through some of the country's most breathtaking scenery and cultural gems.</p>\n<p><strong>The Kom-Emine Trail:</strong> The Kom-Emine is a long-distance hiking trail that spans approximately 600 kilometers, running from the western border with Serbia to the Black Sea coast in the east. Named after two prominent peaks along the route, Kom Peak and Emine Peak, the trail takes hikers on a remarkable odyssey through Bulgaria's heartland.</p>\n<p><strong>Starting Point:</strong> The journey typically begins in the mountainous region near the town of Kom, close to the Serbian border. From here, hikers ascend through dense forests, alpine meadows, and picturesque landscapes, gradually making their way eastward.</p>\n<p><strong>Breathtaking Landscapes:</strong> One of the highlights of the Kom-Emine route is the diverse range of landscapes encountered along the way. Hikers traverse mountain ridges with panoramic views, navigate through serene forests, and cross crystal-clear rivers. The trail offers a glimpse into Bulgaria's natural beauty, from the rugged splendor of the mountains to the tranquility of its valleys.</p>\n<p><strong>Cultural Significance:</strong> Beyond the natural wonders, the Kom-Emine route introduces hikers to Bulgaria's rich cultural heritage. Along the trail, there are opportunities to explore ancient monasteries, traditional villages, and archaeological sites that tell the story of the country's history and traditions.</p>\n<p><strong>Challenges and Rewards:</strong> The Kom-Emine is not for the faint of heart. Hikers face various challenges, including steep ascents, unpredictable weather, and remote stretches with limited amenities. However, the sense of accomplishment and the breathtaking moments of solitude amidst nature's grandeur make every challenge worthwhile.</p>\n<p><strong>Shelters and Accommodations:</strong> Throughout the route, there are mountain huts and shelters where hikers can rest, recharge, and enjoy the camaraderie of fellow trekkers. These shelters, strategically placed along the trail, provide basic amenities and a rustic charm, adding to the overall adventure of the journey.</p>\n<p><strong>Best Time to Hike:</strong> The optimal time to tackle the Kom-Emine route is during the summer months, from June to September, when the weather is generally more predictable, and the trail is at its most accessible. Spring and fall also offer stunning landscapes, but hikers should be prepared for varying weather conditions.</p>\n<p><strong>Planning and Preparation:</strong> Proper planning is essential for undertaking the Kom-Emine route. Hikers should be equipped with sturdy hiking gear, maps, and a thorough understanding of the trail's difficulty levels. Many hikers choose to break the journey into segments, allowing for a more manageable and enjoyable experience.</p>\n<p><strong>Conclusion:</strong> The Kom-Emine trail is a pilgrimage for hiking enthusiasts, offering a unique blend of natural beauty, cultural exploration, and physical challenge. As you traverse the diverse terrains of Bulgaria, from the towering peaks to the serene valleys, the Kom-Emine promises an unforgettable adventure and a deep connection with the soul of this Balkan gem. Lace up your hiking boots, embrace the trail, and embark on a journey that will leave you with lasting memories of Bulgaria's majestic landscapes.</p>",
+                "_createdOn": 1701261552581,
+                "_id": "a89d98bf-4f1c-476b-ba59-79f7dfb760c8"
+            },
+            {
+                "_ownerId": "35c62d76-8152-4626-8712-eeb96381bea8",
+                "title": "Scaling Heights: A Journey to Botev Peak in Bulgaria",
+                "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/8/8d/Below_Botev_peak.jpg",
+                "category": "",
+                "content": "<p><strong>Botev Peak:</strong> Nestled in the Balkan Mountains, Botev Peak is the highest point in this mountain range, reaching an elevation of 2,376 meters (7,795 feet). The peak is named after the Bulgarian national hero Hristo Botev, and ascending it promises not only a physical challenge but also a connection with the rich history and natural splendor of the region.</p>\n<p><strong>Starting Point:</strong> The journey to Botev Peak often begins in the charming town of Kalofer, situated at the foothills of the Balkans. Kalofer serves as a gateway to the mountainous adventure, providing a picturesque starting point for the ascent.</p>\n<p><strong>The Hike:</strong> The trek to Botev Peak typically follows a well-marked trail, guiding hikers through enchanting beech forests, rocky paths, and alpine meadows. Along the way, the air is filled with the fragrance of mountain herbs, and the sound of birdsong accompanies the rhythmic crunch of hikers' boots on the trail.</p>\n<p><strong>Hut \"Raiskoto Praskalo\":</strong> En route to Botev Peak, hikers often pass by the Raiskoto Praskalo hut, situated near the stunning Raiskoto Praskalo waterfall. The hut provides a welcome rest stop, offering refreshments and a chance to marvel at the cascading waters against the mountainous backdrop.</p>\n<p><strong>Challenging Sections:</strong> As the ascent continues, the trail becomes steeper, presenting hikers with more challenging sections. The rocky terrain demands concentration and endurance, but the reward is the ever-expanding panoramic views of the surrounding mountains and valleys.</p>\n<p><strong>Botev Peak Summit:</strong> Reaching the summit of Botev Peak is a triumphant moment. The expansive vistas from the peak showcase the beauty of the Balkans, with rolling hills, deep gorges, and distant mountain ranges stretching as far as the eye can see. On a clear day, the panoramic view extends to the Thracian Plain and beyond.</p>\n<p><strong>Weather Considerations:</strong> Weather conditions on Botev Peak can be unpredictable, with temperatures dropping, and wind speeds increasing as you ascend. It's crucial for hikers to check the weather forecast, carry appropriate gear, and be prepared for changing conditions, especially if attempting the ascent during the colder months.</p>\n<p><strong>Cultural Significance:</strong> Botev Peak holds cultural significance as it is named after Hristo Botev, a key figure in Bulgaria's struggle for independence. The journey to the summit becomes a symbolic exploration of the country's history and a tribute to those who fought for its freedom.</p>\n<p><strong>Conclusion:</strong> A trip to Botev Peak is not just a physical feat but a spiritual journey into the heart of Bulgaria's natural grandeur. The ascent offers a mix of challenges and rewards, with each step bringing you closer to the sky. For those who crave adventure, cultural exploration, and panoramic mountain views, Botev Peak is a must-visit destination that encapsulates the essence of Bulgaria's untamed beauty. So, lace up your hiking boots, embrace the trail, and let the allure of Botev Peak elevate your sense of adventure to new heights.</p>",
+                "_createdOn": 1701261858859,
+                "_id": "39ac8fe0-598b-4cf7-a72b-8682601d122d"
+            }
+        ]
+
+        
     };
     var rules$1 = {
     	users: {
