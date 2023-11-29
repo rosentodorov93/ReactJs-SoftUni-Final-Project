@@ -10,9 +10,9 @@ import useForm from "../../hooks/useForm";
 export default function Blog() {
   const [blogs, setBlogs] = useState([]);
 
-  const onSearchSubmit = (values) => {
-    console.log(values.category);
-    console.log(values.search);
+  const onSearchSubmit = async(values) => {
+    const result = await blogService.getAll(formValues.category, formValues.search);
+    setBlogs(result);
   };
   const { formValues, onChange, onSubmit } = useForm(onSearchSubmit, {
     category: "",

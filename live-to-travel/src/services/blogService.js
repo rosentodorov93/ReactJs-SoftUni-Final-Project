@@ -7,8 +7,32 @@ export const create = async(data) =>{
    return result;
 }
 
-export const getAll = async() =>{
-    const result = await request.get(baseUrl);
+export const getAll = async(category='', search='') =>{
+    let query;
+
+    if(category && search){
+        query = 'where=' + encodeURIComponent(`category="${category}" AND title LIKE "${search}"`);
+    }
+    else if(search && !category){
+        query= new URLSearchParams({
+            where: `category="${search}"`
+        })
+    }else if(category && !search){
+        query = new URLSearchParams({
+            where: `category="${category}"`
+        })
+    }
+
+    let result;
+    
+    if(query){
+        const url = `${baseUrl}?${query}`
+        console.log(url);
+        result = await request.get(url);
+    }else{
+        result = await request.get(baseUrl);
+    }
+    
     console.log(result);
     return result
 }
