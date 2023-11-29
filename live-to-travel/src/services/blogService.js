@@ -9,7 +9,7 @@ export const create = async(data) =>{
 
 export const getAll = async() =>{
     const result = await request.get(baseUrl);
-
+    console.log(result);
     return result
 }
 
