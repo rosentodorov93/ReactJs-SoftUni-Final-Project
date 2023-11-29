@@ -33,7 +33,7 @@ export default function BlogCreate(){
     e.preventDefault();
     const errorsResult = validator.createEditForm(forValues);
 
-    if(errorsResult){
+    if(Object.values(errorsResult).some(x => x.length > 0)){
       setErrors(errorsResult);
       return;
     }
