@@ -1,4 +1,5 @@
 import {Link} from 'react-router-dom'
+import './BlogItem.css'
 
 export default function BlogItem({ data }) {
   return (
@@ -12,12 +13,9 @@ export default function BlogItem({ data }) {
             <Link to={`/blog/details/${data._id}`}>{data.title}</Link>
           </h2>
           <h4>
-            posted <span>{data.category}</span> <a href="#">admin</a> march 2018
+            Category: <span>{data.category}</span> 
           </h4>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur de adipisicing elit, sed do
-            eiusmod tempore incididunt ut labore et dolore magna.
-          </p>
+          <p>Posted on: {new Date(data._createdOn).toLocaleDateString()}</p>
         </div>
       </div>
     </div>

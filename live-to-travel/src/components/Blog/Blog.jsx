@@ -1,6 +1,6 @@
 import "./Blog.css";
 import { useState, useEffect } from "react";
-import BlogItem from "./BlogItem";
+import BlogItem from "../BlogItem/BlogItem";
 import { Link, useParams } from "react-router-dom";
 
 import * as blogService from "../../services/blogService";
@@ -49,18 +49,26 @@ export default function Blog() {
         <div className="container">
           <div className="search-container">
             <form className="search-form" method="GET" onSubmit={onSubmit}>
-              <select
+            <div>
+              <label htmlFor="category">Category</label>
+            <select
                 className="search-type"
                 name="category"
+                id="category"
                 onChange={onChange}
                 value={formValues.category}
+                placeholder="category"
               >
+                <option value={''} >All</option>
                 {categories.map((c) => (
                   <option value={c}>{c}</option>
                 ))}
               </select>
+            </div>
               
-              <input
+           <div>
+          <label htmlFor="search">Search</label>
+           <input
               id="search"
                 type="text"
                 className="search-text"
@@ -72,6 +80,7 @@ export default function Blog() {
               <button type="submit" className="btn-search">
                 Search
               </button>
+           </div>
 
             </form>
           </div>
