@@ -14,9 +14,7 @@ export const getAll = async(category='', search='') =>{
         query = 'where=' + encodeURIComponent(`category="${category}" AND title LIKE "${search}"`);
     }
     else if(search && !category){
-        query= new URLSearchParams({
-            where: `category="${search}"`
-        })
+        query= 'where=' + encodeURIComponent(`title LIKE "${search}"`);
     }else if(category && !search){
         query = new URLSearchParams({
             where: `category="${category}"`
@@ -35,6 +33,22 @@ export const getAll = async(category='', search='') =>{
     
     console.log(result);
     return result
+}
+
+export const getLatestsThree = async() =>{
+    // const query = new URLSearchParams({
+    //     sortBy: '_createdOn desc',
+    //     offset: 0,
+    //     pageSize: 3,
+    // })
+
+    const query = 'sortBy=' + encodeURIComponent(`_createdOn desc`) + '&offset=0&pageSize=3'
+
+    const url = `${baseUrl}?${query}`
+    console.log(url)
+    const result = await request.get(url);
+
+    return result;
 }
 
 export const getOne = async(id) =>{
