@@ -76,16 +76,7 @@
 .mt-5{
     margin-top: 65px;
 }
-.blogs{
-    flex: 0 0 50%;
-    max-width: 50%;
-    position: relative;
-    width: 100%;
-    padding-right: 15px;
-    padding-left: 15px;
-    margin-bottom: 1.5rem;
-    padding-bottom: .5rem;
-}
+
 .blog-article{
     transition: .5s;
 
