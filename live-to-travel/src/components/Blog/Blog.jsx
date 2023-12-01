@@ -9,19 +9,20 @@ import useForm from "../../hooks/useForm";
 
 export default function Blog() {
   const [blogs, setBlogs] = useState([]);
+  const {category} = useParams();
 
   const onSearchSubmit = async(values) => {
     const result = await blogService.getAll(formValues.category, formValues.search);
     setBlogs(result);
   };
   const { formValues, onChange, onSubmit } = useForm(onSearchSubmit, {
-    category: "",
-    search: "",
+    category: category ? category : '',
+    search: '',
   });
 
   useEffect(() => {
     blogService
-      .getAll()
+      .getAll(category ? category : '')
       .then((res) => setBlogs(res))
       .catch((err) => console.log(err));
   }, []);
@@ -61,7 +62,7 @@ export default function Blog() {
               >
                 <option value={''} >All</option>
                 {categories.map((c) => (
-                  <option value={c}>{c}</option>
+                  <option key={c} value={c}>{c}</option>
                 ))}
               </select>
             </div>
