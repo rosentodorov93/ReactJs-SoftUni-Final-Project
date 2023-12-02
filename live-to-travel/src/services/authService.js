@@ -16,7 +16,7 @@
     const user = {
         firstName: data.firstName,
         lastName: data.lastName,
-        age: data.age,
+        imageLink: data.imageLink,
         email: data.email,
         password: data.password,
     };
