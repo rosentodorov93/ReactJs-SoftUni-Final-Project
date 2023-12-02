@@ -1,19 +1,30 @@
-import { useContext } from "react";
-import useForm from "../../hooks/useForm";
-import AuthContext from "../../contexts/AuthContext";
+import { useContext, useState } from "react";
 import "./UserRegister.css";
+import { PickerDropPane } from "filestack-react";
+import AuthContext from "../../contexts/AuthContext";
 
 export default function UserRegister() {
+  const { registerSubmitHandler } = useContext(AuthContext);
+  const [showUpload, setShowUpload] = useState(true);
+  const [ formValues, setFormValues ] = useState({
+    firstName: "",
+    lastName: "",
+    imageLink: "",
+    email: "",
+    password: "",
+    confirmPassword: "",
+  });
 
-  const {registerSubmitHandler} = useContext(AuthContext);
-  const {formValues, onChange, onSubmit} = useForm(registerSubmitHandler, {
-    firstName: '',
-    lastName: '',
-    age: '',
-    email: '',
-    password: '',
-    confirmPassword: ''
-  })
+  const onChange = (e) =>{
+    setFormValues(state => ({...state, [e.target.name]: e.target.value}));
+  }
+
+  const onSubmit = (e) =>{
+    e.preventDefault()
+    console.log(formValues)
+    registerSubmitHandler(formValues);
+  }
+
 
   return (
     <>
@@ -44,15 +55,20 @@ export default function UserRegister() {
               />
             </div>
             <div className="form-group">
-              <label htmlFor="age">Age</label>
-              <input
-                type="number"
-                className="form-control"
-                id="age"
-                name="age"
-                onChange={onChange}
-                value={formValues.age}
-              />
+              <label htmlFor="age">Upload Photo</label>
+              {showUpload && 
+              <PickerDropPane
+                apikey='AZcmoUAkqSKecIlxiW0YDz'
+                pickerOptions={{
+                  accept: 'image/*',
+                }}
+                onUploadDone={(res) => {
+                  setFormValues(state => ({...state, imageLink: res.filesUploaded[0].url}))
+                  setShowUpload(false);
+                }
+                }
+              />}
+              
             </div>
             <div className="form-group">
               <label htmlFor="email">Email</label>
