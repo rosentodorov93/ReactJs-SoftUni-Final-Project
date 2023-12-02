@@ -1,53 +1,78 @@
 import { useEffect, useState } from 'react';
+import RescentPost from '../RescentPost/RescentPost'
 import './Profile.css';
 
 import * as authService from '../../services/authService';
+import * as blogService from '../../services/blogService';
+import PersonalInfo from '../PersonalInfo/PersonalInfo';
 
 export default function Profile(){
 
     const [user, setUser] = useState();
+    const [myPosts, setMyPosts] = useState([]);
+    const [recentPosts, setRecentPosts] = useState([]);
+    
 
     useEffect(() =>{
         authService.getMine()
-        .then(res => console.log(res))
+        .then(res => 
+            {setUser(res)
+            console.log(res)})
         .catch(err => console.log(err))
-    });
+
+        // blogService.getMine()
+        // .then(res => setMyPosts(res))
+        // .catch(err => console.log(err))
+
+        blogService.getLatestsThree()
+        .then(res => setRecentPosts(res))
+        .catch(err => console.log(err))
+    },[]);
 
     return(
-        <div className="profile-container">
-                <div className="profile-section">
-                   <div className="image-section">
-                       <img src="https://img.freepik.com/premium-vector/man-avatar-profile-picture-vector-illustration_268834-538.jpg" alt=""/>
-                       <button className="btn-upload"><i ></i> Upload Photo</button>
-                   </div>
-                   <div className="profile-details">
-                       <h2>John Smith</h2>
-                        <h6>Freelance Web Designer</h6>
-                        <p>There are many variations of passages of Lorem Ipsum available but the majority is have suffered alteration in that some form by injected humour or randomised that words which don't look even slightly believable. If you are going a to use a passage of Lorem Ipsum you need to be sure there isn't anything embarrassing. There are is many variations of passages available.</p>
-                          <div className="info">
-                            <div className="info-col">
-                                <div className="info-list">
-                                    <ul>
-                                        <li><span>Birthday:</span>05. 09.1987</li>
-                                        <li><span>City:</span>Toranto</li>
-                                        <li><span>Study:</span>Cambridge University</li>
-                                        <li><span>Website:</span>www.smarteyeapps.com</li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div className="info-col">
-                                <div className="info-list">
-                                    <ul>
-                                        <li><span>Age:</span>31 Years</li>
-                                        <li><span>Degree:</span>Master</li>
-                                        <li><span>Mail:</span>email@example.com</li>
-                                        <li><span>Phone:</span>+01 454 548 4458</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div> 
-                   </div>
-                </div>
-           </div>
+        <>
+      <div className="container header">
+        <div className="container">
+          <div className="heading-wrapper">
+            <h3>Blog</h3>
+            <div>
+              <p>
+                <a href="https://www.free-css.com/free-css-templates">Home</a>
+              </p>
+              <i className="fa fa-angle-double-right "></i>
+              <p>Blog</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* main part */}
+
+      <div className="container-blog">
+        <div className="container">
+
+          <div className="row">
+            <div className="row-left-section">
+              <div className="row">
+                {myPosts.map((blog) => (
+                  <BlogItem key={blog._id} data={blog} />
+                ))}
+
+                {myPosts.length === 0 && <p>No posts from me yet</p>}
+              </div>
+            </div>
+            <div className="row-right-section">
+                
+                <PersonalInfo {...user}/>
+
+              <div className="mb-5">
+                <h4>Recent Post</h4>
+                {recentPosts.map(post => <RescentPost key={post._id} {...post}/>)}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </>
     )
 }
