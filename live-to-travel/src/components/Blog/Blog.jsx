@@ -6,9 +6,11 @@ import { Link, useParams } from "react-router-dom";
 import * as blogService from "../../services/blogService";
 import categories from "../../utils/categories";
 import useForm from "../../hooks/useForm";
+import RescentPost from "../RescentPost/RescentPost";
 
 export default function Blog() {
   const [blogs, setBlogs] = useState([]);
+  const [recentPosts, setRecentPosts] = useState([]);
   const {category} = useParams();
 
   const onSearchSubmit = async(values) => {
@@ -25,6 +27,10 @@ export default function Blog() {
       .getAll(category ? category : '')
       .then((res) => setBlogs(res))
       .catch((err) => console.log(err));
+    
+    blogService.getLatestsThree()
+    .then(res => setRecentPosts(res))
+    .catch(err => console.log(err))
   }, []);
 
   return (
@@ -98,51 +104,7 @@ export default function Blog() {
              
               <div className="mb-5">
                 <h4>Recent Post</h4>
-                <div className="rescent-post">
-                  <img
-                    className="post-img"
-                    src="../images/blog/b2.jpg"
-                    alt="website template image"
-                  />
-                  <div className="pl-3">
-                    <h6 className="m-1">
-                      Diam lorem dolore justo eirmod lorem dolore
-                    </h6>
-                    <small>Jan 01, 2045</small>
-                  </div>
-                </div>{" "}
-                <div
-                  className="rescent-post"
-                  href="https://www.free-css.com/free-css-templates"
-                >
-                  <img
-                    className="post-img"
-                    src="../images/blog/b2.jpg"
-                    alt="website template image"
-                  />
-                  <div className="pl-3">
-                    <h6 className="m-1">
-                      Diam lorem dolore justo eirmod lorem dolore
-                    </h6>
-                    <small>Jan 01, 2045</small>
-                  </div>
-                </div>{" "}
-                <div
-                  className="rescent-post"
-                  href="https://www.free-css.com/free-css-templates"
-                >
-                  <img
-                    className="post-img"
-                    src="../images/blog/b2.jpg"
-                    alt="website template image"
-                  />
-                  <div className="pl-3">
-                    <h6 className="m-1">
-                      Diam lorem dolore justo eirmod lorem dolore
-                    </h6>
-                    <small>Jan 01, 2045</small>
-                  </div>
-                </div>
+                {recentPosts.map(post => <RescentPost key={post._id} {...post}/>)}
               </div>
             </div>
           </div>

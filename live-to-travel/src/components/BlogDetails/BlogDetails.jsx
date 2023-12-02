@@ -10,12 +10,15 @@ import * as commentService from '../../services/commentService'
 
 import BlogDelete from "../BlogDelete/BlogDelete";
 import useForm from "../../hooks/useForm";
+import RescentPost from "../RescentPost/RescentPost";
+import categories from '../../utils/categories';
 
 export default function BlogDetails() {
 
   const {_id} = useContext(AuthContext);
   const {id} = useParams();
   const [blog, setBlog] = useState({});
+  const [recentPosts, setRecentPosts] = useState([]);
   const [comments, setComments] = useState([]);
   const [showDeleteModal, setShowDeleteModal] = useState(false);
   const navigate = useNavigate();
@@ -30,6 +33,9 @@ export default function BlogDetails() {
     .then(res => setComments(res))
     .catch(err => console.log(err))
 
+    blogService.getLatestsThree()
+    .then(res => setRecentPosts(res))
+    .catch(err => console.log(err))
   },[id])
 
   const onDeleteClick = () =>{
@@ -141,110 +147,26 @@ export default function BlogDetails() {
                 <h4 className="text-uppercase mb-4">Categories</h4>
                 <div className="bg-white">
                   <ul className="categories-list">
-                    <li className="categories-list-item">
-                      <a
+                    {categories.map(c =>   
+                    <li className="categories-list-item" key={c}>
+                      <Link
                         className="text-dark"
-                        href="https://www.free-css.com/free-css-templates"
+                        to={`/blog/${c}`}
                       >
                         <i className="fa fa-angle-right text-primary mr-2"></i>
-                        Web Design
-                      </a>{" "}
-                      <span className="badge badge-primary badge-pill">
-                        150
-                      </span>
-                    </li>
-                    <li className="categories-list-item">
-                      <a
-                        className="text-dark"
-                        href="https://www.free-css.com/free-css-templates"
-                      >
-                        <i className="fa fa-angle-right text-primary mr-2"></i>
-                        Web Development
-                      </a>{" "}
-                      <span className="badge badge-primary badge-pill">
-                        131
-                      </span>
-                    </li>
-                    <li className="categories-list-item">
-                      <a
-                        className="text-dark"
-                        href="https://www.free-css.com/free-css-templates"
-                      >
-                        <i className="fa fa-angle-right text-primary mr-2"></i>
-                        Online Marketing
-                      </a>{" "}
-                      <span className="badge badge-primary badge-pill">78</span>
-                    </li>
-                    <li className="categories-list-item">
-                      <a
-                        className="text-dark"
-                        href="https://www.free-css.com/free-css-templates"
-                      >
-                        <i className="fa fa-angle-right text-primary mr-2"></i>
-                        Keyword Research
-                      </a>{" "}
-                      <span className="badge badge-primary badge-pill">56</span>
-                    </li>
-                    <li className="categories-list-item">
-                      <a
-                        className="text-dark"
-                        href="https://www.free-css.com/free-css-templates"
-                      >
-                        <i className="fa fa-angle-right text-primary mr-2"></i>
-                        Email Marketing
-                      </a>{" "}
-                      <span className="badge badge-primary badge-pill">98</span>
-                    </li>
+                        {c}
+                      </Link>
+                    </li>)}
+                  
+                    
                   </ul>
                 </div>
               </div>
               <div className="mb-5">
                 <h4>Recent Post</h4>
-                <div className="rescent-post">
-                  <img
-                    className="post-img"
-                    src="../../images/blog/b2.jpg"
-                    alt="website template image"
-                  />
-                  <div className="pl-3">
-                    <h6 className="m-1">
-                      Diam lorem dolore justo eirmod lorem dolore
-                    </h6>
-                    <small>Jan 01, 2045</small>
-                  </div>
-                </div>{" "}
-                <div
-                  className="rescent-post"
-                  href="https://www.free-css.com/free-css-templates"
-                >
-                  <img
-                    className="post-img"
-                    src="../../images/blog/b2.jpg"
-                    alt="website template image"
-                  />
-                  <div className="pl-3">
-                    <h6 className="m-1">
-                      Diam lorem dolore justo eirmod lorem dolore
-                    </h6>
-                    <small>Jan 01, 2045</small>
-                  </div>
-                </div>{" "}
-                <div
-                  className="rescent-post"
-                  href="https://www.free-css.com/free-css-templates"
-                >
-                  <img
-                    className="post-img"
-                    src="../../images/blog/b2.jpg"
-                    alt="website template image"
-                  />
-                  <div className="pl-3">
-                    <h6 className="m-1">
-                      Diam lorem dolore justo eirmod lorem dolore
-                    </h6>
-                    <small>Jan 01, 2045</small>
-                  </div>
-                </div>
+                {recentPosts.map(post => <RescentPost key={post._id} {...post}/>)}
+
+                {recentPosts.length === 0 && <p>No recent posts yet</p>}
               </div>
             </div>
           </div>
