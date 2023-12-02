@@ -1,0 +1,10 @@
+.personal-info{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    background-color: #fff;
+    padding: 3rem 1.5rem;
+}
+.personal-info h3{
+    color: #7ab730;
+}
