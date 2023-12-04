@@ -35,6 +35,18 @@ export const getAll = async(category='', search='') =>{
     return result
 }
 
+export const getMine = async(userId) =>{
+    const query = new URLSearchParams(
+        {
+            where: `_ownerId="${userId}"`,
+        }
+    )
+
+    const result = await request.get(`${baseUrl}?${query}`);
+    console.log(result);
+    return result;
+}
+
 export const getLatestsThree = async() =>{
     // const query = new URLSearchParams({
     //     sortBy: '_createdOn desc',
