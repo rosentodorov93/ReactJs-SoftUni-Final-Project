@@ -20,9 +20,9 @@ export default function Profile(){
             console.log(res)})
         .catch(err => console.log(err))
 
-        // blogService.getMine()
-        // .then(res => setMyPosts(res))
-        // .catch(err => console.log(err))
+        blogService.getMine()
+        .then(res => setMyPosts(res))
+        .catch(err => console.log(err))
 
         blogService.getLatestsThree()
         .then(res => setRecentPosts(res))
