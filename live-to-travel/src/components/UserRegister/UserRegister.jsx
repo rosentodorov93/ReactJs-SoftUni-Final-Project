@@ -2,6 +2,7 @@ import { useContext, useState } from "react";
 import "./UserRegister.css";
 import { PickerDropPane } from "filestack-react";
 import AuthContext from "../../contexts/AuthContext";
+import * as validator from '../../utils/validator';
 
 export default function UserRegister() {
   const { registerSubmitHandler } = useContext(AuthContext);
@@ -14,6 +15,7 @@ export default function UserRegister() {
     password: "",
     confirmPassword: "",
   });
+  const [errors, setErrors] = useState({});
 
   const onChange = (e) =>{
     setFormValues(state => ({...state, [e.target.name]: e.target.value}));
@@ -21,7 +23,13 @@ export default function UserRegister() {
 
   const onSubmit = (e) =>{
     e.preventDefault()
-    console.log(formValues)
+    const errorsResult = validator.registerForm(formValues);
+
+    if(Object.values(errorsResult).some(x => x.length > 0)){
+      setErrors(errorsResult);
+      return;
+    }
+
     registerSubmitHandler(formValues);
   }
 
@@ -42,6 +50,7 @@ export default function UserRegister() {
                 onChange={onChange}
                 value={formValues.firstName}
               />
+              {errors.firstName && errors.firstName.map(e => <div><span>{e}</span></div>)}
             </div>
             <div className="form-group">
               <label htmlFor="lastName">Last Name</label>
@@ -53,6 +62,7 @@ export default function UserRegister() {
                 onChange={onChange}
                 value={formValues.lastName}
               />
+              {errors.lastName && errors.lastName.map(e => <div><span>{e}</span></div>)}
             </div>
             <div className="form-group">
               <label htmlFor="age">Upload Photo</label>
@@ -80,6 +90,7 @@ export default function UserRegister() {
                 onChange={onChange}
                 value={formValues.email}
               />
+              {errors.email && errors.email.map(e => <div><span>{e}</span></div>)}
             </div>
             <div className="form-group">
               <label htmlFor="password">Password</label>
@@ -91,6 +102,7 @@ export default function UserRegister() {
                 onChange={onChange}
                 value={formValues.password}
               />
+              {errors.password && errors.password.map(e => <div><span>{e}</span></div>)}
             </div>
             <div className="form-group">
               <label htmlFor="confirmPassword">Confirm Password</label>
@@ -102,6 +114,7 @@ export default function UserRegister() {
                 onChange={onChange}
                 value={formValues.confirmPassword}
               />
+              {errors.confirmPassword && errors.confirmPassword.map(e => <div><span>{e}</span></div>)}
             </div>
             <div className="form-group mb-0">
               <input

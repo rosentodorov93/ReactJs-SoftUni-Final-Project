@@ -1,7 +1,8 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import AuthContext from "../../contexts/AuthContext";
 import useForm from "../../hooks/useForm";
 import "./UserLogin.css";
+import * as validator from '../../utils/validator';
 
 const formKeys = {
   email: "email",
@@ -11,7 +12,9 @@ const formKeys = {
 export default function UserLogin(){
 
   const {loginSubmitHandler} = useContext(AuthContext);
-  const {formValues, onChange, onSubmit} = useForm(loginSubmitHandler, {email:'',password:''});
+  const {formValues, onChange, onSubmit, errors} = useForm(loginSubmitHandler, {email:'',password:''}, validator.loginForm);
+  console.log(errors);
+
 
   return (
     <>
@@ -29,6 +32,7 @@ export default function UserLogin(){
                 onChange={onChange}
                 value={formValues.email}
               />
+              {errors.email && errors.email.map(e => <div><span>{e}</span></div>)}
             </div>
             <div className="form-group">
               <label htmlFor="password">Password</label>
@@ -40,6 +44,7 @@ export default function UserLogin(){
                 onChange={onChange}
                 value={formValues.password}
               />
+              {errors.password && errors.password.map(e => <div><span>{e}</span></div>)}
             </div>
             <div className="form-group">
               <input type="submit" value="Login" className="btn-create" />
