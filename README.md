@@ -2,12 +2,6 @@
 This is my project for the deffense of ReactJs- Oct 2023
 
 Live to Travel is place for peple who travel to share their advantures and experience and inspire others to start explore the world. 
-
-Basic features of the applicatios:
-* You can create article in different categories.
-* You can read and comment foreign articles.
-* You can create foods recipes and workouts and add them in your diary 
-* You can see statistics of total calories for the week
   
 ### **Description and Features**
 Guest features:
