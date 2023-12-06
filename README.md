@@ -1,2 +1,26 @@
 # ReactJs-SoftUni-Final-Project
-Final project for the ReactJs course in Softuni
+This is my project for the deffense of ReactJs- Oct 2023
+
+Live to Travel is place for peple who travel to share their advantures and experience and inspire others to start explore the world. 
+
+Basic features of the applicatios:
+* You can create article in different categories.
+* You can read and comment foreign articles.
+* You can create foods recipes and workouts and add them in your diary 
+* You can see statistics of total calories for the week
+  
+### **Description and Features**
+Guest features:
+  * can register
+  * can search sort and read articles
+  
+Regular User features:
+  * can search sort and read articles
+  * can create own articles
+  * can edit and delete own articles
+  * can see and filter own articles in profile 
+
+### **The application is build using:**
+  * ReactJs for the client side
+  * Softuni practise server for the back-end
+  * Additional libraries for better user experience like TinyMce, Filestack, Toaster
