@@ -52,19 +52,19 @@ export default function BlogCreate(){
             <div className="form-group">
               <label htmlFor="title">Title</label>
               <input type="text" className="form-control" id="title" name='title' value={forValues.title} onChange={onChange}/>
-              {errors.title && errors.title.map(e => <div><span>{e}</span></div>)}
+              {errors.title && errors.title.map(e => <div className='err-box' key={e}><span>{e}</span></div>)}
             </div>
             <div className="form-group">
               <label htmlFor="imageUrl">Image</label>
               <input type="text" className="form-control" id="imageUrl" name='imageUrl' value={forValues.imageUrl} onChange={onChange}/>
-              {errors.imageUrl && errors.imageUrl.map(e => <div><span>{e}</span></div>)}
+              {errors.imageUrl && errors.imageUrl.map(e => <div className='err-box' key={e}><span>{e}</span></div>)}
             </div>
             <div className="form-group">
               <label htmlFor="category">Category</label>
               <select className="form-control"  name="category" id="category" onChange={onChange} value={forValues.category}>
                         {categories.map(c => (<option key={c} value={c}>{c}</option>))}
               </select>
-              {errors.category && errors.category.map(e => <div><span>{e}</span></div>)}
+              {errors.category && errors.category.map(e => <div className='err-box' key={e}><span>{e}</span></div>)}
             </div>
             <div className="form-group">
               <label htmlFor="content">Content</label>
@@ -88,7 +88,7 @@ export default function BlogCreate(){
                     "body { font-family:Helvetica,Arial,sans-serif; font-size:14px }",
                 }}
               />
-              {errors.content && errors.content.map(e => <div><span>{e}</span></div>)}
+              {errors.content && errors.content.map(e => <div className='err-box' key={e}><span>{e}</span></div>)}
             </div>
             <div className="form-group mb-0">
               <input type="submit" value="Create" className="btn-create"/>

@@ -50,7 +50,7 @@ export default function UserRegister() {
                 onChange={onChange}
                 value={formValues.firstName}
               />
-              {errors.firstName && errors.firstName.map(e => <div><span>{e}</span></div>)}
+              {errors.firstName && errors.firstName.map(e => <div className="err-box" key={e}><span>{e}</span></div>)}
             </div>
             <div className="form-group">
               <label htmlFor="lastName">Last Name</label>
@@ -62,7 +62,7 @@ export default function UserRegister() {
                 onChange={onChange}
                 value={formValues.lastName}
               />
-              {errors.lastName && errors.lastName.map(e => <div><span>{e}</span></div>)}
+              {errors.lastName && errors.lastName.map(e => <div className="err-box" key={e}><span>{e}</span></div>)}
             </div>
             <div className="form-group">
               <label htmlFor="age">Upload Photo</label>
@@ -83,14 +83,14 @@ export default function UserRegister() {
             <div className="form-group">
               <label htmlFor="email">Email</label>
               <input
-                type="email"
+                type="text"
                 className="form-control"
                 id="email"
                 name="email"
                 onChange={onChange}
                 value={formValues.email}
               />
-              {errors.email && errors.email.map(e => <div><span>{e}</span></div>)}
+              {errors.email && errors.email.map(e => <div className="err-box" key={e}><span>{e}</span></div>)}
             </div>
             <div className="form-group">
               <label htmlFor="password">Password</label>
@@ -102,7 +102,7 @@ export default function UserRegister() {
                 onChange={onChange}
                 value={formValues.password}
               />
-              {errors.password && errors.password.map(e => <div><span>{e}</span></div>)}
+              {errors.password && errors.password.map(e => <div className="err-box" key={e}><span>{e}</span></div>)}
             </div>
             <div className="form-group">
               <label htmlFor="confirmPassword">Confirm Password</label>
@@ -114,7 +114,7 @@ export default function UserRegister() {
                 onChange={onChange}
                 value={formValues.confirmPassword}
               />
-              {errors.confirmPassword && errors.confirmPassword.map(e => <div><span>{e}</span></div>)}
+              {errors.confirmPassword && errors.confirmPassword.map(e => <div className="err-box" key={e}><span>{e}</span></div>)}
             </div>
             <div className="form-group mb-0">
               <input

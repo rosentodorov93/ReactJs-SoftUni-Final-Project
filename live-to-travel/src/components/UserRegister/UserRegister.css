@@ -39,3 +39,8 @@
     font-weight: 600;
     font-size: 2rem;
 }
+.err-box{
+    color: red;
+    font-size: small;
+    text-decoration: underline;
+}

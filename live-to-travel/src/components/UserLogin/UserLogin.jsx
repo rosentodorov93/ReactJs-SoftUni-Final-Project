@@ -1,8 +1,12 @@
 import { useContext, useState } from "react";
 import AuthContext from "../../contexts/AuthContext";
+
 import useForm from "../../hooks/useForm";
-import "./UserLogin.css";
 import * as validator from '../../utils/validator';
+import { Toaster } from "react-hot-toast";
+
+import "./UserLogin.css";
+
 
 const formKeys = {
   email: "email",
@@ -13,11 +17,10 @@ export default function UserLogin(){
 
   const {loginSubmitHandler} = useContext(AuthContext);
   const {formValues, onChange, onSubmit, errors} = useForm(loginSubmitHandler, {email:'',password:''}, validator.loginForm);
-  console.log(errors);
-
 
   return (
     <>
+      <Toaster/>
       <h2 className="title">Log In</h2>
       <div className="login-wrapper">
         <div className="login-container">
@@ -25,14 +28,14 @@ export default function UserLogin(){
             <div className="form-group">
               <label htmlFor="email">Email</label>
               <input
-                type="email"
+                type="text"
                 className="form-control"
                 id="email"
                 name="email"
                 onChange={onChange}
                 value={formValues.email}
               />
-              {errors.email && errors.email.map(e => <div><span>{e}</span></div>)}
+              {errors.email && errors.email.map(e => <div className="err-box" key={e}><span>{e}</span></div>)}
             </div>
             <div className="form-group">
               <label htmlFor="password">Password</label>
@@ -44,7 +47,7 @@ export default function UserLogin(){
                 onChange={onChange}
                 value={formValues.password}
               />
-              {errors.password && errors.password.map(e => <div><span>{e}</span></div>)}
+              {errors.password && errors.password.map(e => <div className="err-box" key={e}><span>{e}</span></div>)}
             </div>
             <div className="form-group">
               <input type="submit" value="Login" className="btn-create" />
