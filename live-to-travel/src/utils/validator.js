@@ -39,19 +39,20 @@ export const createEditForm = (values) =>{
 
 export const registerForm = (values) =>{
     let errorsObj = getErrorsObj(values);
+    console.log(values);
     const emailValidate = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
     if(values.firstName === ''){
         errorsObj.firstName.push('First name is required')
     }
-    if(values.firstName.length < 2 || values.title.length > 30){
+    if(values.firstName.length < 2 || values.firstName.length > 30){
         errorsObj.firstName.push("First name must be between 2 and 30 characters long")
     }
 
     if(values.lastName === ''){
         errorsObj.lastName.push('Lase name is required')
     }
-    if(values.lastName.length < 2 || values.title.length > 30){
+    if(values.lastName.length < 2 || values.lastName.length > 30){
         errorsObj.lastName.push("Last name must be between 2 and 30 characters long")
     }
 
