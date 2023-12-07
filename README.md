@@ -25,6 +25,6 @@ Regular User features:
   * Start the server wit node seerver.js
   * Start live-to-travel with npm run dev
 
-### **Log in: **
+### **Log in:**
   * username: peter@abv.bg
   * password: 123456
