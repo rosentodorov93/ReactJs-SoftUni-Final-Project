@@ -7,23 +7,21 @@ import * as blogService from "../../services/blogService";
 import categories from "../../utils/categories";
 import useForm from "../../hooks/useForm";
 import RescentPost from "../RescentPost/RescentPost";
+import SearchBar from "../SearchBar/SearchBar";
 
 export default function Blog() {
   const [blogs, setBlogs] = useState([]);
   const [recentPosts, setRecentPosts] = useState([]);
   const { category } = useParams();
 
-  const onSearchSubmit = async () => {
+  const onSearchSubmit = async (values) => {
     const result = await blogService.getAll(
-      formValues.category,
-      formValues.search
+      values.category,
+      values.search
     );
     setBlogs(result);
   };
-  const { formValues, onChange, onSubmit } = useForm(onSearchSubmit, {
-    category: category ? category : "",
-    search: "",
-  });
+
 
   useEffect(() => {
     blogService
@@ -47,45 +45,7 @@ export default function Blog() {
 
       <div className="container-blog">
         <div className="container">
-          <div className="search-container">
-            <form className="search-form" method="GET" onSubmit={onSubmit}>
-              <div>
-                <label htmlFor="category">Category</label>
-                <select
-                  className="search-input"
-                  name="category"
-                  id="category"
-                  onChange={onChange}
-                  value={formValues.category}
-                  placeholder="category"
-                >
-                  <option value={""}>All</option>
-                  {categories.map((c) => (
-                    <option key={c} value={c}>
-                      {c}
-                    </option>
-                  ))}
-                </select>
-              </div>
-
-              <div className="search-wrapper">
-                <label htmlFor="search">Search</label>
-                <div className="search-box">
-                  <input
-                    id="search"
-                    type="text"
-                    name="search"
-                    onChange={onChange}
-                    value={formValues.search}
-                    placeholder="Search Title..."
-                  />
-                  <button type="submit" className="btn-search">
-                    Search
-                  </button>
-                </div>
-              </div>
-            </form>
-          </div>
+         <SearchBar onSearchSubmit={onSearchSubmit}/>
 
           <div className="row">
             <div className="row-left-section">
