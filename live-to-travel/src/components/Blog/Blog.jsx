@@ -1,6 +1,6 @@
 import "./Blog.css";
 import { useState, useEffect } from "react";
-import BlogItem from "../BlogItem/BlogItem";
+import PostItem from "../PostItem/PostItem";
 import { Link, useParams } from "react-router-dom";
 
 import * as blogService from "../../services/blogService";
@@ -13,7 +13,7 @@ export default function Blog() {
   const [recentPosts, setRecentPosts] = useState([]);
   const { category } = useParams();
 
-  const onSearchSubmit = async (values) => {
+  const onSearchSubmit = async () => {
     const result = await blogService.getAll(
       formValues.category,
       formValues.search
@@ -92,7 +92,7 @@ export default function Blog() {
               <h4 className="blog-heading">Blog</h4>
               <div className="row">
                 {blogs.map((blog) => (
-                  <BlogItem key={blog._id} data={blog} />
+                  <PostItem key={blog._id} data={blog} />
                 ))}
               </div>
             </div>

@@ -5,6 +5,7 @@ import './Profile.css';
 import * as authService from '../../services/authService';
 import * as blogService from '../../services/blogService';
 import PersonalInfo from '../PersonalInfo/PersonalInfo';
+import PostItem from '../PostItem/PostItem';
 
 export default function Profile(){
 
@@ -33,16 +34,6 @@ export default function Profile(){
         <>
       <div className="container header">
         <div className="container">
-          <div className="heading-wrapper">
-            <h3>Blog</h3>
-            <div>
-              <p>
-                <a href="https://www.free-css.com/free-css-templates">Home</a>
-              </p>
-              <i className="fa fa-angle-double-right "></i>
-              <p>Blog</p>
-            </div>
-          </div>
         </div>
       </div>
 
@@ -55,7 +46,7 @@ export default function Profile(){
             <div className="row-left-section">
               <div className="row">
                 {myPosts.map((blog) => (
-                  <BlogItem key={blog._id} data={blog} />
+                  <PostItem key={blog._id} data={blog} />
                 ))}
 
                 {myPosts.length === 0 && <p>No posts from me yet</p>}

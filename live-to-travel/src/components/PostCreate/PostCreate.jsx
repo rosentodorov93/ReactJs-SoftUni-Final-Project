@@ -1,4 +1,4 @@
-import './BlogCreate.css'
+import './PostCreate.css'
 import React, { useRef, useState } from "react";
 import { Editor } from "@tinymce/tinymce-react";
 import {useNavigate} from 'react-router-dom'

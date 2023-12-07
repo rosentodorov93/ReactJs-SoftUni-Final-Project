@@ -1,5 +1,5 @@
 import {Link} from 'react-router-dom'
-import './BlogItem.css'
+import './PostItem.css'
 
 export default function BlogItem({ data }) {
   return (

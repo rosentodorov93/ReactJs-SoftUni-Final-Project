@@ -22,7 +22,7 @@ export default function Header(){
 			                    <li className="scroll"><Link to="/blog">Blogs</Link></li>
 								{isAuthenticated &&
 								 <>
-									<li className="scroll"><Link to="/blog/create">Create </Link></li>
+									<li className="scroll"><Link to="/post/create">Create </Link></li>
 									<li className="scroll"><Link to="/profile">Profile</Link></li>
 									<li className="scroll"><Link to="/user/logout">Logout</Link></li>
 								</>

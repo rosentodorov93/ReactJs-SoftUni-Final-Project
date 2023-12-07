@@ -2,14 +2,13 @@ import { useState, useEffect } from "react";
 import { Link, useParams, useNavigate } from "react-router-dom";
 import { useContext } from "react";
 import parse from "html-react-parser";
-import "./BlogDetails.css";
+import "./PostDetails.css";
 
 import AuthContext from "../../contexts/AuthContext";
 import * as blogService from "../../services/blogService";
 import * as commentService from "../../services/commentService";
 
-import BlogDelete from "../BlogDelete/BlogDelete";
-import useForm from "../../hooks/useForm";
+import PostDelete from "../PostDelete/PostDelete";
 import RescentPost from "../RescentPost/RescentPost";
 import categories from "../../utils/categories";
 import CommentsList from "../CommentsList/CommentsList";
@@ -26,7 +25,8 @@ export default function BlogDetails() {
   useEffect(() => {
     blogService
       .getOne(id)
-      .then((res) => setBlog({ ...res, content: parse(res.content) }))
+      .then((res) => {setBlog({ ...res, content: parse(res.content) })
+    console.log(res)})
       .catch((err) => console.log(err));
 
     blogService
@@ -79,7 +79,7 @@ export default function BlogDetails() {
       {/* main part */}
 
       {showDeleteModal && (
-        <BlogDelete
+        <PostDelete
           onClose={onDeleteModalClose}
           deleteBlogHandler={deleteBlogHandler}
         />
@@ -105,14 +105,14 @@ export default function BlogDetails() {
                 </div>
                 <div className="article-content">
                   <div className="d-flex mb-3">
-                    <p>{blog.owner.firstName} {blog.owner.lastName} | {blog.category}</p>
+                    <p>{blog?.owner.firstName} {blog?.owner.lastName} | {blog.category}</p>
                   </div>
                   <h2 className="mb-3">{blog.title}</h2>
                   <div>{blog.content}</div>
                   <div>
                     {_id === blog._ownerId && (
                       <>
-                        <Link to={`/blog/edit/${blog._id}`}>Edit</Link>
+                        <Link to={`/post/edit/${blog._id}`}>Edit</Link>
                         <button type="button" onClick={onDeleteClick}>
                           Delete
                         </button>

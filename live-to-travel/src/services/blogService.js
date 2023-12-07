@@ -48,11 +48,6 @@ export const getMine = async(userId) =>{
 }
 
 export const getLatestsThree = async() =>{
-    // const query = new URLSearchParams({
-    //     sortBy: '_createdOn desc',
-    //     offset: 0,
-    //     pageSize: 3,
-    // })
 
     const query = 'sortBy=' + encodeURIComponent(`_createdOn desc`) + '&offset=0&pageSize=3'
 

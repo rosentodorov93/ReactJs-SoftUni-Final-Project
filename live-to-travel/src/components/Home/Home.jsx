@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import "./Home.css";
 
 import * as blogService from "../../services/blogService";
-import BlogItem from "../BlogItem/BlogItem";
+import PostItem from "../PostItem/PostItem";
 import categories from "../../utils/categories";
 
 export default function Home() {
@@ -40,7 +40,7 @@ export default function Home() {
           <div className="blog-content">
             <div className="row">
               {latestBlogs &&
-                latestBlogs.map((b) => <BlogItem key={b._id} data={b} />)}
+                latestBlogs.map((b) => <PostItem key={b._id} data={b} />)}
             </div>
           </div>
         </div>

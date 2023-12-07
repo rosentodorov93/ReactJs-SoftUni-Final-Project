@@ -1,4 +1,4 @@
-import './BlogDelete.css'
+import './PostDelete.css'
 
 export default function BlogDelete({
     onClose,
