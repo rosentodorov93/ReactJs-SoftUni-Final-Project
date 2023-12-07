@@ -10,7 +10,7 @@ export default function BlogItem({ data }) {
         </div>
         <div className="single-blog-item-txt">
           <h2>
-            <Link to={`/blog/details/${data._id}`}>{data.title}</Link>
+            <Link to={`/post/details/${data._id}`}>{data.title}</Link>
           </h2>
           <h4>
             Category: <span>{data.category}</span> 

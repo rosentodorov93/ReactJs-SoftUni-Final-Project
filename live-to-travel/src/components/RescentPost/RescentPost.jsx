@@ -11,7 +11,7 @@ export default function RescentPost({
   const navigate = useNavigate();
 
   return (
-    <div className="rescent-post" onClick={() => {navigate(`/blog/details/${_id}`)}}>
+    <div className="rescent-post" onClick={() => {navigate(`/post/details/${_id}`)}}>
       <div className='img-container'>
       <img
         className="post-img"
