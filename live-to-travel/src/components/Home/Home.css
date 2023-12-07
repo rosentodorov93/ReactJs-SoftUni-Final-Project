@@ -4,7 +4,7 @@
     background-position:center;
     background-size:cover;
     text-align: center;
-    height:800px;
+    height:450px;
     z-index: 1;
 }
 .welcome-hero:before{
@@ -200,7 +200,7 @@
 
 /*appsLand-btn*/
 .appsLand-btn {
-    position: absolute;
+    text-align: center;
     top: 0;
     right: 0;
     background: #ff545a;

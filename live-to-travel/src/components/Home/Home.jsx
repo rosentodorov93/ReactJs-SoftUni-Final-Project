@@ -22,48 +22,19 @@ export default function Home() {
         <div className="container">
           <div className="welcome-hero-txt">
             <h2>
-              Best place to find and explore <br /> in Bulgaria{" "}
+              Live To Travel
             </h2>
             <p>
-              Find Places, Routes, Adventures and many more in just One click
+              Find Places, Trips ieas, Adventures and many more in just One click
             </p>
           </div>
-          <div className="welcome-hero-serch-box">
-            <div className="welcome-hero-form">
-              <div className="single-welcome-hero-form">
-                <h3>what?</h3>
-                <form action="index.html">
-                  <input
-                    type="text"
-                    placeholder="Ex: palce, resturent, food, automobile"
-                  />
-                </form>
-                <div className="welcome-hero-form-icon">
-                  <i className="flaticon-list-with-dots"></i>
-                </div>
-              </div>
-              <div className="single-welcome-hero-form">
-                <h3>location</h3>
-                <form action="index.html">
-                  <input type="text" placeholder="Ex: london, newyork, rome" />
-                </form>
-                <div className="welcome-hero-form-icon">
-                  <i className="flaticon-gps-fixed-indicator"></i>
-                </div>
-              </div>
-            </div>
-            <div className="welcome-hero-serch">
-              <button className="welcome-hero-btn">
-                search <i data-feather="search"></i>
-              </button>
-            </div>
-          </div>
+        
         </div>
       </section>
       <section id="blog" className="blog">
         <div className="container">
           <div className="section-header">
-            <h2>news and articles</h2>
+            <h2>Latest from our Blog</h2>
             <p>Always upto date with our latest News and Articles </p>
           </div>
           <div className="blog-content">
@@ -79,7 +50,7 @@ export default function Home() {
           <div className="section-header">
             <h2>explore</h2>
             <p>
-              Explore New place, food, culture around the world and many more
+              Find more ideas and adventures in our categories
             </p>
           </div>
           <div className="explore-content">
@@ -105,25 +76,14 @@ export default function Home() {
       <section id="contact" className="subscription">
         <div className="container">
           <div className="subscribe-title text-center">
-            <h2>Do you want to add your business listing with us?</h2>
-            <p>
-              Listrace offer you to list your business with us and we very much
-              able to promote your Business.
-            </p>
+            <h2>Do you want to share your travels and inspire others to explore ?</h2>
           </div>
           <div className="row">
             <div className="col-sm-12">
               <div className="subscription-input-group">
-                <form action="#">
-                  <input
-                    type="email"
-                    className="subscription-input-form"
-                    placeholder="Enter your email here"
-                  />
-                  <button className="appsLand-btn subscribe-btn">
+                  <Link to='user/register' className="appsLand-btn subscribe-btn">
                     creat account
-                  </button>
-                </form>
+                  </Link>
               </div>
             </div>
           </div>
