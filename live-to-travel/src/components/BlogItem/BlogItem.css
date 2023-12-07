@@ -18,6 +18,9 @@
 .single-blog-item-img img{
     width: 100%;
 }
+.single-blog-item-txt{
+    background-color: #fff;
+}
 .single-blog-item-txt {padding:  25px 28px 27px;}
 .single-blog-item-txt h2 a {text-transform:  initial;line-height: 1.8;}
 .single-blog-item-txt h4 {
