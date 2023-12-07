@@ -1,7 +1,11 @@
+import { useContext } from 'react';
 import './Footer.css';
+import AuthContext from '../../contexts/AuthContext';
+import { Link } from 'react-router-dom';
 
 export default function Footer(){
 
+	const {isAuthenticated} = useContext(AuthContext);
     return(
         <>
     		<footer id="footer"  className="footer">
@@ -10,17 +14,25 @@ export default function Footer(){
 		           	<div className="row">
 			           	<div className="col-sm-3">
 			           		 <div className="navbar-header">
-				                <a className="navbar-brand" href="index.html">list<span>race</span></a>
+				                <a className="navbar-brand" href="index.html">Live to <span>Travel</span></a>
 				            </div>
 			           	</div>
 			           	<div className="col-sm-9">
 			           		<ul className="footer-menu-item">
-			                    <li className="scroll"><a href="#works">how it works</a></li>
-			                    <li className="scroll"><a href="#explore">explore</a></li>
-			                    <li className="scroll"><a href="#reviews">review</a></li>
-			                    <li className="scroll"><a href="#blog">blog</a></li>
-			                    <li className="scroll"><a href="#contact">contact</a></li>
-			                    <li className=" scroll"><a href="#contact">my account</a></li>
+							   <li className=" scroll active"><Link to="/">Home</Link></li>
+			                    <li className="scroll"><Link to="/blog">Blogs</Link></li>
+								{isAuthenticated &&
+								 <>
+									<li className="scroll"><Link to="/blog/create">Create </Link></li>
+									<li className="scroll"><Link to="/profile">Profile</Link></li>
+									<li className="scroll"><Link to="/user/logout">Logout</Link></li>
+								</>
+								}
+								{!isAuthenticated && 
+								<>
+			                    <li className="scroll"><Link to="/user/login">Login</Link></li>
+			                    <li className="scroll"><Link to="/user/register">Register</Link></li>
+								</>}
 			                </ul>
 			           	</div>
 		           </div>
@@ -29,17 +41,8 @@ export default function Footer(){
 					<div className="row">
 						<div className="col-sm-5">
 							<p>
-								&copy;copyright. designed and developed by <a href="https://www.themesine.com/">themesine</a>
+								&copy;copyright. designed and developed by Rosen Todorov
 							</p>
-						</div>
-						<div className="col-sm-7">
-							<div className="footer-social">
-								<span><i className="fa fa-phone"> +1  (222) 777 8888</i></span>
-								<a href="#"><i className="fa fa-facebook"></i></a>	
-								<a href="#"><i className="fa fa-twitter"></i></a>
-								<a href="#"><i className="fa fa-linkedin"></i></a>
-								<a href="#"><i className="fa fa-google-plus"></i></a>
-							</div>
 						</div>
 					</div>
 					
