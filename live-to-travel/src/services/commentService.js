@@ -11,7 +11,6 @@ export const getById = async(blogId) =>{
     )
 
     const result = await request.get(`${baseUrl}?${query}`);
-    console.log(result);
     return result;
 }
 
