@@ -4,13 +4,12 @@ import PostItem from "../PostItem/PostItem";
 import { Link, useParams } from "react-router-dom";
 
 import * as blogService from "../../services/blogService";
-import categories from "../../utils/categories";
-import useForm from "../../hooks/useForm";
+
 import RescentPost from "../RescentPost/RescentPost";
 import SearchBar from "../SearchBar/SearchBar";
 
 export default function Blog() {
-  const [blogs, setBlogs] = useState([]);
+  const [posts, setPosts] = useState([]);
   const [recentPosts, setRecentPosts] = useState([]);
   const { category } = useParams();
 
@@ -19,14 +18,14 @@ export default function Blog() {
       values.category,
       values.search
     );
-    setBlogs(result);
+    setPosts(result);
   };
 
 
   useEffect(() => {
     blogService
       .getAll(category ? category : "")
-      .then((res) => setBlogs(res))
+      .then((res) => setPosts(res))
       .catch((err) => console.log(err));
 
     blogService
@@ -45,15 +44,20 @@ export default function Blog() {
 
       <div className="container-blog">
         <div className="container">
-         <SearchBar onSearchSubmit={onSearchSubmit}/>
+         <SearchBar category={category} onSearchSubmit={onSearchSubmit}/>
 
           <div className="row">
             <div className="row-left-section">
               <h4 className="blog-heading">Blog</h4>
               <div className="row">
-                {blogs.map((blog) => (
-                  <PostItem key={blog._id} data={blog} />
+                {posts.map((post) => (
+                  <PostItem key={post._id} data={post} />
                 ))}
+                {posts.length === 0 && 
+                <div className='no-posts'>
+                  <h3>There are no posts yet</h3>
+                  <Link className='btn-create' to='/post/create'>Create Post</Link>
+                </div>}
               </div>
             </div>
             <div className="row-right-section">
