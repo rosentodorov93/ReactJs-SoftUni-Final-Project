@@ -64,7 +64,13 @@ export const getLatestsThree = async() =>{
 }
 
 export const getOne = async(id) =>{
-    const result = request.get(`${baseUrl}/${id}`);
+    const query = new URLSearchParams(
+        {
+            load: `owner=_ownerId:users`,
+        }
+    )
+    const result = await request.get(`${baseUrl}/${id}?${query}`);
+    console.log(result);
     return result;
 }
 
