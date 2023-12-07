@@ -1,0 +1,40 @@
+.article-comments{
+    padding: 30px;
+    background-color: #fff;
+    margin-bottom: 30px;
+}
+
+.article-comments h4{
+    letter-spacing: 5px;
+    font-weight: 600;
+    text-transform: uppercase;
+    margin-bottom: 1.5rem;
+}
+.single-comment{
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 1.5rem;
+}
+.comment-body{
+    flex: 1;
+}
+.comment-body h6{
+    margin-top: 0;
+    margin-bottom: .5rem;
+    font-weight: 500;
+    line-height: 1.2;
+    color: #212121;
+}
+.comment-body h6 p{
+    color: #7ab730;
+    display: inline;
+}
+.comment-body button{
+    text-align: center;
+    vertical-align: middle;
+    user-select: none;
+    background-color: transparent;
+    border: 1px solid transparent;
+    color: #7ab730;
+    border-color: #7ab730;
+}
