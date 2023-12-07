@@ -1,6 +1,10 @@
 import useForm from "../../hooks/useForm";
+import './SearchBar.css'
+
+import categories from "../../utils/categories";
 
 export default function SearchBar({
+    category,
     onSearchSubmit
 }){
 
