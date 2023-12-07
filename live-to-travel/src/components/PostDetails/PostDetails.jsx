@@ -5,8 +5,8 @@ import parse from "html-react-parser";
 import "./PostDetails.css";
 
 import AuthContext from "../../contexts/AuthContext";
-import * as blogService from "../../services/blogService";
-import * as commentService from "../../services/commentService";
+import * as postService from "../../services/blogService";
+import * as commentsService from "../../services/commentService";
 
 import PostDelete from "../PostDelete/PostDelete";
 import RescentPost from "../RescentPost/RescentPost";
@@ -17,23 +17,32 @@ import CommentCreate from "../CommentCreate/CommentCreate";
 export default function BlogDetails() {
   const { _id, isAuthenticated } = useContext(AuthContext);
   const { id } = useParams();
-  const [blog, setBlog] = useState({});
+  const [post, setPost] = useState({});
   const [recentPosts, setRecentPosts] = useState([]);
+  const [comments, setComments] = useState([]);
   const [showDeleteModal, setShowDeleteModal] = useState(false);
   const navigate = useNavigate();
 
   useEffect(() => {
-    blogService
+    postService
       .getOne(id)
-      .then((res) => {setBlog({ ...res, content: parse(res.content) })
-    console.log(res)})
+      .then((res) => setPost({ ...res, content: parse(res.content) }))
       .catch((err) => console.log(err));
 
-    blogService
+    postService
       .getLatestsThree()
       .then((res) => setRecentPosts(res))
       .catch((err) => console.log(err));
-  }, [id]);
+    
+    commentsService
+      .getById(id)
+      .then((res) => {
+        setComments(res);
+        console.log(res);
+      })
+      .catch((err) => console.log(err));
+
+  }, [id, comments.length]);
 
   const onDeleteClick = () => {
     setShowDeleteModal(true);
@@ -53,8 +62,9 @@ export default function BlogDetails() {
       blogId: id,
       text: values.text,
     };
-
-    await commentService.create(comment);
+    const result = await commentsService.create(comment);
+    console.log(result);
+    setComments(state => [...state, comment]);
   };
 
 
@@ -94,25 +104,25 @@ export default function BlogDetails() {
                   <div className="article-img-container">
                     <img
                       className="img-fluid w-100"
-                      src={blog.imageUrl}
-                      alt={blog.title}
+                      src={post.imageUrl}
+                      alt={post.title}
                     />
                     <div className="blog-date">
-                      <h6 className="font-weight-bold mb-n1">{new Date(blog._createdOn).getDay()}</h6>
-                      <small className="text-white text-uppercase">{new Date(blog._createdOn).toLocaleString('default', { month: 'short' })}</small>
+                      <h6 className="font-weight-bold mb-n1">{new Date(post._createdOn).getDay()}</h6>
+                      <small className="text-white text-uppercase">{new Date(post._createdOn).toLocaleString('default', { month: 'short' })}</small>
                     </div>
                   </div>
                 </div>
                 <div className="article-content">
                   <div className="d-flex mb-3">
-                    <p>{blog?.owner.firstName} {blog?.owner.lastName} | {blog.category}</p>
+                    <p>{post?.owner?.firstName} {post?.owner?.lastName} | {post.category}</p>
                   </div>
-                  <h2 className="mb-3">{blog.title}</h2>
-                  <div>{blog.content}</div>
+                  <h2 className="mb-3">{post.title}</h2>
+                  <div>{post.content}</div>
                   <div>
-                    {_id === blog._ownerId && (
+                    {_id === post._ownerId && (
                       <>
-                        <Link to={`/post/edit/${blog._id}`}>Edit</Link>
+                        <Link to={`/post/edit/${post._id}`}>Edit</Link>
                         <button type="button" onClick={onDeleteClick}>
                           Delete
                         </button>
@@ -121,7 +131,7 @@ export default function BlogDetails() {
                   </div>
                 </div>
 
-              <CommentsList id={id}/>
+              <CommentsList comments={comments}/>
               {isAuthenticated && <CommentCreate addCommentHandler={addCommentHandler}/>}
 
               </div>
