@@ -24,3 +24,7 @@ Regular User features:
   * Run npm intstall --force
   * Start the server wit node seerver.js
   * Start live-to-travel with npm run dev
+
+### **Log in: **
+  * username: peter@abv.bg
+  * password: 123456
