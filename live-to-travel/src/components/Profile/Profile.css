@@ -99,7 +99,8 @@
     border: 1px solid transparent;
     border-radius: 0;
     transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
-}.no-posts{
+}
+.no-posts{
     margin: 15px auto;
     text-align: center;
 }
