@@ -65,7 +65,6 @@ export const getOne = async(id) =>{
         }
     )
     const result = await request.get(`${baseUrl}/${id}?${query}`);
-    console.log(result);
     return result;
 }
 
