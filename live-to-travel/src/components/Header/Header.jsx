@@ -13,11 +13,7 @@ export default function Header(){
 
 			        <div className="container">
 			            <div className="navbar-header">
-			                <button type="button" className="navbar-toggle" data-toggle="collapse" data-target="#navbar-menu">
-			                    <i className="fa fa-bars"></i>
-			                </button>
-			                <Link className="navbar-brand" to='/'>Live to<span>Travel</span></Link>
-
+						<a className="navbar-brand" href="index.html">Live to <span>Travel</span></a>
 			            </div>
 			            
 			            <div className="collapse navbar-collapse menu-ui-design" id="navbar-menu">
