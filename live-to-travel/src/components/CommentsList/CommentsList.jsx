@@ -1,43 +1,29 @@
-import { useEffect, useState } from "react"
-
-import * as commentsService from '../../services/commentService';
-
 import './CommentsList.css';
 
 export default function CommentsList({
-    id
+    comments
 }){
-
-    const [comments, setComments] = useState([]);
-
-    useEffect(()=>{
-        commentsService
-        .getById(id)
-        .then((res) => setComments(res))
-        .catch((err) => console.log(err));
-    },[id])
-
     return(
         <div className="article-comments">
         <h4>{comments.length} Comments</h4>
-        <div className="single-comment">
+        <div className="commnets-list">
           {comments.map(
-            ({
-              _id,
-              _createdOn,
-              text,
-              owner: { firstName, lastName },
-            }) => (
-              <div key={_id} className="comment-body">
-                <h6>
-                  <p>
-                    {firstName} {lastName}
-                  </p>
-                  <small>
-                    <i>{new Date(_createdOn).toLocaleDateString()}</i>
-                  </small>
-                </h6>
-                <p>{text}</p>
+            (c) => (
+              <div key={c._id} className="comment-body">
+                
+                  <img className='comment-img' src={c.owner?.imageLink}/>
+                
+                <div className='media-body'>
+                  <h6>
+                    <p>
+                      {c.owner?.firstName} {c.owner?.lastName}
+                    </p>
+                    <small>
+                      {new Date(c._createdOn).toLocaleDateString()}
+                    </small>
+                  </h6>
+                  <p>{c.text}</p>
+                </div>
               </div>
             )
           )}

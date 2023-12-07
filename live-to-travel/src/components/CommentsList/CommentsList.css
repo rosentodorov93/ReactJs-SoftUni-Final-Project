@@ -10,15 +10,21 @@
     text-transform: uppercase;
     margin-bottom: 1.5rem;
 }
-.single-comment{
+.comments-list{
     display: flex;
     align-items: flex-start;
-    margin-bottom: 1.5rem;
+    margin-bottom: 3rem;
 }
 .comment-body{
-    flex: 1;
+    display: flex;
+    gap: 4px;
+    flex-direction: row;
+    margin-bottom: 1.5rem;
 }
 .comment-body h6{
+    display: flex;
+    align-items: center;
+    gap: 8px;
     margin-top: 0;
     margin-bottom: .5rem;
     font-weight: 500;
@@ -37,4 +43,9 @@
     border: 1px solid transparent;
     color: #7ab730;
     border-color: #7ab730;
+}
+
+.comment-img{
+    width: 45px;
+    height: auto;
 }
