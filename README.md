@@ -1,16 +1,18 @@
 # ReactJs-SoftUni-Final-Project
 This is my project for the deffense of ReactJs- Oct 2023 course in Softuni
 
+### **Description:**
+
 Live to Travel is place for pepole who love to travel want to share their advantures and experience with others and inspire more people to explore the world.
 It is also a place where you can take ispiration and choose your next travel destination.
   
-### **Description and Features**
+### **Main Features**
 Guest features:
   * can register
   * can search sort and read articles
   * can read articles comments
   
-Regular User features:
+User features:
   * can search sort and read articles
   * can create own articles
   * can edit and delete own articles
