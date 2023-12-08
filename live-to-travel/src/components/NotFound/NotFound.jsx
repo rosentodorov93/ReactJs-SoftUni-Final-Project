@@ -9,7 +9,7 @@ export default function NotFound(){
         <div className="not-found">
         <h1>404 - Not Found</h1>
         <p>Sorry, the page you are looking for does not exist.</p>
-        <Link to={Path.Home}>Home</Link>
+        <Link data-testid='link' to={Path.Home}>Home</Link>
     </div>
     )
 }
