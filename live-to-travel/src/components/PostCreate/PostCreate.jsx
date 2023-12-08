@@ -43,9 +43,15 @@ export default function PostCreate(){
       return;
     }
     
-    setErrors({});
-    await postService.create(forValues);
-    navigate(Path.Blog);
+    try {
+      setErrors({});
+      await postService.create(forValues);
+      navigate(Path.Blog);
+      
+    } catch (error) {
+      navigate(Path.Error)
+    }
+    
   };
 
     return(

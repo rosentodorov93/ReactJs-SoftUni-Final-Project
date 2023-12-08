@@ -16,6 +16,9 @@ import UserLogin from './components/UserLogin/UserLogin'
 import UserLogout from './components/UserLogout/UserLogout';
 import LoggedInGuard from './components/Guards/LoggedInGuard';
 import AuthGuard from './components/Guards/AuthGuard';
+import NotFound from './components/NotFound/NotFound';
+import ErrorPage from './components/ErrorPage/ErrorPage';
+
 
 function App() {
 
@@ -40,6 +43,8 @@ function App() {
               <Route path={Path.Login} element={<UserLogin/>}/>
               <Route path={Path.Register} element={<UserRegister/>}/>
             </Route>
+            <Route path={Path.Error} element={<ErrorPage/>}/>
+            <Route path='*' element={<NotFound/>}/>
           </Routes>
         <Footer/>
       </AuthProvider>

@@ -30,20 +30,17 @@ export default function PostDetails() {
     postService
       .getOne(id)
       .then((res) => setPost({ ...res, content: parse(res.content) }))
-      .catch((err) => console.log(err));
+      .catch(navigate(Path.Error));
 
     postService
       .getLatestsThree()
       .then((res) => setRecentPosts(res))
-      .catch((err) => console.log(err));
+      .catch(navigate(Path.Error));
     
     commentsService
       .getById(id)
-      .then((res) => {
-        setComments(res);
-        console.log(res);
-      })
-      .catch((err) => console.log(err));
+      .then((res) => setComments(res))
+      .catch(navigate(Path.Error));
 
   }, [id, comments.length]);
 
@@ -56,8 +53,12 @@ export default function PostDetails() {
   };
 
   const deleteBlogHandler = async () => {
-    await postService.remove(id);
-    navigate(Path.Blog);
+    try {
+      await postService.remove(id);
+      navigate(Path.Blog);
+    } catch (error) {
+      navigate(Path.Error);
+    }
   };
 
   const addCommentHandler = async (values) => {
@@ -65,11 +66,15 @@ export default function PostDetails() {
       blogId: id,
       text: values.text,
     };
-    await commentsService.create(comment);
-    setComments(state => [...state, comment]);
+    
+    try {
+      await commentsService.create(comment);
+      setComments(state => [...state, comment]);
+    } catch (error) {
+      navigate(Path.Error);
+    }
+    
   };
-
-
 
   return (
     <>

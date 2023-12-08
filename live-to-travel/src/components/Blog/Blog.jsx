@@ -1,11 +1,12 @@
 import { useState, useEffect } from "react";
-import { Link, useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 
 import * as postService from "../../services/postService";
 
 import PostItem from "../PostItem/PostItem";
 import RescentPost from "../RescentPost/RescentPost";
 import SearchBar from "../SearchBar/SearchBar";
+import Path from "../../common/paths";
 
 import "./Blog.css";
 
@@ -13,6 +14,7 @@ export default function Blog() {
   const [posts, setPosts] = useState([]);
   const [recentPosts, setRecentPosts] = useState([]);
   const { category } = useParams();
+  const navigate = useNavigate();
 
   const onSearchSubmit = async (values) => {
     const result = await postService.getAll(
@@ -27,12 +29,12 @@ export default function Blog() {
     postService
       .getAll(category ? category : "")
       .then((res) => setPosts(res))
-      .catch((err) => console.log(err));
+      .catch(navigate(Path.Error));
 
     postService
       .getLatestsThree()
       .then((res) => setRecentPosts(res))
-      .catch((err) => console.log(err));
+      .catch(navigate(Path.Error));
   }, []);
 
   return (

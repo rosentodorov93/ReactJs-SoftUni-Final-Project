@@ -49,9 +49,14 @@ export default function PostEdit(){
       return;
     }
 
-    setErrors({});
-    await postService.update(id, forValues);
-    navigate(Path.Blog);
+    try {
+      setErrors({});
+      await postService.update(id, forValues);
+      navigate(Path.Blog);
+    } catch (error) {
+      navigate(Path.Error);
+    }
+    
   };
 
     return(

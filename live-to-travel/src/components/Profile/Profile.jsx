@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useContext } from 'react';
 
 import AuthContext from "../../contexts/AuthContext";
@@ -20,6 +20,7 @@ export default function Profile(){
     const [user, setUser] = useState();
     const [myPosts, setMyPosts] = useState([]);
     const [recentPosts, setRecentPosts] = useState([]);
+    const navigate = useNavigate();
     
 
     useEffect(() =>{
@@ -27,15 +28,15 @@ export default function Profile(){
         .then(res => 
             {setUser(res)
             console.log(res)})
-        .catch(err => console.log(err))
+        .catch(navigate(Path.Error))
 
         postService.getMine(_id)
         .then(res => setMyPosts(res))
-        .catch(err => console.log(err))
+        .catch(navigate(Path.Error))
 
         postService.getLatestsThree()
         .then(res => setRecentPosts(res))
-        .catch(err => console.log(err))
+        .catch(navigate(Path.Error))
     },[]);
 
     return(

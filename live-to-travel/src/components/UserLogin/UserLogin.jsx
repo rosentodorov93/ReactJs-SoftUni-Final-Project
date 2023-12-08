@@ -16,7 +16,7 @@ const formKeys = {
 export default function UserLogin(){
 
   const {loginSubmitHandler} = useContext(AuthContext);
-  const {formValues, onChange, onSubmit, errors} = useForm(loginSubmitHandler, {email:'',password:''}, validator.loginForm);
+  const {formValues, onChange, onSubmit, errors} = useForm(loginSubmitHandler, {[formKeys.email]:'',[formKeys.password]:''}, validator.loginForm);
 
   return (
     <>
@@ -26,24 +26,24 @@ export default function UserLogin(){
         <div className="login-container">
           <form onSubmit={onSubmit} method="post">
             <div className="form-group">
-              <label htmlFor="email">Email</label>
+              <label htmlFor={formKeys.email}>Email</label>
               <input
                 type="text"
                 className="form-control"
-                id="email"
-                name="email"
+                id={formKeys.email}
+                name={formKeys.email}
                 onChange={onChange}
                 value={formValues.email}
               />
               {errors.email && errors.email.map(e => <div className="err-box" key={e}><span>{e}</span></div>)}
             </div>
             <div className="form-group">
-              <label htmlFor="password">Password</label>
+              <label htmlFor={formKeys.password}>Password</label>
               <input
-                type="password"
+                type={formKeys.password}
                 className="form-control"
-                id="password"
-                name="password"
+                id={formKeys.password}
+                name={formKeys.password}
                 onChange={onChange}
                 value={formValues.password}
               />
