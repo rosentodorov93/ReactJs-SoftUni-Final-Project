@@ -42,8 +42,8 @@ export default function Home() {
           </div>
           <div className="blog-content">
             <div className="row">
-              {latestBlogs &&
-                latestBlogs.map((b) => <PostItem key={b._id} data={b} />)}
+              {latestBlogs.map((b) => <PostItem key={b._id} data={b} />)}
+              {latestBlogs.length === 0 && <p>No posts yet</p>}
             </div>
           </div>
         </div>
