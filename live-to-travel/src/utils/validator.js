@@ -1,3 +1,5 @@
+import * as constants from '../common/errorMesages';
+
 const getErrorsObj = (input) =>{
     const result = Object.keys(input).reduce((acc, curr) =>{
         acc[curr] = [];
@@ -5,33 +7,29 @@ const getErrorsObj = (input) =>{
     },{})
     return result;
 }
+const emailTest = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+const urlTest = /^((https?):\/\/)/;
 
 
 export const createEditForm = (values) =>{
     let errorsObj = getErrorsObj(values);
-    const urlValidate = /^((https?):\/\/)/;
-
 
     if(values.title === ''){
-        errorsObj.title.push('Title is required')
+        errorsObj.title.push(constants.PostErrorMesages.titleRequired)
     }
     if(values.title.length < 3 || values.title.length > 100){
-        errorsObj.title.push("Title must be between 3 and 100 characters long")
+        errorsObj.title.push(constants.PostErrorMesages.titileRange)
     }
 
     if(values.imageUrl === ''){
-        errorsObj.imageUrl.push("Please add image");
+        errorsObj.imageUrl.push(constants.PostErrorMesages.imageUrlRequired);
     }
-    if(!urlValidate.test(values.imageUrl)){
-        errorsObj.imageUrl.push("Please add valid image Url");
-    }
-
-    if(values.category === ""){
-        errorsObj.category.push("Please select category")
+    if(!urlTest.test(values.imageUrl)){
+        errorsObj.imageUrl.push(constants.PostErrorMesages.validImageUrl);
     }
 
     if(values.content === ""){
-        errorsObj.content.push("Your article must have content.")
+        errorsObj.content.push(constants.PostErrorMesages.contentRequired)
     }
 
     return errorsObj;
@@ -39,39 +37,37 @@ export const createEditForm = (values) =>{
 
 export const registerForm = (values) =>{
     let errorsObj = getErrorsObj(values);
-    console.log(values);
-    const emailValidate = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
     if(values.firstName === ''){
-        errorsObj.firstName.push('First name is required')
+        errorsObj.firstName.push(constants.UserErrorMesages.firstnameRequired)
     }
     if(values.firstName.length < 2 || values.firstName.length > 30){
-        errorsObj.firstName.push("First name must be between 2 and 30 characters long")
+        errorsObj.firstName.push(constants.UserErrorMesages.firstnameRange)
     }
 
     if(values.lastName === ''){
-        errorsObj.lastName.push('Lase name is required')
+        errorsObj.lastName.push(constants.UserErrorMesages.lastnameRequired)
     }
     if(values.lastName.length < 2 || values.lastName.length > 30){
-        errorsObj.lastName.push("Last name must be between 2 and 30 characters long")
+        errorsObj.lastName.push(constants.UserErrorMesages.lastnameRange)
     }
 
     if(values.email === ''){
-        errorsObj.email.push("Please add email");
+        errorsObj.email.push(constants.UserErrorMesages.emailRequired);
     }
-    if(!emailValidate.test(values.email)){
-        errorsObj.email.push("Please add valid email address");
+    if(!emailTest.test(values.email)){
+        errorsObj.email.push(constants.UserErrorMesages.emailValidate);
     }
 
     if(values.password === ""){
-        errorsObj.password.push("Password is required")
+        errorsObj.password.push(constants.UserErrorMesages.passwordRequired)
     }
 
     if(values.confirmPassword === ""){
-        errorsObj.confirmPassword.push("Confirm password is required")
+        errorsObj.confirmPassword.push(constants.UserErrorMesages.confirmPasswordRequired)
     }
     if(values.password !== values.confirmPassword){
-        errorsObj.password.push('Passwords do not match')
+        errorsObj.password.push(constants.UserErrorMesages.passwordMisMatch)
     }
 
     return errorsObj;
@@ -79,18 +75,26 @@ export const registerForm = (values) =>{
 
 export const loginForm = (values) =>{
     let errorsObj = getErrorsObj(values);
-    const emailValidate = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
     if(values.email === ''){
-        errorsObj.email.push("Please add email");
+        errorsObj.email.push(constants.UserErrorMesages.emailRequired);
     }
-    if(!emailValidate.test(values.email)){
-        errorsObj.email.push("Please add valid email address");
+    if(!emailTest.test(values.email)){
+        errorsObj.email.push(constants.UserErrorMesages.emailValidate);
     }
 
     if(values.password === ""){
-        errorsObj.password.push("Password is required")
+        errorsObj.password.push(constants.UserErrorMesages.passwordRequired)
     }
 
+    return errorsObj;
+}
+
+export const commentsForm = (values) =>{
+    let errorsObj = getErrorsObj(values);
+
+    if(values.text === ''){
+        errorsObj.text.push(constants.CommentsErrorMesages.textRequired);
+    }
     return errorsObj;
 }

@@ -8,6 +8,8 @@ import categories from '../../utils/categories';
 import Path from "../../common/paths";
 
 import '../PostCreate/PostCreate.css'
+import { HasError } from "../../utils/hasErrors";
+import { Constants } from "../../common/constants";
 
 export default function PostEdit(){
 
@@ -42,11 +44,12 @@ export default function PostEdit(){
     e.preventDefault();
     const errorsResult = validator.createEditForm(forValues);
 
-    if(Object.values(errorsResult).some(x => x.length > 0)){
+    if(HasError(errorsResult)){
       setErrors(errorsResult);
       return;
     }
 
+    setErrors({});
     await postService.update(id, forValues);
     navigate(Path.Blog);
   };
@@ -78,7 +81,7 @@ export default function PostEdit(){
               <label htmlFor="content">Content</label>
               <Editor
                 id='content'
-                apiKey='96xztb739pac7nr7rdpsopcswma57vu98h3dk649gdul0ws8'
+                apiKey={Constants.textEditorApiKey}
                 onInit={(evt, editor) => (editorRef.current = editor)}
                 onEditorChange={onEditorChange}
                 name="content"

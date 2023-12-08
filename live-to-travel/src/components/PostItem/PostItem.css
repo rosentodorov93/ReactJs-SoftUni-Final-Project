@@ -14,9 +14,17 @@
     -ms-transition:.3s; 
     -o-transition:.3s;
     transition: .3s;
+    min-height: 391px;
+    background-color: #fff;
+}
+.single-blog-item-img{
+    height: 180px;
+    
 }
 .single-blog-item-img img{
     width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 .single-blog-item-txt{
     background-color: #fff;

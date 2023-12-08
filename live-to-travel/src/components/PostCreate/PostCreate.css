@@ -28,7 +28,6 @@
     line-height: 1.5;
     border: 1px solid transparent;
     border-radius: 0;
-    transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
 }
 
 .title{

@@ -1,4 +1,5 @@
 import { useState } from "react"
+import { HasError } from "../utils/hasErrors";
 
 
 export default function useForm(onSubmitHandler, initialValues, validator){
@@ -19,12 +20,12 @@ export default function useForm(onSubmitHandler, initialValues, validator){
 
         if(validator){
             const errorsResult = validator(formValues);
-            if(Object.values(errorsResult).some(x => x.length > 0)){
+            if(HasError(errorsResult)){
                 setErrors(errorsResult);
                 return;
             }
         }
-
+        setErrors({});
         onSubmitHandler(formValues);
     }
 

@@ -114,7 +114,9 @@ export default function PostDetails() {
                   <div className="details-actions">
                     {_id === post._ownerId && (
                       <>
-                        <Link className="btn-create" to={BuildPath(Path.PostEdit, {id: post._id})}>Edit</Link>
+                         <button className="btn-create" type="button" onClick={()=>{navigate(BuildPath(Path.PostEdit, {id: post._id}))}}>
+                          Edit
+                        </button>
                         <button className="btn-create" type="button" onClick={onDeleteClick}>
                           Delete
                         </button>

@@ -5,6 +5,8 @@ import AuthContext from "../../contexts/AuthContext";
 import * as validator from '../../utils/validator';
 
 import "./UserRegister.css";
+import { HasError } from "../../utils/hasErrors";
+import { Constants } from "../../common/constants";
 
 export default function UserRegister() {
   const { registerSubmitHandler } = useContext(AuthContext);
@@ -12,7 +14,7 @@ export default function UserRegister() {
   const [ formValues, setFormValues ] = useState({
     firstName: "",
     lastName: "",
-    imageLink: "",
+    imageLink: Constants.defaultUserImage,
     email: "",
     password: "",
     confirmPassword: "",
@@ -27,11 +29,11 @@ export default function UserRegister() {
     e.preventDefault()
     const errorsResult = validator.registerForm(formValues);
 
-    if(Object.values(errorsResult).some(x => x.length > 0)){
+    if(HasError(errorsResult)){
       setErrors(errorsResult);
       return;
     }
-
+    setErrors({});
     registerSubmitHandler(formValues);
   }
 
@@ -67,10 +69,10 @@ export default function UserRegister() {
               {errors.lastName && errors.lastName.map(e => <div className="err-box" key={e}><span>{e}</span></div>)}
             </div>
             <div className="form-group">
-              <label htmlFor="age">Upload Photo</label>
+              <label htmlFor="age">Upload Photo *optional </label>
               {showUpload && 
               <PickerDropPane
-                apikey='AZcmoUAkqSKecIlxiW0YDz'
+                apikey={Constants.fileStaxkApiKey}
                 pickerOptions={{
                   accept: 'image/*',
                 }}
@@ -80,6 +82,7 @@ export default function UserRegister() {
                 }
                 }
               />}
+              {!showUpload && <p>File uploaded!</p>}
               
             </div>
             <div className="form-group">

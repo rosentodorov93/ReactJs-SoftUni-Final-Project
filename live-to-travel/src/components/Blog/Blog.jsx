@@ -56,8 +56,7 @@ export default function Blog() {
                 ))}
                 {posts.length === 0 && 
                 <div className='no-posts'>
-                  <h3>There are no posts yet</h3>
-                  <Link className='btn-create' to='/post/create'>Create Post</Link>
+                  <h3>No results in the sysytem</h3>
                 </div>}
               </div>
             </div>

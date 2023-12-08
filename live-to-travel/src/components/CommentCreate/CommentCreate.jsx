@@ -1,4 +1,5 @@
 import useForm from "../../hooks/useForm";
+import * as validator from '../../utils/validator';
 
 import './CommentCreate.css';
 
@@ -6,9 +7,9 @@ export default function CommentCreate({
     addCommentHandler
 }){
 
-    const { formValues, onChange, onSubmit } = useForm(addCommentHandler, {
+    const { formValues, onChange, onSubmit, errors } = useForm(addCommentHandler, {
         text: "",
-      });
+      }, validator.commentsForm);
 
     return(
         <div className="article-comments">
@@ -16,6 +17,7 @@ export default function CommentCreate({
         <form onSubmit={onSubmit} method="post">
           <div className="form-group">
             <label htmlFor="text">Message *</label>
+            {errors.text && errors.text.map(e => <div className='err-box' key={e}><span>{e}</span></div>)}
             <textarea
               id="text"
               cols="30"
