@@ -18,3 +18,13 @@ Regular User features:
   * ReactJs for the client side
   * Softuni practise server for the back-end
   * Additional libraries for better user experience like TinyMce, Filestack, Toaster
+
+### **To start the application:**
+  * Clone repository
+  * Run npm intstall --force
+  * Start the server wit node seerver.js
+  * Start live-to-travel with npm run dev
+
+### **Log in:**
+  * username: peter@abv.bg
+  * password: 123456
