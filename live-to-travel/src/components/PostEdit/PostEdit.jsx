@@ -54,6 +54,7 @@ export default function PostEdit(){
       await postService.update(id, forValues);
       navigate(Path.Blog);
     } catch (error) {
+      console.log(error);
       navigate(Path.Error);
     }
     

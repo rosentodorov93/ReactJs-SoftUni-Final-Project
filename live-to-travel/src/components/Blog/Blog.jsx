@@ -29,12 +29,18 @@ export default function Blog() {
     postService
       .getAll(category ? category : "")
       .then((res) => setPosts(res))
-      .catch(navigate(Path.Error));
+      .catch(err =>{
+        console.log(err)
+        navigate(Path.Error)
+      });
 
     postService
       .getLatestsThree()
       .then((res) => setRecentPosts(res))
-      .catch(navigate(Path.Error));
+      .catch(err =>{
+        console.log(err)
+        navigate(Path.Error)
+      });
   }, []);
 
   return (

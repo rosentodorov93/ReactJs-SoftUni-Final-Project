@@ -28,15 +28,24 @@ export default function Profile(){
         .then(res => 
             {setUser(res)
             console.log(res)})
-        .catch(navigate(Path.Error))
+            .catch(err =>{
+              console.log(err)
+              navigate(Path.Error)
+            });
 
         postService.getMine(_id)
         .then(res => setMyPosts(res))
-        .catch(navigate(Path.Error))
+        .catch(err =>{
+          console.log(err)
+          navigate(Path.Error)
+        });
 
         postService.getLatestsThree()
         .then(res => setRecentPosts(res))
-        .catch(navigate(Path.Error))
+        .catch(err =>{
+          console.log(err)
+          navigate(Path.Error)
+        });
     },[]);
 
     return(

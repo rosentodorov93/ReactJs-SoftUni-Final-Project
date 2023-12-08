@@ -34,6 +34,7 @@ export const AuthProvider = ({
             localStorage.setItem(Constants.token, result.accessToken);
             navigate(Path.Home);   
         } catch (error) {
+            console.log(error);
             navigate(Path.Error);
         }
         

@@ -13,7 +13,7 @@ export default function RescentPost({
   const navigate = useNavigate();
 
   return (
-    <div className="rescent-post" onClick={() => {navigate(BuildPath(Path.PostDetails, _id))}}>
+    <div className="rescent-post" onClick={() => {navigate(BuildPath(Path.PostDetails, {id:_id}))}}>
       <div className='img-container'>
       <img
         className="post-img"

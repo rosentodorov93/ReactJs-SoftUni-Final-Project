@@ -49,6 +49,7 @@ export default function PostCreate(){
       navigate(Path.Blog);
       
     } catch (error) {
+      console.log(err)
       navigate(Path.Error)
     }
     

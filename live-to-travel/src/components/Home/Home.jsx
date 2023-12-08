@@ -16,7 +16,10 @@ export default function Home() {
     postService
       .getLatestsThree()
       .then((res) => setLatestBlogs(res))
-      .catch((err) => console.log(err));
+      .catch(err =>{
+        console.log(err)
+        navigate(Path.Error)
+      });
   }, []);
 
   return (
