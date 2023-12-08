@@ -8,11 +8,13 @@ It is also a place where you can take ispiration and choose your next travel des
 Guest features:
   * can register
   * can search sort and read articles
+  * can read articles comments
   
 Regular User features:
   * can search sort and read articles
   * can create own articles
   * can edit and delete own articles
+  * can write and read comments on articles
   * can see and filter own articles in profile 
 
 ### **The application is build using:**
