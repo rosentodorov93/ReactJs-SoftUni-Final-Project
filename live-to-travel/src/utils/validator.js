@@ -9,7 +9,7 @@ const getErrorsObj = (input) =>{
 
 export const createEditForm = (values) =>{
     let errorsObj = getErrorsObj(values);
-    const urlValidate = '(\b(https?|ftp|file)://)?[-A-Za-z0-9+&@#/%?=~_|!:,.;]+[-A-Za-z0-9+&@#/%=~_|]';
+    const urlValidate = /^((https?):\/\/)/;
 
 
     if(values.title === ''){
