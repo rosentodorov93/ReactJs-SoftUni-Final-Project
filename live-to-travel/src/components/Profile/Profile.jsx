@@ -1,15 +1,17 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useContext } from 'react';
-import './Profile.css';
 
 import AuthContext from "../../contexts/AuthContext";
+import Path from '../../common/paths';
 import * as authService from '../../services/authService';
-import * as blogService from '../../services/blogService';
+import * as postService from '../../services/postService';
 
 import RescentPost from '../RescentPost/RescentPost'
 import PersonalInfo from '../PersonalInfo/PersonalInfo';
 import PostItem from '../PostItem/PostItem';
+
+import './Profile.css';
 
 
 export default function Profile(){
@@ -27,11 +29,11 @@ export default function Profile(){
             console.log(res)})
         .catch(err => console.log(err))
 
-        blogService.getMine(_id)
+        postService.getMine(_id)
         .then(res => setMyPosts(res))
         .catch(err => console.log(err))
 
-        blogService.getLatestsThree()
+        postService.getLatestsThree()
         .then(res => setRecentPosts(res))
         .catch(err => console.log(err))
     },[]);
@@ -58,7 +60,7 @@ export default function Profile(){
                 {myPosts.length === 0 && 
                 <div className='no-posts'>
                   <h3>You don't have any posts yet</h3>
-                  <Link className='btn-create' to='/post/create'>Create your first Post</Link>
+                  <Link className='btn-create' to={Path.PostCreate}>Create your first Post</Link>
                 </div>}
               </div>
             </div>

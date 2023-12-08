@@ -2,19 +2,22 @@ import { useState, useEffect } from "react";
 import { Link, useParams, useNavigate } from "react-router-dom";
 import { useContext } from "react";
 import parse from "html-react-parser";
-import "./PostDetails.css";
 
 import AuthContext from "../../contexts/AuthContext";
-import * as postService from "../../services/blogService";
+import * as postService from "../../services/postService";
 import * as commentsService from "../../services/commentService";
+import { BuildPath } from "../../utils/pathsUtil";
+import Path from "../../common/paths";
 
 import PostDelete from "../PostDelete/PostDelete";
 import RescentPost from "../RescentPost/RescentPost";
-import categories from "../../utils/categories";
 import CommentsList from "../CommentsList/CommentsList";
 import CommentCreate from "../CommentCreate/CommentCreate";
+import categories from "../../utils/categories";
 
-export default function BlogDetails() {
+import "./PostDetails.css";
+
+export default function PostDetails() {
   const { _id, isAuthenticated } = useContext(AuthContext);
   const { id } = useParams();
   const [post, setPost] = useState({});
@@ -53,8 +56,8 @@ export default function BlogDetails() {
   };
 
   const deleteBlogHandler = async () => {
-    await blogService.remove(id);
-    navigate("/blog");
+    await postService.remove(id);
+    navigate(Path.Blog);
   };
 
   const addCommentHandler = async (values) => {
@@ -62,8 +65,7 @@ export default function BlogDetails() {
       blogId: id,
       text: values.text,
     };
-    const result = await commentsService.create(comment);
-    console.log(result);
+    await commentsService.create(comment);
     setComments(state => [...state, comment]);
   };
 
@@ -73,16 +75,6 @@ export default function BlogDetails() {
     <>
       <div className="container header">
         <div className="container">
-          <div className="heading-wrapper">
-            <h3>Blog</h3>
-            <div>
-              <p>
-                <a href="https://www.free-css.com/free-css-templates">Home</a>
-              </p>
-              <i className="fa fa-angle-double-right "></i>
-              <p>Blog</p>
-            </div>
-          </div>
         </div>
       </div>
 
@@ -119,11 +111,11 @@ export default function BlogDetails() {
                   </div>
                   <h2 className="mb-3">{post.title}</h2>
                   <div>{post.content}</div>
-                  <div>
+                  <div className="details-actions">
                     {_id === post._ownerId && (
                       <>
-                        <Link to={`/post/edit/${post._id}`}>Edit</Link>
-                        <button type="button" onClick={onDeleteClick}>
+                        <Link className="btn-create" to={BuildPath(Path.PostEdit, {id: post._id})}>Edit</Link>
+                        <button className="btn-create" type="button" onClick={onDeleteClick}>
                           Delete
                         </button>
                       </>
@@ -143,7 +135,7 @@ export default function BlogDetails() {
                   <ul className="categories-list">
                     {categories.map((c) => (
                       <li className="categories-list-item" key={c}>
-                        <Link className="text-dark" to={`/blog/${c}`}>
+                        <Link className="text-dark" to={BuildPath(Path.BlogCategory, {category: c})}>
                           <i className="fa fa-angle-right text-primary mr-2"></i>
                           {c}
                         </Link>

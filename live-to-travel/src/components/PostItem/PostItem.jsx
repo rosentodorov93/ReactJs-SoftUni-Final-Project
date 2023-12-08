@@ -1,4 +1,7 @@
 import {Link} from 'react-router-dom'
+import { BuildPath } from '../../utils/pathsUtil';
+import Path from '../../common/paths';
+
 import './PostItem.css'
 
 export default function BlogItem({ data }) {
@@ -10,7 +13,7 @@ export default function BlogItem({ data }) {
         </div>
         <div className="single-blog-item-txt">
           <h2>
-            <Link to={`/post/details/${data._id}`}>{data.title}</Link>
+            <Link to={BuildPath(Path.PostDetails, {id: data._id})}>{data.title}</Link>
           </h2>
           <h4>
             Category: <span>{data.category}</span> 

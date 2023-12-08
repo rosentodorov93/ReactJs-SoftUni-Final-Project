@@ -1,6 +1,6 @@
 import './PostDelete.css'
 
-export default function BlogDelete({
+export default function PostDelete({
     onClose,
     deleteBlogHandler,
 }) {

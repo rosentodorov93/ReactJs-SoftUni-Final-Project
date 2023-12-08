@@ -4,6 +4,7 @@ import toast from 'react-hot-toast';
 
 import * as authService from '../services/authService';
 import usePersistedState from '../hooks/usePersistedState.js'
+import Path from "../common/paths.js";
 
 const AuthContext = createContext();
 
@@ -20,9 +21,8 @@ export const AuthProvider = ({
             const result = await authService.login(values.email, values.password);
             setAuth(result);
             localStorage.setItem('accessToken', result.accessToken);
-            navigate('/');
+            navigate(Path.Home);
         } catch (error) {
-            console.log(error)
             toast(error.message)
         }
     }
@@ -30,7 +30,7 @@ export const AuthProvider = ({
         const result = await authService.register(values);
         setAuth(result);
         localStorage.setItem('accessToken', result.accessToken);
-        navigate('/');
+        navigate(Path.Home);
     }
     const logoutHandler = () =>{
         setAuth({});

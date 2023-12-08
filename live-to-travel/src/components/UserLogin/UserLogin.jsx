@@ -1,9 +1,9 @@
 import { useContext, useState } from "react";
 import AuthContext from "../../contexts/AuthContext";
+import { Toaster } from "react-hot-toast";
 
 import useForm from "../../hooks/useForm";
 import * as validator from '../../utils/validator';
-import { Toaster } from "react-hot-toast";
 
 import "./UserLogin.css";
 

@@ -1,6 +1,7 @@
 import {Routes, Route} from 'react-router-dom'
 
 import {AuthProvider} from './contexts/AuthContext';
+import Path from './common/paths';
 
 import Blog from "./components/Blog/Blog"
 import PostCreate from "./components/PostCreate/PostCreate"
@@ -13,6 +14,8 @@ import Profile from './components/Profile/Profile'
 import UserRegister from './components/UserRegister/UserRegister'
 import UserLogin from './components/UserLogin/UserLogin'
 import UserLogout from './components/UserLogout/UserLogout';
+import LoggedInGuard from './components/Guards/LoggedInGuard';
+import AuthGuard from './components/Guards/AuthGuard';
 
 function App() {
 
@@ -21,16 +24,22 @@ function App() {
       <AuthProvider>
         <Header/>
           <Routes>
-            <Route path='/' element={<Home/>}/>
-            <Route path='/blog/' element={<Blog/>}/>
-            <Route path='/blog/:category' element={<Blog/>}/>
-            <Route path='/profile' element={<Profile/>}/>
-            <Route path='/post/create' element={<PostCreate/>}/>
-            <Route path='/post/details/:id' element={<PostDetails/>}/>
-            <Route path='/post/edit/:id' element={<PostEdit/>}/>
-            <Route path='/user/register' element={<UserRegister/>}/>
-            <Route path='/user/login' element={<UserLogin/>}/>
-            <Route path='/user/logout' element={<UserLogout/>}/>
+            <Route path={Path.Home} element={<Home/>}/>
+            <Route path={Path.Blog} element={<Blog/>}/>
+            <Route path={Path.BlogCategory} element={<Blog/>}/>
+            <Route path={Path.PostDetails} element={<PostDetails/>}/>
+
+            <Route element={<AuthGuard/>}>
+              <Route path={Path.Profile} element={<Profile/>}/>
+              <Route path={Path.PostCreate} element={<PostCreate/>}/>
+              <Route path={Path.PostEdit} element={<PostEdit/>}/>
+              <Route path={Path.Logout} element={<UserLogout/>}/>
+            </Route>
+
+            <Route element={<LoggedInGuard/>}>
+              <Route path={Path.Login} element={<UserLogin/>}/>
+              <Route path={Path.Register} element={<UserRegister/>}/>
+            </Route>
           </Routes>
         <Footer/>
       </AuthProvider>

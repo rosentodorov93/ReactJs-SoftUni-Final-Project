@@ -1,7 +1,10 @@
 import { useContext } from 'react';
-import './Footer.css';
-import AuthContext from '../../contexts/AuthContext';
 import { Link } from 'react-router-dom';
+
+import AuthContext from '../../contexts/AuthContext';
+import Path from '../../common/paths';
+
+import './Footer.css';
 
 export default function Footer(){
 
@@ -19,19 +22,19 @@ export default function Footer(){
 			           	</div>
 			           	<div className="col-sm-9">
 			           		<ul className="footer-menu-item">
-							   <li className=" scroll active"><Link to="/">Home</Link></li>
-			                    <li className="scroll"><Link to="/blog">Blogs</Link></li>
+							   <li className=" scroll active"><Link to={Path.Home}>Home</Link></li>
+			                    <li className="scroll"><Link to={Path.Blog}>Blogs</Link></li>
 								{isAuthenticated &&
 								 <>
-									<li className="scroll"><Link to="/post/create">Create </Link></li>
-									<li className="scroll"><Link to="/profile">Profile</Link></li>
-									<li className="scroll"><Link to="/user/logout">Logout</Link></li>
+									<li className="scroll"><Link to={Path.PostCreate}>Create </Link></li>
+									<li className="scroll"><Link to={Path.Profile}>Profile</Link></li>
+									<li className="scroll"><Link to={Path.Logout}>Logout</Link></li>
 								</>
 								}
 								{!isAuthenticated && 
 								<>
-			                    <li className="scroll"><Link to="/user/login">Login</Link></li>
-			                    <li className="scroll"><Link to="/user/register">Register</Link></li>
+			                    <li className="scroll"><Link to={Path.Login}>Login</Link></li>
+			                    <li className="scroll"><Link to={Path.Register}>Register</Link></li>
 								</>}
 			                </ul>
 			           	</div>

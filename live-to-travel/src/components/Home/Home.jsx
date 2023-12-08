@@ -1,16 +1,19 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import "./Home.css";
 
-import * as blogService from "../../services/blogService";
-import PostItem from "../PostItem/PostItem";
+import * as postService from "../../services/postService";
 import categories from "../../utils/categories";
+import { BuildPath } from "../../utils/pathsUtil";
+import Path from "../../common/paths";
+
+import PostItem from "../PostItem/PostItem";
+import "./Home.css";
 
 export default function Home() {
   const [latestBlogs, setLatestBlogs] = useState([]);
 
   useEffect(() => {
-    blogService
+    postService
       .getLatestsThree()
       .then((res) => setLatestBlogs(res))
       .catch((err) => console.log(err));
@@ -25,7 +28,7 @@ export default function Home() {
               Live To Travel
             </h2>
             <p>
-              Find Places, Trips ieas, Adventures and many more in just One click
+              Find Places, Trips ideas, Adventures and many more in just One click
             </p>
           </div>
         
@@ -62,7 +65,7 @@ export default function Home() {
                     <i className="fas fa-map-marked-alt fa-lg"></i>
                     </div>
                     <h2>
-                      <Link  to={`/blog/${c}`}>
+                      <Link  to={BuildPath(Path.BlogCategory, {category: c})}>
                         {c}
                       </Link>
                     </h2>
@@ -81,7 +84,7 @@ export default function Home() {
           <div className="row">
             <div className="col-sm-12">
               <div className="subscription-input-group">
-                  <Link to='user/register' className="appsLand-btn subscribe-btn">
+                  <Link to={Path.Register} className="appsLand-btn subscribe-btn">
                     creat account
                   </Link>
               </div>

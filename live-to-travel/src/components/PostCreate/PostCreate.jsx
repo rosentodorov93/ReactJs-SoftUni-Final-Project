@@ -1,13 +1,16 @@
-import './PostCreate.css'
 import React, { useRef, useState } from "react";
 import { Editor } from "@tinymce/tinymce-react";
 import {useNavigate} from 'react-router-dom'
 
-import * as blogService from '../../services/blogService';
+import * as postService from '../../services/postService';
 import * as validator from '../../utils/validator';
 import categories from '../../utils/categories';
+import Path from '../../common/paths';
 
-export default function BlogCreate(){
+import './PostCreate.css'
+
+
+export default function PostCreate(){
 
   const editorRef = useRef(null);
   const [forValues, setFormValues] = useState({
@@ -38,9 +41,8 @@ export default function BlogCreate(){
       return;
     }
     
-    const result = await blogService.create(forValues);
-    navigate('/blog');
-    console.log(result);
+    await postService.create(forValues);
+    navigate(Path.Blog);
   };
 
     return(
@@ -98,4 +100,4 @@ export default function BlogCreate(){
        </div>
         </>
     )
-              }
+}

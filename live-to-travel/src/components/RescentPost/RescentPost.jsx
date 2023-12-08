@@ -1,3 +1,5 @@
+import Path from '../../common/paths';
+import { BuildPath } from '../../utils/pathsUtil';
 import './RescentPost.css';
 import { useNavigate } from 'react-router-dom';
 
@@ -11,7 +13,7 @@ export default function RescentPost({
   const navigate = useNavigate();
 
   return (
-    <div className="rescent-post" onClick={() => {navigate(`/post/details/${_id}`)}}>
+    <div className="rescent-post" onClick={() => {navigate(BuildPath(Path.PostDetails, _id))}}>
       <div className='img-container'>
       <img
         className="post-img"

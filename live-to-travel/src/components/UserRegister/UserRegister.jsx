@@ -1,8 +1,10 @@
 import { useContext, useState } from "react";
-import "./UserRegister.css";
 import { PickerDropPane } from "filestack-react";
+
 import AuthContext from "../../contexts/AuthContext";
 import * as validator from '../../utils/validator';
+
+import "./UserRegister.css";
 
 export default function UserRegister() {
   const { registerSubmitHandler } = useContext(AuthContext);
