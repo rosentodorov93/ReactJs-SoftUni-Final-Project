@@ -9,6 +9,7 @@ const Path = {
     PostCreate: '/posts/create',
     PostDetails: '/posts/details/:id',
     PostEdit: '/posts/edit/:id',
+    Error: '/error'
 };
 
 export default Path;
