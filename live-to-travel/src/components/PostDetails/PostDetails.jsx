@@ -77,8 +77,8 @@ export default function PostDetails() {
     };
     
     try {
-      await commentsService.create(comment);
-      setComments(state => [...state, comment]);
+      const result = await commentsService.create(comment);
+      setComments(state => [...state, result]);
     } catch (error) {
       console.log(error)
       navigate(Path.Error);
@@ -115,7 +115,7 @@ export default function PostDetails() {
                       alt={post.title}
                     />
                     <div className="blog-date">
-                      <h6 className="font-weight-bold mb-n1">{new Date(post._createdOn).getDate()}</h6>
+                      <h6 className="font-weight-bold mb-n1">{new Date(post._createdOn).getDate().toString()}</h6>
                       <small className="text-white text-uppercase">{new Date(post._createdOn).toLocaleString('default', { month: 'short' })}</small>
                     </div>
                   </div>
