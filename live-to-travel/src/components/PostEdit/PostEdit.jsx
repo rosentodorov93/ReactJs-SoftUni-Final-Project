@@ -10,6 +10,7 @@ import Path from "../../common/paths";
 import '../PostCreate/PostCreate.css'
 import { HasError } from "../../utils/hasErrors";
 import { Constants } from "../../common/constants";
+import { BuildPath } from "../../utils/pathsUtil";
 
 export default function PostEdit(){
 
@@ -52,7 +53,7 @@ export default function PostEdit(){
     try {
       setErrors({});
       await postService.update(id, forValues);
-      navigate(Path.Blog);
+      navigate(BuildPath(Path.PostDetails, {id}));
     } catch (error) {
       console.log(error);
       navigate(Path.Error);
