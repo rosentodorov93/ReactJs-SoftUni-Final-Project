@@ -1,7 +1,7 @@
 export default [
     'Trip',
     'Places',
-    'Advanture',
+    'Adventure',
     'Vacation',
     'Travel Guides'
 ]

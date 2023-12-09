@@ -41,7 +41,7 @@ export default function Home() {
         <div className="container">
           <div className="section-header">
             <h2>Latest from our Blog</h2>
-            <p>Always upto date with our latest News and Articles </p>
+            <p>Always up to date with our latest News and Articles </p>
           </div>
           <div className="blog-content">
             <div className="row">
@@ -88,7 +88,7 @@ export default function Home() {
             <div className="col-sm-12">
               <div className="subscription-input-group">
                   <Link to={Path.Register} className="appsLand-btn subscribe-btn">
-                    creat account
+                    create account
                   </Link>
               </div>
             </div>
