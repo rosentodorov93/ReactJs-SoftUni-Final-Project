@@ -56,7 +56,7 @@ export const registerForm = (values) =>{
         errorsObj.email.push(constants.UserErrorMesages.emailRequired);
     }
     if(!emailTest.test(values.email)){
-        errorsObj.email.push(constants.UserErrorMesages.emailValidate);
+        errorsObj.email.push(constants.UserErrorMesages.emailValid);
     }
 
     if(values.password === ""){
@@ -80,7 +80,7 @@ export const loginForm = (values) =>{
         errorsObj.email.push(constants.UserErrorMesages.emailRequired);
     }
     if(!emailTest.test(values.email)){
-        errorsObj.email.push(constants.UserErrorMesages.emailValidate);
+        errorsObj.email.push(constants.UserErrorMesages.emailValid);
     }
 
     if(values.password === ""){
