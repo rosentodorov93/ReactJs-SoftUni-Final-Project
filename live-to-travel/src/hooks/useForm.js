@@ -7,6 +7,10 @@ export default function useForm(onSubmitHandler, initialValues, validator){
     const [errors, setErrors] = useState({});
 
     const onChange = (e) => {
+        
+        if(HasError(errors)){
+            setErrors({});
+          }
         setFormValues(state => ({
             ...state,
             [e.target.name]: e.target.value

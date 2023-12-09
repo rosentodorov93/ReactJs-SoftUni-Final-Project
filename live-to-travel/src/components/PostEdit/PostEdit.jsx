@@ -33,11 +33,18 @@ export default function PostEdit(){
 
   
   const onChange = (e) =>{
+
+    if(HasError(errors)){
+      setErrors({});
+    }
     setFormValues(state => ({...state, [e.target.name]: e.target.value}));
   };
 
   const onEditorChange = (value, editor) =>{
 
+    if(HasError(errors)){
+      setErrors({});
+    }
     setFormValues(state => ({...state, content: value }));
   };
 
