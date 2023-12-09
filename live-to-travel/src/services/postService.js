@@ -60,6 +60,7 @@ export const getOne = async(id) =>{
 
     const url = `${baseUrl}/${id}?${query}`;
     const result = await request.get(url);
+
     return result;
 }
 
@@ -67,6 +68,7 @@ export const update = async(id, data) =>{
     const result = request.put(`${baseUrl}/${id}`, data);
     return result;
 }
+
 export const remove = async(id) =>{
     const result = await request.remove(`${baseUrl}/${id}`);
     return result;

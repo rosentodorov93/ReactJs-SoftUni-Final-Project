@@ -7,6 +7,7 @@
     const result = await request.post(`${baseUrl}/login`,{email,password});
     return result;
  }
+
  export const register = (data) =>{
 
     if(data.password !== data.confirmPassword){
@@ -28,6 +29,7 @@
     const result = request.get(`${baseUrl}/logout`)
     return result;
  }
+ 
  export const getMine = async() =>{
    const result = await request.get(`${baseUrl}/me`);
    return result;
