@@ -18,7 +18,7 @@ export default function PostCreate(){
   const [forValues, setFormValues] = useState({
     title: '',
     imageUrl: '',
-    category: '',
+    category: 'Trip',
     content: ''
   });
 
