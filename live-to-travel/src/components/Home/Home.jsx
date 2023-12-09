@@ -46,7 +46,7 @@ export default function Home() {
           <div className="blog-content">
             <div className="row">
               {latestBlogs.map((b) => <PostItem key={b._id} data={b} />)}
-              {latestBlogs.length === 0 && <p>No posts yet</p>}
+              {latestBlogs.length === 0 && <p style={{margin: 'auto'}}>No posts yet</p>}
             </div>
           </div>
         </div>
