@@ -9,10 +9,13 @@
 }
 .img-container{
     max-width: 200px;
+    max-height: 127px;
+    overflow: hidden;
 }
 .post-img{
     width: 100%;
     height: 100%;
+    object-fit: cover;
 }
 .rescent-post div{
     padding-left: 1rem;
